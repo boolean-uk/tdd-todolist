@@ -16,6 +16,13 @@ const todoApp = {
       return newTodoItem;
     }
   },
+  showAll: function () {
+    if (this.todoList.length > 0) {
+      return this.todoList;
+    } else {
+      return "There is nothing to do in this array...";
+    }
+  },
 };
 
 module.exports = todoApp;
