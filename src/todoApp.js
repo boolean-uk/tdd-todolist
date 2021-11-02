@@ -23,6 +23,9 @@ const todoApp = {
       return "There is nothing to do in this array...";
     }
   },
+  showIncomplete: function () {
+    return this.todoList.filter((todoItem) => todoItem.status === "incomplete");
+  },
 };
 
 module.exports = todoApp;
