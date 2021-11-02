@@ -53,4 +53,18 @@ describe("Todo app", () => {
     //verify
     expect(result).toEqual(errorMessage);
   });
+
+  it("shows list of incomplete todos if there are any in array", () => {
+    // setup
+    const todoList = [
+      { id: 1, description: "write tests", status: "incomplete" },
+      { id: 2, description: "write tests", status: "complete" },
+    ];
+    // execute
+    const result = todoApp.showIncomplete();
+    //verify
+    expect(result).toEqual(
+      todoList.filter((todoItem) => todoItem.status === "incomplete")
+    );
+  });
 });
