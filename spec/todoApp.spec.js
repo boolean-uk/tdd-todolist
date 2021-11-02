@@ -35,4 +35,22 @@ describe("Todo app", () => {
     //verify
     expect(result).toEqual("Error: you need to specify the description!!!");
   });
+
+  it("shows all todo items if the array is not empty", () => {
+    // setup
+    const todoList = [{ id: 1, description: "write tests" }];
+    // execute
+    const result = todoApp.showAll();
+    //verify
+    expect(result).toEqual(todoList);
+  });
+
+  it("shows error message if the array is empty", () => {
+    // setup
+    const errorMessage = "There is nothing to do in this array...";
+    // execute
+    const result = todoApp.showAll();
+    //verify
+    expect(result).toEqual(errorMessage);
+  });
 });
