@@ -31,6 +31,9 @@ const todoApp = {
     foundItem.status = "complete";
     return foundItem;
   },
+  showComplete: function () {
+    return this.todoList.filter((todoItem) => todoItem.status === "complete");
+  },
 };
 
 module.exports = todoApp;
