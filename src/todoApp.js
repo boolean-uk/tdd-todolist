@@ -34,6 +34,11 @@ const todoApp = {
   showComplete: function () {
     return this.todoList.filter((todoItem) => todoItem.status === "complete");
   },
+  searchById: function (id) {
+    const foundItem = this.todoList.find((todoItem) => todoItem.id === id);
+    if (!foundItem) return "The task doesn't exist!";
+    return foundItem;
+  },
 };
 
 module.exports = todoApp;
