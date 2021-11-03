@@ -2,7 +2,7 @@ const todoApp = require("../src/todoApp");
 
 describe("Todo app", () => {
   afterEach(function () {
-    todoApp.nextTodoId = 1;
+    todoApp.nextTodoId = 0;
     todoApp.todoList = [];
   });
 

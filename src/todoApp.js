@@ -1,14 +1,14 @@
 const todoApp = {
-  nextTodoId: 1,
+  nextTodoId: 0,
   todoList: [],
   create: function (text) {
-    let id = this.nextTodoId++;
+    this.nextTodoId++;
     let newTodoItem = null;
     if (text === "") {
       return "Error: you need to specify the description!!!";
     } else {
       newTodoItem = {
-        id,
+        id: this.nextTodoId,
         description: text,
         status: "incomplete",
       };
