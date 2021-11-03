@@ -4,5 +4,6 @@
 | ---------------- | ------------------- | -------------------------------------------- |
 | create()         | description @String | @Object(id, description, status: incomplete) |
 | showAll()        |                     | todoList @Array                              |
-| showIncomplete() |                     | todoItem @Object                             |
+| showIncomplete() |                     | todoList @Array                              |
 | setComplete()    | id @Number          | todoItem @Object                             |
+| showComplete()   |                     | todoList @Array                              |
