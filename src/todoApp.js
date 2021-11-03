@@ -26,6 +26,11 @@ const todoApp = {
   showIncomplete: function () {
     return this.todoList.filter((todoItem) => todoItem.status === "incomplete");
   },
+  setComplete: function (id) {
+    const foundItem = this.todoList.find((todoItem) => todoItem.id === id);
+    foundItem.status = "complete";
+    return foundItem;
+  },
 };
 
 module.exports = todoApp;
