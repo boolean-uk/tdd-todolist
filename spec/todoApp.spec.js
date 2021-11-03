@@ -138,4 +138,16 @@ describe("Todo app", () => {
     // verify
     expect(result).toEqual(message);
   });
+
+  it("returns a message when todo item is removed", () => {
+    // setup
+    const task1 = "get some water!";
+    const task2 = "get a little break!";
+    const todo1 = todoApp.create(task1);
+    const todo2 = todoApp.create(task2);
+    // execute
+    const result = todoApp.removeById(todo2.id);
+    // verify
+    expect(result).toEqual("Todo with id:2 was removed successfully!");
+  });
 });
