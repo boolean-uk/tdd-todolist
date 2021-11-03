@@ -8,3 +8,4 @@
 | setComplete()    | id @Number          | todoItem @Object                                |
 | showComplete()   |                     | todoList @Array                                 |
 | searchById()     | id @Number          | itemExists ? todoItem @Object : message @String |
+| removeById()     | id @Number          | message @String                                 |
