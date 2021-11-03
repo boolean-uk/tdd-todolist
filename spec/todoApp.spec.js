@@ -98,4 +98,25 @@ describe("Todo app", () => {
     //verify
     expect(result).toEqual(incompleteTodoList);
   });
+
+  it("shows list of complete todos if there are any in array", () => {
+    // setup
+    const task1 = "write tests";
+    const task2 = "write better tests";
+    const task3 = "write even better tests";
+    const task4 = "write automated tests";
+    const todo1 = todoApp.create(task1);
+    const todo2 = todoApp.create(task2);
+    const todo3 = todoApp.create(task3);
+    const todo4 = todoApp.create(task4);
+    todoApp.setComplete(todo1.id);
+    todoApp.setComplete(todo2.id);
+    const completeTodoList = [todo1, todo2];
+
+    // execute
+    const result = todoApp.showComplete();
+
+    //verify
+    expect(result).toEqual(completeTodoList);
+  });
 });
