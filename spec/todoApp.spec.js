@@ -150,4 +150,28 @@ describe("Todo app", () => {
     // verify
     expect(result).toEqual("Todo with id:2 was removed successfully!");
   });
+
+  it("returns a full text description if there is a single todo item", () => {
+    // setup
+    const task = "write some good code";
+    const todo = todoApp.create(task);
+    const expected = [todo];
+    // execute
+    const result = todoApp.showAll();
+    // verify
+    expect(result).toEqual(expected);
+  });
+
+  it("shows first 20chars of a todo item text if there are more than one item in the list", () => {
+    // setup
+    const task1 = "write some good code";
+    const task2 = "write better code";
+    const todo1 = todoApp.create(task1);
+    const todo2 = todoApp.create(task2);
+    const expected = [todo1, todo2];
+    // execute
+    const result = todoApp.showAll();
+    // verify
+    expect(result).toEqual(expected);
+  });
 });
