@@ -119,4 +119,23 @@ describe("Todo app", () => {
     //verify
     expect(result).toEqual(completeTodoList);
   });
+
+  it("returns todo item if it exists in todo list", () => {
+    // setup
+    const task = "get some water!";
+    const todo = todoApp.create(task);
+    // execute
+    const result = todoApp.searchById(1);
+    // verify
+    expect(result).toEqual(todo);
+  });
+
+  it("returns message if todo item doesn't exist in todo list", () => {
+    // setup
+    const message = "The task doesn't exist!";
+    // execute
+    const result = todoApp.searchById(1);
+    // verify
+    expect(result).toEqual(message);
+  });
 });
