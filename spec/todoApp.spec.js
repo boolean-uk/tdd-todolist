@@ -139,7 +139,7 @@ describe("Todo app", () => {
     expect(result).toEqual(message);
   });
 
-  it("returns a message when todo item is removed", () => {
+  it("removeById() returns a list without todo item", () => {
     // setup
     const task1 = "get some water!";
     const task2 = "get a little break!";
@@ -148,7 +148,7 @@ describe("Todo app", () => {
     // execute
     const result = todoApp.removeById(todo2.id);
     // verify
-    expect(result).toEqual("Todo with id:2 was removed successfully!");
+    expect(result).toEqual([todo1]);
   });
 
   it("returns a full text description if there is a single todo item", () => {

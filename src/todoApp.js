@@ -44,9 +44,7 @@ const todoApp = {
     return foundItem;
   },
   removeById: function (id) {
-    const index = this.todoList.findIndex((todoItem) => todoItem.id === id);
-    this.todoList.splice(index, 1);
-    return `Todo with id:${id} was removed successfully!`;
+    return this.todoList.filter((todoItem) => todoItem.id !== id);
   },
 };
 
