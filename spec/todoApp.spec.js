@@ -39,15 +39,6 @@ describe("Todo app", () => {
     });
   });
 
-  it("returns error message if no description provided", () => {
-    // setup
-    const text = "";
-    // execute
-    const result = todoApp.create(text);
-    //verify
-    expect(result).toEqual("Error: you need to specify the description!!!");
-  });
-
   it("shows all todo items if the array is not empty", () => {
     //   it("method showAll() returns array with todos when todos array has at least one item in it", () => {
     // setup
@@ -58,17 +49,6 @@ describe("Todo app", () => {
     const result = todoApp.showAll();
     //verify
     expect(result).toEqual(todoList);
-  });
-
-  it("shows error message if the array is empty", () => {
-    //it("method showAll() returns error message if the todos array is empty", () => {
-
-    // setup
-    const errorMessage = "There is nothing to do in this array...";
-    // execute
-    const result = todoApp.showAll();
-    //verify
-    expect(result).toEqual(errorMessage);
   });
 
   it("method setComplete() sets todo item's status to complete", () => {
