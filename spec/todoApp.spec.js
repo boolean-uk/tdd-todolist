@@ -172,4 +172,24 @@ describe("Todo app", () => {
     // verify
     expect(result[0].description.length).toEqual(20);
   });
+
+  it("returns full text if the text length is less than or equal to 20", () => {
+    // setup
+    const task17char = "this is short one";
+    expect(task17char.length).toEqual(17);
+    const task20char = "This is twentyyyyyyy";
+    expect(task20char.length).toEqual(20);
+
+    todoApp.create(task17char);
+    todoApp.create(task20char);
+    // execute
+    const result = todoApp.showAll();
+    // verify
+
+    expect(result[0].description.length).toEqual(task17char.length);
+    expect(result[0].description).toEqual(task17char);
+
+    expect(result[1].description.length).toEqual(task20char.length);
+    expect(result[1].description).toEqual(task20char);
+  });
 });
