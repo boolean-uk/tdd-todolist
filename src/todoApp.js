@@ -16,7 +16,6 @@ const todoApp = {
         }
 
         this.todos.push(todo)
-        // console.log("todo: ", todo)
         // console.log("this.todos: ", this.todos)
         return todo
     }, 
@@ -33,6 +32,14 @@ const todoApp = {
 
         return todo
     }, 
+
+    showCompleted: function(){
+
+        console.log("complete todos: ", this.todos)
+        const completed = this.todos.filter(todo => todo.status === "complete")
+        console.log("complete: ", completed)
+        return completed
+    },
 
     showIncompleted : function() {
 

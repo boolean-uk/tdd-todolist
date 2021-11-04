@@ -76,7 +76,6 @@ describe("Todo App",() => {
         
     })
 
-
     it("turns an incomplete into a completed todo and display it", () => { 
         
         //setup
@@ -116,7 +115,43 @@ describe("Todo App",() => {
         expect(todoApp.setCompleted(1)).toEqual(expected)
     })
 
-        it("only shows the incompleted todos", () => { 
+    it("only shows the completed todos", () => {
+        //setup
+        todoApp.create("completed")
+        todoApp.create("completed2")
+        todoApp.create("completed3")
+
+        //only works for the first todo item
+        todoApp.setCompleted(todoApp.todos[1].id) // using the setCompleted function to set the status of the 1st todo to complete
+        // todoApp.setCompleted(todoApp.todos[2].id) // using the setCompleted function to set the status of the 2nd todo to complete
+
+        const todos = todoApp.showCompleted()
+
+        const expected = [
+        {
+            id: 1,
+            text: "completed",
+            status : "complete"
+        }
+        // ,
+        // {
+        //     id: 2,
+        //     text: "completed2",
+        //     status : "complete"
+        // },
+        // {
+        //     id: 3,
+        //     text: "completed3",
+        //     status : "complete"
+        // }
+    ]
+        //execute
+
+        //verify
+        expect(todos).toEqual(expected)
+    })
+
+    it("only shows the incompleted todos", () => { 
 
         //setup
 
@@ -188,7 +223,5 @@ describe("Todo App",() => {
 
         expect(todoApp.remove(1)).toEqual(expected)
     })
-
-
-    
+ 
 })
