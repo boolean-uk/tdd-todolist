@@ -17,11 +17,16 @@ const todoApp = {
     }
   },
   showAll: function () {
-    if (this.todoList.length === 1) return this.todoList;
-
-    if (this.todoList.length > 1)
+    if (this.todoList.length > 0)
       return this.todoList.map((todoItem) => {
-        return { ...todoItem, description: todoItem.description.slice(0, 20) };
+        if (todoItem.description.length <= 20) {
+          return todoItem;
+        } else {
+          return {
+            ...todoItem,
+            description: todoItem.description.slice(0, 20),
+          };
+        }
       });
 
     if (this.todoList.length === 0)
