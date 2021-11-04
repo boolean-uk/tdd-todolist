@@ -35,14 +35,23 @@ const todoApp = {
     }, 
 
     showIncompleted : function() {
-        
 
-        this.setCompleted(this.todos[1].id)
+        this.setCompleted(this.todos[1].id) // using the setCompleted function to set the status of the 1st todo to complete
         // console.log("todos: ", this.todos )
         const incomplete = this.todos.filter(todo => todo.status === "incomplete")
-
+        
         console.log("incomplete: ", incomplete)
         return incomplete
+        // return this.todos.filter(todo => todo.status === "incomplete") optimised version
+    }, 
+
+    remove: function(id) {
+
+        const index = this.todos.find(todo => todo.id === id) // find the index of the todo
+
+        this.todos.splice(index, 1) // splice/remove the todo from the array
+
+        return this.todos // return the updated array
     }
 
 }
