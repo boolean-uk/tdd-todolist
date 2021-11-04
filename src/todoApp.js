@@ -9,15 +9,20 @@ const todoApp = {
 
         this.id++ // incrementing the value 
 
-        return{
+        const todo = {
             id: this.id,
             text: text,
             status : "incomplete"
         }
+
+        this.todos.push(todo)
+        return todo
+    }, 
+
+    showAll: function() { 
+        return this.todos
     }
 
 }
-
-    showAll:
 
 module.exports = todoApp
