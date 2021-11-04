@@ -149,5 +149,48 @@ describe("Todo App",() => {
     // expect(todoApp.showIncompleted()).toEqual(expected)
     expect(todos).toEqual(expected)
     })
+
+    it("removes a todo Item by its index", () => {
+
+        // setup
+        todoApp.create("change mouse battery")
+        todoApp.create("buy new switches for the keyboard")
+        todoApp.create("drink more beer")
+
+
+        // hardcoded version of the input array
+        // const todos = [
+        //         {
+        //             id: 1,
+        //             text: "change mouse battery",
+        //             status : "incomplete"
+        //         },
+        //         {
+        //             id: 2,
+        //             text: "buy new switches for the keyboard",
+        //             status : "incomplete"
+        //         },
+        //         {
+        //             id: 3,
+        //             text: "drink more beer",
+        //             status : "incomplete"
+        //         }
+        // ]
+
+        const expected = [
+                {
+                    id: 2,
+                    text: "buy new switches for the keyboard",
+                    status : "incomplete"
+                },
+                {
+                    id: 3,
+                    text: "drink more beer",
+                    status : "incomplete"
+                }
+        ]
+
+        expect(todoApp.remove(1)).toEqual(expected)
+    })
     
 })
