@@ -75,5 +75,45 @@ describe("Todo App",() => {
         // expect(item2.id).toEqual(2)
         
     })
+
+
+    it("turns an incomplete into a completed todo and display it", () => { 
+        
+        //setup
+        const todo1 = {
+            id: 1,
+            text: "five",
+            status : "incomplete"
+            }
+
+        todoApp.create("test")
+        // todoApp.create("test2")
+        // todoApp.create("test3")
+        
+        const expected =
+        // [
+            {
+                    id: 1,
+                    text: "test",
+                    status : "complete"
+            }
+            // {
+            //         id: 2,
+            //         text: "test2",
+            //         status : "complete"
+            // }
+            // {
+            //         id: 1,
+            //         text: "test3",
+            //         status : "incomplete"
+            // }
+        // ]
+        //execute
+
+        // verify
+
+        // expect(todo1.status).toEqual(expected[0].status)
+        expect(todoApp.setCompleted(1)).toEqual(expected)
+    })
     
 })
