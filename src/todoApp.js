@@ -21,7 +21,21 @@ const todoApp = {
 
     showAll: function() { 
         return this.todos
-    }
+    },
+
+    setCompleted: function(id){
+
+        // const incomplete = todos.map((todo) => todo.status === "incomplete")
+
+        const todo = this.todos.find(todo => todo.id )
+
+        todo.status = "complete"
+
+        // console.log("incomplete: ",incomplete)
+        // return incomplete
+
+        return todo
+    }, 
 
 }
 
