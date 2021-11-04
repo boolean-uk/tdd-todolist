@@ -124,14 +124,10 @@ describe("Todo App",() => {
         todoApp.create("map2")
         todoApp.create("map3")
 
+        todoApp.setCompleted(todoApp.todos[0].id) // using the setCompleted function to set the status of the 1st todo to complete
         const todos = todoApp.showIncompleted()
 
         const expected = [
-        // {
-        //     id: 1,
-        //     text: "map",
-        //     status : "complete"
-        // },
         {
             id: 2,
             text: "map2",
@@ -192,5 +188,7 @@ describe("Todo App",() => {
 
         expect(todoApp.remove(1)).toEqual(expected)
     })
+
+
     
 })
