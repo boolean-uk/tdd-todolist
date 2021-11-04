@@ -1,5 +1,11 @@
 const todoApp = require("../src/todoApp");
 
+const today = new Date().toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "numeric",
+  year: "numeric",
+});
+
 describe("Todo app", () => {
   afterEach(function () {
     todoApp.nextTodoId = 0;
@@ -17,6 +23,7 @@ describe("Todo app", () => {
         id: 1,
         description: text,
         status: "incomplete",
+        date: today,
       });
     });
 
@@ -32,11 +39,13 @@ describe("Todo app", () => {
         id: 1,
         description: task1,
         status: "incomplete",
+        date: today,
       });
       expect(result2).toEqual({
         id: 2,
         description: task2,
         status: "incomplete",
+        date: today,
       });
     });
   });

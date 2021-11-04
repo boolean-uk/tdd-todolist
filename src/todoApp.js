@@ -2,13 +2,21 @@ const todoApp = {
   nextTodoId: 0,
   todoList: [],
 
-  create: function (text) {
+  create: function (text, date) {
     this.nextTodoId++;
+    if (!date) {
+      date = new Date().toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+      });
+    }
 
     const newTodoItem = {
       id: this.nextTodoId,
       description: text,
       status: "incomplete",
+      date: date,
     };
 
     this.todoList.push(newTodoItem);
