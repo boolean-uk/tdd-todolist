@@ -3,7 +3,7 @@
 | Methods          | Inputs              | Outputs                                            |
 | ---------------- | ------------------- | -------------------------------------------------- |
 | create()         | description @String | @Object(id, description, status: incomplete, date) |
-|                  | date @Date          |                                                    |
+|                  | date @String        |                                                    |
 | showAll()        |                     | todoList @Array                                    |
 | showIncomplete() |                     | todoList @Array                                    |
 | setComplete()    | id @Number          | todoItem @Object                                   |
