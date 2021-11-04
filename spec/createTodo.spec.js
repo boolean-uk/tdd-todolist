@@ -223,5 +223,27 @@ describe("Todo App",() => {
 
         expect(todoApp.remove(1)).toEqual(expected)
     })
- 
+// Search for a todo item by its index and
+// show it, or return a message saying it doesn’t exist
+
+    it("search for todo", () => {
+
+        // setup
+        todoApp.create("diner with fam")
+        todoApp.create("diner with friends")
+        
+        //execute
+        const expected = {
+            id: 2,
+            text: "diner with friends",
+            status: "incomplete"
+        }
+
+        const notFund = "not found" // if the todo item is not found
+        //verify
+
+        expect(todoApp.search(2)).toEqual(expected)
+        // expect(todoApp.search(3)).toEqual(notFund) // if not found
+    })
+
 })

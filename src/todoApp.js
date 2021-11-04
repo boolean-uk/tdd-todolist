@@ -59,8 +59,16 @@ const todoApp = {
         this.todos.splice(index, 1) // splice/remove the todo from the array
 
         return this.todos // return the updated array
-    }
+    },
 
+    search: function(id) {
+        
+        if(this.todos.find(todo => todo.id === id)) {
+            return this.todos.find(todo => todo.id === id)
+        } else {
+            return "not found"
+        }
+    }
 }
 
 module.exports = todoApp
