@@ -1,7 +1,6 @@
 const todoApp = { 
 
-    // if for keeping track of each object valule
-    id : 0,
+    id : 0,  // id for keeping track of each object valule
 
     todos: [],
 
@@ -35,9 +34,9 @@ const todoApp = {
 
     showCompleted: function(){
 
-        console.log("complete todos: ", this.todos)
+        // console.log("complete todos: ", this.todos)
         const completed = this.todos.filter(todo => todo.status === "complete")
-        console.log("complete: ", completed)
+        // console.log("complete: ", completed)
         return completed
     },
 

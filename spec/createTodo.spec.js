@@ -3,16 +3,14 @@ const todoApp = require("../src/todoApp")
 
 describe("Todo App",() => {
 
-
     // manual teardown
     beforeEach(() => {
-        console.log("in the beforeEach\n")
+        console.log("\nin the beforeEach\n")
         todoApp.id = 0 // reseting the id for validatin the
                     // create many todos SPEC 
         todoApp.todos = [] // reseting the todos for create new todo
     
     })                 
-
 
     it("creates a to do item", () => { 
 
@@ -28,7 +26,6 @@ describe("Todo App",() => {
         //verify
 
     } )
-
 
     it("creates many todo items", () => { 
 
@@ -223,10 +220,8 @@ describe("Todo App",() => {
 
         expect(todoApp.remove(1)).toEqual(expected)
     })
-// Search for a todo item by its index and
-// show it, or return a message saying it doesn’t exist
-
-    it("search for todo", () => {
+    
+    it("search and display todo by id, otherwise say not found", () => {
 
         // setup
         todoApp.create("diner with fam")
