@@ -6,10 +6,10 @@ describe("Todo App",() => {
 
     // manual teardown
     beforeEach(() => {
-        console.log("in the beforeEach")
+        console.log("in the beforeEach\n")
         todoApp.id = 0 // reseting the id for validatin the
-                    // creates many todos SPEC 
-        todoApp.todos = []
+                    // create many todos SPEC 
+        todoApp.todos = [] // reseting the todos for create new todo
     
     })                 
 
@@ -114,6 +114,40 @@ describe("Todo App",() => {
 
         // expect(todo1.status).toEqual(expected[0].status)
         expect(todoApp.setCompleted(1)).toEqual(expected)
+    })
+
+        it("only shows the incompleted todos", () => { 
+
+        //setup
+
+        todoApp.create("map")
+        todoApp.create("map2")
+        todoApp.create("map3")
+
+        const todos = todoApp.showIncompleted()
+
+        const expected = [
+        // {
+        //     id: 1,
+        //     text: "map",
+        //     status : "complete"
+        // },
+        {
+            id: 2,
+            text: "map2",
+            status : "incomplete"
+        },
+        {
+            id: 3,
+            text: "map3",
+            status : "incomplete"
+        }
+    ]
+        //execute
+
+        //verify
+    // expect(todoApp.showIncompleted()).toEqual(expected)
+    expect(todos).toEqual(expected)
     })
     
 })
