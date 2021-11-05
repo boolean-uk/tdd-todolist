@@ -60,6 +60,10 @@ const todoApp = {
   removeById: function (id) {
     return this.todoList.filter((todoItem) => todoItem.id !== id);
   },
+
+  searchByDay: function (date) {
+    return this.todoList.filter((todoItem) => todoItem.date === date);
+  },
 };
 
 module.exports = todoApp;
