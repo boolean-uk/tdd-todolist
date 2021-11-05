@@ -191,4 +191,22 @@ describe("Todo app", () => {
       expect(result).toEqual([todo1]);
     });
   });
+
+  describe("searchByDay()", () => {
+    let todo1, todo2;
+    beforeEach(() => {
+      todo1 = todoApp.create("Take A break!", "06/11/2021");
+      todo2 = todoApp.create("Make a cup of tea!", "06/11/2021");
+    });
+
+    it("returns todos by the date that they were created ", () => {
+      const result = todoApp.searchByDay("06/11/2021");
+      expect(result).toEqual([todo1, todo2]);
+    });
+
+    it("returns an empty array if there are no todos for that day", () => {
+      const result = todoApp.searchByDay("13/11/2021");
+      expect(result).toEqual([]);
+    });
+  });
 });
