@@ -58,7 +58,8 @@ const todoApp = {
   },
 
   removeById: function (id) {
-    return this.todoList.filter((todoItem) => todoItem.id !== id);
+    this.todoList = this.todoList.filter((todoItem) => todoItem.id !== id);
+    return this.todoList;
   },
 
   searchByDay: function (date) {
