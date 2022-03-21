@@ -1,5 +1,7 @@
 class TodoList {
-  todos = [];
+  constructor() {
+    this.todos = []; // After the constructor is ran, this is the state of the instance.
+  }
 
   create(text) {
     const todoToCreate = {
@@ -11,6 +13,10 @@ class TodoList {
     this.todos.push(todoToCreate);
 
     return todoToCreate;
+  }
+
+  allToDoItems() {
+    return this.todos;
   }
 }
 
