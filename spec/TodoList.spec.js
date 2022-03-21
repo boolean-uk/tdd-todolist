@@ -67,7 +67,30 @@ describe("TodoList", () => {
     // execute
 
     const result = todoList.deleteItemById(1);
-    console.log("line 70", result);
+    // verify
+    expect(result).toEqual(expected);
+  });
+
+  it("updates status by ID=1 ", () => {
+    // set up
+    const todoList = new TodoList();
+    todoList.create("turn the heating on!");
+    todoList.create("feed the cat");
+    const expected = [
+      {
+        id: 0,
+        text: "turn the heating on!",
+        status: "incomplete"
+      },
+      {
+        id: 1,
+        text: "feed the cat",
+        status: "complete"
+      }
+    ];
+    // execute
+
+    const result = todoList.completeById(1);
 
     // verify
     expect(result).toEqual(expected);

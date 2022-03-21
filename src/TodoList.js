@@ -23,6 +23,11 @@ class TodoList {
     return this.todoArray;
   }
 
+  completeById(idx) {
+    this.todoArray[idx].status = "complete";
+    return this.todoArray;
+  }
+
   deleteItemById(idx) {
     return this.todoArray.filter((item) => item.id != idx);
   }

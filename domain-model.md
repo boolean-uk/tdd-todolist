@@ -12,3 +12,8 @@ Set a todo completed by its ID
 
 Objects--------------------Properties------------------Methods---------------------Output
 todoArray = []-------------[{}, {}, {}]--------------deleteItemById()-------------[{}, {}]
+
+Set a todo completed by its ID
+
+Objects--------------------Properties------------------Methods---------------------Output
+todoArray = []-------------[{}, {}, {}]---------todoArray[status] = 'complete'------[{}, {}]
