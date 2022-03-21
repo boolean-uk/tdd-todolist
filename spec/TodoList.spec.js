@@ -29,7 +29,7 @@ describe('TodoList', () => {
     const item = todoList.create('turn the heating on!')
     const start = item.status
     expect(start).toEqual('incomplete')
-    const changedItem = todoList.setComplete(item.id)
+    const changedItem = todoList.setCompleted(item.id)
     expect(item.id).toEqual(changedItem.id)
     const result = changedItem.status
     expect(result).toEqual('completed')
@@ -40,7 +40,7 @@ describe('TodoList', () => {
 
     const item1 = todoList.create('turn the heating on!')
     const item2 = todoList.create('turn the heating on!')
-    todoList.setComplete(item1.id)
+    todoList.setCompleted(item1.id)
     const result = todoList.getIncomplete()
     expect(result).toEqual([item2])
   })
@@ -50,7 +50,8 @@ describe('TodoList', () => {
 
     const item = todoList.create('turn the heating on!')
     todoList.create('turn the heating on!')
-    todoList.setComplete(item.id)
+    todoList.setCompleted(item.id)
+
     const result = todoList.getCompleted()
     expect(result).toEqual([item])
   })
@@ -66,5 +67,31 @@ describe('TodoList', () => {
     const result2 = todoList.getItemById(2)
 
     expect(result2).toEqual(undefined)
+  })
+
+  it('removes item by id', () => {
+    const todoList = new TodoList()
+
+    todoList.create('turn the heating on!')
+    expect(todoList.getAll().length).toEqual(1)
+
+    todoList.remove(1)
+    expect(todoList.getAll().length).toEqual(0)
+  })
+
+  it('gets items on a specific date', () => {
+    const todoList = new TodoList()
+
+    const newItem = todoList.create('turn the heating on!')
+    const oldItem = todoList.create('hunt deers')
+    const oldDate = new Date()
+    oldDate.setFullYear(1990)
+    oldItem.date = oldDate
+
+    const result = todoList.getItemsByDate(new Date())
+    expect(result).toEqual([newItem])
+
+    const noData = todoList.getItemsByDate(new Date(0))
+    expect(noData).toEqual([])
   })
 })
