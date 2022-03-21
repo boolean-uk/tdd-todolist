@@ -3,6 +3,10 @@ class TodoList {
     this.todoList = [];
   }
 
+  displayTodoList() {
+    return this.todoList;
+  }
+
   create(text) {
     const todo = {
       id: this.todoList.length + 1,
@@ -12,7 +16,14 @@ class TodoList {
 
     this.todoList.push(todo);
 
-    return this.todoList;
+    return todo;
+  }
+
+  isComplete(status) {
+    const statusTodo = this.todoList.filter((todo) => {
+      todo.status === status;
+    });
+    return statusTodo;
   }
 }
 
