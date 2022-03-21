@@ -32,7 +32,7 @@ describe('TodoList', () => {
     const changedItem = todoList.setComplete(item.id)
     expect(item.id).toEqual(changedItem.id)
     const result = changedItem.status
-    expect(result).toEqual('complete')
+    expect(result).toEqual('completed')
   })
 
   it('gets only todo items that are incomplete', () => {
@@ -43,5 +43,15 @@ describe('TodoList', () => {
     todoList.setComplete(item1.id)
     const result = todoList.getIncomplete()
     expect(result).toEqual([item2])
+  })
+
+  it('gets only todo items that are completed', () => {
+    const todoList = new TodoList()
+
+    const item1 = todoList.create('turn the heating on!')
+    todoList.create('turn the heating on!')
+    todoList.setComplete(item1.id)
+    const result = todoList.getCompleted()
+    expect(result).toEqual([item1])
   })
 })

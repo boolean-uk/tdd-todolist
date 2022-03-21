@@ -1,5 +1,5 @@
 
 Object | Fields | Methods
 --- | --- | --- 
-TodoList | items @Array[@TodoItem] | create(text @String) > @TodoItem |
+TodoList | items [@TodoItem] | create(text @String) > @TodoItem <br> getAll() > [@TodoItem] <br> getIncomplete() > [@TodoItem] <br> getCompleted() > [@TodoItem] |
 TodoItem | id @Number <br> text @String <br> status @String | ---
