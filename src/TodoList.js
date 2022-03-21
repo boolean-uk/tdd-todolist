@@ -19,8 +19,12 @@ class TodoList {
         return this.items
     }
 
+    getItemById = (id) => {
+        return  this.items.filter(item => item.id === id)[0];
+    }
+
     setComplete = (id) => {
-        const changingItem = this.items.filter(item => item.id === id)[0]
+        const changingItem = this.getItemById(id);
         if(changingItem) changingItem.status = 'completed'
         return changingItem;
     }
@@ -32,6 +36,8 @@ class TodoList {
     getCompleted = () => {
         return this.items.filter(item => item.status === 'completed')
     }
+
+
 }
 
 module.exports = TodoList

@@ -48,10 +48,23 @@ describe('TodoList', () => {
   it('gets only todo items that are completed', () => {
     const todoList = new TodoList()
 
-    const item1 = todoList.create('turn the heating on!')
+    const item = todoList.create('turn the heating on!')
     todoList.create('turn the heating on!')
-    todoList.setComplete(item1.id)
+    todoList.setComplete(item.id)
     const result = todoList.getCompleted()
-    expect(result).toEqual([item1])
+    expect(result).toEqual([item])
+  })
+
+  it('gets item by id', () => {
+    const todoList = new TodoList()
+
+    const item = todoList.create('turn the heating on!')
+
+    const result = todoList.getItemById(1)
+    expect(result).toEqual(item)
+
+    const result2 = todoList.getItemById(2)
+
+    expect(result2).toEqual(undefined)
   })
 })
