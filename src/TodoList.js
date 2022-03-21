@@ -1,10 +1,18 @@
 class TodoList {
-  create() {
-    return {
-      id: 1,
-      text: "turn the heating on!",
+  constructor() {
+    this.todoList = [];
+  }
+
+  create(text) {
+    const todo = {
+      id: this.todoList.length + 1,
+      text: text,
       status: "incomplete",
     };
+
+    this.todoList.push(todo);
+
+    return this.todoList;
   }
 }
 
