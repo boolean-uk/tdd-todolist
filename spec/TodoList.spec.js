@@ -95,4 +95,26 @@ describe("TodoList", () => {
     // verify
     expect(result).toEqual(expected);
   });
+
+  it("returns array of incomplete tasks ", () => {
+    // set up
+    const todoList = new TodoList();
+    todoList.create("turn the heating on!");
+    todoList.create("feed the cat");
+    todoList.completeById(1);
+    console.log("line 104...................", todoList);
+    const expected = [
+      {
+        id: 0,
+        text: "turn the heating on!",
+        status: "incomplete"
+      }
+    ];
+    // execute
+
+    const result = todoList.incompleteTasks();
+    console.log("line 115 ................................", result);
+    // verify
+    expect(result).toEqual(expected);
+  });
 });

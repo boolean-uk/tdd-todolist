@@ -16,4 +16,8 @@ todoArray = []-------------[{}, {}, {}]--------------deleteItemById()-----------
 Set a todo completed by its ID
 
 Objects--------------------Properties------------------Methods---------------------Output
-todoArray = []-------------[{}, {}, {}]---------todoArray[status] = 'complete'------[{}, {}]
+todoArray = []-------------[{}, {}, {}]---------completeById(idx)--------[{}, {}]
+
+Get only todo items that are incomplete
+Objects--------------------Properties------------------Methods---------------------Output
+todoArray = []-------------[{}, {}, {}]---------incompleteTasks()----------------[{}, {}]

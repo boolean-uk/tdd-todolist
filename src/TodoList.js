@@ -28,6 +28,10 @@ class TodoList {
     return this.todoArray;
   }
 
+  incompleteTasks() {
+    return this.todoArray.filter((item) => item.status === "incomplete");
+  }
+
   deleteItemById(idx) {
     return this.todoArray.filter((item) => item.id != idx);
   }
