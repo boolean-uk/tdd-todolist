@@ -1,15 +1,16 @@
 # Domain Model
-
-Objects  | Properties        | Methods             | Output
----------------------------------------------
-todo     | id @integer       |
-         | text @ String     |
-         | status @String    |
-
-todoList | todos @Array@todo | create(@String)     | @todo
-                             | getAllTodos()       | todos @Array@todo
-                             | getTodo(id)         | @todo OR @String
-                             | getIncomplete()     | @Array@todo
-                             | getComplete()       | @Array@todo
-                             | setTodoComplete(id) | @todo OR @String
-                             | removeTodo(id)      | todos @Array@todo OR @String
+-------------------------------------------------------------------------------------
+| Objects  | Properties        | Methods             | Output                       |
+-------------------------------------------------------------------------------------
+| todo     | id @integer       |                     |                              |
+|          | text @ String     |                     |                              |
+|          | status @String    |                     |                              |
+|                                                                                   |
+| todoList | todos @Array@todo | create(@String)     | @todo                        |
+|                              | getAllTodos()       | todos @Array@todo            |
+|                              | getTodo(id)         | @todo OR @String             |
+|                              | getIncomplete()     | @Array@todo                  |
+|                              | getComplete()       | @Array@todo                  |
+|                              | setTodoComplete(id) | @todo OR @String             |
+|                              | removeTodo(id)      | todos @Array@todo OR @String |
+-------------------------------------------------------------------------------------
