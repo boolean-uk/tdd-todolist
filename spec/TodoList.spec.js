@@ -7,7 +7,7 @@ describe("TodoList", () => {
     const expected = {
       id: 1,
       text: "turn the heating on!",
-      status: "completed"
+      status: "incomplete"
     }
     // execute
     const result = todoList.create("turn the heating on!")
@@ -34,13 +34,13 @@ describe("TodoList", () => {
   it("id should be incremented every time", () => {
     // setup
     const todoList = new TodoList()
-    const FirstToDo = {
+    const FirstTodo = {
       id: 1,
       text: "turn the heating on!",
-      status: "Completed"
+      status: "complete"
     }
-    const completedOne = todoList.create("turn the heater on!")
-    expect(completedOne).toEqual(FirstToDo)
+    // const completedOne = todoList.create("turn the heater on!")
+    // expect(completedOne).toEqual(FirstToDo)
 
     const SecondTodo = {
       id: 2,
@@ -52,6 +52,18 @@ describe("TodoList", () => {
     const result = todoList.create("turn the heater off!")
     expect(result).toEqual(SecondTodo)
 
+  })
+  it("FirstTodo should be removed since its completed", () => {
+    const todoList = new TodoList()
+    todoList.create("turn the heating on!");
+    const expected = {
+      id: 1,
+      text: "turn the heater on!",
+      status: "incomplete"
+    }
+    const result = todoList.deleteTodo(1);
+    // verify
+    expect(result).toEqual(expected);
   })
 })
 
