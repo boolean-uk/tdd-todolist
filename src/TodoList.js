@@ -24,6 +24,10 @@ class TodoList {
         if(changingItem) changingItem.status = 'complete'
         return changingItem;
     }
+
+    getIncomplete = () => {
+        return this.items.filter(item => item.status === 'incomplete')
+    }
 }
 
 module.exports = TodoList
