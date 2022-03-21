@@ -18,6 +18,12 @@ class TodoList {
     getAll = () => {
         return this.items
     }
+
+    setComplete = (id) => {
+        const changingItem = this.items.filter(item => item.id === id)[0]
+        if(changingItem) changingItem.status = 'complete'
+        return changingItem;
+    }
 }
 
 module.exports = TodoList

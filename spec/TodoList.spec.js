@@ -22,4 +22,16 @@ describe('TodoList', () => {
 
     expect(result).toEqual([item1, item2])
   })
+
+  it('sets completed by id', () => {
+    const todoList = new TodoList()
+
+    const item = todoList.create('turn the heating on!')
+    const start = item.status
+    expect(start).toEqual('incomplete')
+    const changedItem = todoList.setComplete(item.id)
+    expect(item.id).toEqual(changedItem.id)
+    const result = changedItem.status
+    expect(result).toEqual('complete')
+  })
 })
