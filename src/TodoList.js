@@ -1,13 +1,17 @@
 class TodoList {
-    todos = []
+    constructor () {
+        this.id = 1
+        this.todos = []
+    }
     
     create (text) {
         const newTodo = {
-            id: this.todos.length + 1,
+            id: this.id,
             text: text,
             status: "incomplete"
         }
         this.todos.push(newTodo)
+        this.id++
 
         return newTodo
     }
