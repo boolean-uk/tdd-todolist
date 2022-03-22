@@ -4,18 +4,51 @@ class TodoList {
   }
 
   create(text) {
-    const todoToCreate = {
+    const item = {
       id: this.todos.length + 1,
       text: text,
       status: "incomplete",
     };
 
-    this.todos.push(todoToCreate);
+    this.todos.push(item);
 
-    return todoToCreate;
+    return item;
   }
 
   allToDoItems() {
+    return this.todos;
+  }
+
+  toDoCompleted(id) {
+    this.todos.forEach((item) => {
+      if (item.id === id) {
+        item.status = "complete";
+      }
+    });
+    return this.todos;
+  }
+
+  toDoItemsIncomplete() {
+    let incompletes = this.todos.filter((item) => item.status === "incomplete");
+    return incompletes;
+  }
+
+  toDoItemsComplete() {
+    let complete = this.todos.filter((item) => item.status === "complete");
+    return complete;
+  }
+
+  getToDoId(id) {
+    const validId = this.todos.find((item) => item.id === id);
+    return validId || "It doesn't exist";
+  }
+
+  removeToDoItemID(id) {
+    this.todos.forEach((item, i) => {
+      if (item.id === id) {
+        this.todos.splice(i, 2);
+      }
+    });
     return this.todos;
   }
 }
