@@ -65,6 +65,8 @@ class TodoList {
         return `There is no todo with id: ${id}.`
     }
 }
+
+//############## Incomplete ##############################/
 const prompt = require('prompt-sync')()
 
 function instructions () {
@@ -91,5 +93,6 @@ while (!quit) {
         quit = true
     }
 }
+//############## Incomplete ##############################/
 
 module.exports = TodoList

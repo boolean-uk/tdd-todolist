@@ -16,5 +16,8 @@
     "eslint-plugin-promise": "^5.1.0",
     "jasmine": "^3.10.0",
     "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
   }
 }
