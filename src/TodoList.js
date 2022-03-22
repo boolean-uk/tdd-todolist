@@ -15,13 +15,12 @@ class TodoList {
     };
 
     this.todoList.push(todo);
+
+    return todo;
   }
 
   isComplete(status) {
-    const statusTodo = this.todoList.filter((todo) => {
-      return todo.status === status;
-    });
-    return statusTodo;
+    return this.todoList.filter((todo) => todo.status === status);
   }
 }
 

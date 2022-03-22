@@ -38,7 +38,7 @@ describe("TodoList", () => {
     expect(result).toEqual(expected);
   });
 
-  fit("return the todos that are incomplete", () => {
+  it("return the todos that are incomplete", () => {
     // set up
     const todoList = new TodoList();
     const expected = [
