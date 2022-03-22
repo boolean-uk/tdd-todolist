@@ -30,23 +30,11 @@ class TodoList {
     }
 
     getIncomplete () {
-        const incomplete = []
-        for (const todo of this.todos) {
-            if (todo['status'] === 'incomplete') {
-                incomplete.push(todo)
-            }
-        }
-        return incomplete
+        return this.todos.filter((todo) => todo['status'] === 'incomplete')
     }
 
     getComplete () {
-        const complete = []
-        for (const todo of this.todos) {
-            if (todo['status'] === 'complete') {
-                complete.push(todo)
-            }
-        }
-        return complete
+        return this.todos.filter((todo) => todo['status'] === 'complete')
     }
 
     setTodoComplete (id) {
@@ -73,16 +61,20 @@ class TodoList {
 //############## Incomplete ##############################/
 const prompt = require('prompt-sync')()
 
+const todoList = new TodoList()
+
 function instructions () {
+    console.log('')
     console.log('INSTRUCTIONS:')
-    console.log('Type "create" followed by the task to add a new todo.')
+    console.log('Type "create" to add a new todo.')
     console.log('Type "all" to get the list of todos.')
     console.log('Type "complete" to get the list of completed todos.')
     console.log('Type "incomplete" to get the list of incompleted todos.')
-    console.log('Type "todo" followed by an id to get a specific todo.')
-    console.log('Type "done" followed by an id to set a specific todo complete.')
-    console.log('Type "delete" followed by an id to remove a specific todo from the list.')
+    console.log('Type "todo" to get a specific todo.')
+    console.log('Type "done" to set a specific todo complete.')
+    console.log('Type "delete" to remove a specific todo from the list.')
     console.log('Type "quit" to quit the program at any time.')
+    console.log('')
 }
 
 const name = prompt('What is your name?')
@@ -92,9 +84,50 @@ instructions()
 
 let quit = false
 while (!quit) {
-    const input = prompt('What do you want to do?').toLowerCase()
+    const input = prompt('What do you want to do?').trim().toLowerCase()
+
     if (input === 'quit') {
         quit = true
+    }
+
+    if (input === 'create') {
+        const text = prompt('What do you want to add?')
+        todoList.create(text)
+        console.log('Todo added to list.')
+        console.log('')
+    }
+
+    if (input === 'all') {
+        console.log(todoList.getAllTodos())
+        console.log('')
+    }
+
+    if (input === 'complete') {
+        console.log(todoList.getComplete())
+        console.log('')
+    }
+
+    if (input === 'incomplete') {
+        console.log(todoList.getIncomplete())
+        console.log('')
+    }
+
+    if (input === 'todo') {
+        const wantedTodo = parseInt(prompt('Which todo are you looking for? (id)'))
+        console.log(todoList.getTodo(wantedTodo))
+        console.log('')
+    }
+
+    if (input === 'done') {
+        const completeTodo = parseInt(prompt('Which todo did you complete? (id)'))
+        console.log(todoList.setTodoComplete(completeTodo))
+        console.log('')
+    }
+
+    if (input === 'delete') {
+        const removeTodo = parseInt(prompt('Which todo do you want to remove? (id)'))
+        console.log(todoList.removeTodo(removeTodo))
+        console.log('')
     }
 }
 //############## Incomplete ##############################/
