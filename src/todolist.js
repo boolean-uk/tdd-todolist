@@ -49,12 +49,5 @@ class TodoList {
     return 'Does not exist'
   }
 }
-const testList = new TodoList()
-testList.create('hi')
-testList.create('there')
-testList.create('you')
-testList.completeTodo(1)
-console.log(testList.completeTodo(3))
-console.log(testList.getCompleteTodos())
 
 module.exports = TodoList
