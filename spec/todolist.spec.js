@@ -47,7 +47,7 @@ describe('Todo list', () => {
       status: 'complete'
     }
 
-    todoList.setComplete(item1.id)
+    const result = todoList.setComplete(item1.id)
 
     expect(result).toEqual(expected)
   })
