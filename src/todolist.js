@@ -1,5 +1,3 @@
-const { check } = require('prettier')
-
 class TodoList {
   constructor() {
     this.todos = []

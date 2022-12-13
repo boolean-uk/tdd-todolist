@@ -42,6 +42,23 @@ describe('Test of TodoList class', () => {
       { id: 3, text: 'travel', checked: false }
     ])
   })
+  it('expects incompleteList returned to be empty if no todos stored', () => {
+    expect(todoList.getIncompleteTodos()).toHaveSize(0)
+  })
+
+  // getCompleteTodos
+  it('expects to receive list of completed todos', () => {
+    todoList.newTodo('dream')
+    todoList.updateTodo(1, true)
+    todoList.newTodo('jump')
+    todoList.newTodo('travel')
+    expect(todoList.getCompleteTodos()).toEqual([
+      { id: 1, text: 'dream', checked: true }
+    ])
+  })
+  it('expects completeList returned to be empty if no todos stored', () => {
+    expect(todoList.getCompleteTodos()).toHaveSize(0)
+  })
 
   // removeTodo
   it('expects the removeTodo to return false if id does not exist', () => {
