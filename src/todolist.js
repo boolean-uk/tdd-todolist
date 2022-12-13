@@ -33,6 +33,10 @@ const filterByComplete = () => {
   return todos.filter((todo) => todo.complete === true)
 }
 
+const removeTodo = (id) => {
+  return todos.filter((todo) => todo.id !== id)
+}
+
 // createTodo('Clean the kitchen')
 // createTodo('Feed the local pigeons')
 // createTodo('Fold laundry')
@@ -45,5 +49,6 @@ module.exports = {
   getAllTodos,
   setComplete,
   searchById,
-  filterByComplete
+  filterByComplete,
+  removeTodo
 }

@@ -4,7 +4,8 @@ const {
   getAllTodos,
   setComplete,
   searchById,
-  filterByComplete
+  filterByComplete,
+  removeTodo
 } = require('../src/todolist')
 
 describe('todos', () => {
@@ -64,5 +65,13 @@ describe('todos', () => {
     const completeTodos = filterByComplete()
 
     expect(completeTodos).toEqual([expected])
+  })
+
+  it('removeToDo takes in an id then returns updated todos with that item removed', () => {
+    const expected = createTodo('Do some exercise')
+    createTodo('Read a book')
+    const updatedTodos = removeTodo(2)
+
+    expect(updatedTodos).toEqual([expected])
   })
 })
