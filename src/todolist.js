@@ -16,6 +16,10 @@ class TodoList {
     this.todos.push(newTodo)
     return newTodo
   }
+
+  getAllTodos() {
+    return this.todos
+  }
 }
 
 module.exports = {

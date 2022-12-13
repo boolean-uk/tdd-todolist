@@ -6,10 +6,11 @@ describe('Test of TodoList class', () => {
     todoList = new TodoList()
   })
 
+  // newTodo
   it('expects newTodo to return nothing if empty value is given to it', () => {
     todoList.newTodo('')
     todoList.newTodo(null)
-    expect(todoList.todos.length).toBe(0)
+    expect(todoList.todos).toHaveSize(0)
   })
   it('expects newId of newTodo() to always be new', () => {
     todoList.newTodo('first todo')
@@ -17,10 +18,16 @@ describe('Test of TodoList class', () => {
     const secondTodo = todoList.todos[1]
     expect(secondTodo.id).toBe(2)
   })
-
   it('expects newTodo to push to this.todos', () => {
     todoList.newTodo('do something')
     todoList.newTodo('do second something')
-    expect(todoList.todos.length).toBe(2)
+    expect(todoList.todos).toHaveSize(2)
+  })
+
+  // getAllTodos
+  it('expects the array with all todos inside', () => {
+    todoList.newTodo('do something')
+    todoList.newTodo('do second something')
+    expect(todoList.getAllTodos()).toHaveSize(2)
   })
 })
