@@ -32,7 +32,12 @@ class TodoList {
   }
 
   updateTodo(id, checked) {
-    const todoIndex = id - 1
+    if (typeof id !== 'number') return false
+
+    const todo = this.todos.filter((todo) => todo.id === id)[0]
+    if (!todo) return false
+    const todoIndex = this.todos.indexOf(todo)
+
     if (this.todos[todoIndex] === undefined) return false
     if (typeof checked !== 'boolean') return false
 
@@ -40,14 +45,22 @@ class TodoList {
   }
 
   searchById(id) {
-    const todoIndex = id - 1
+    if (typeof id !== 'number') return false
+
+    const todo = this.todos.filter((todo) => todo.id === id)[0]
+    if (!todo) return false
+    const todoIndex = this.todos.indexOf(todo)
+
     if (this.todos[todoIndex] === undefined) return false
     return this.todos[todoIndex]
   }
 
   removeTodo(id) {
-    const todoIndex = id - 1
-    if (this.todos[todoIndex] === undefined) return false
+    if (typeof id !== 'number') return false
+
+    const todo = this.todos.filter((todo) => todo.id === id)[0]
+    if (!todo) return false
+    const todoIndex = this.todos.indexOf(todo)
 
     this.todos.splice(todoIndex, 1)
     return this.todos

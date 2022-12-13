@@ -61,6 +61,11 @@ describe('Test of TodoList class', () => {
   })
 
   // updateTodo
+  it('expects false when id is not equal to type Number', () => {
+    expect(todoList.updateTodo('robert', true)).toBeFalse()
+    expect(todoList.updateTodo(false, true)).toBeFalse()
+    expect(todoList.updateTodo([1], true)).toBeFalse()
+  })
   it('expects the updateTodo to return false if id does not exist', () => {
     expect(todoList.updateTodo(1, true)).toBeFalse()
   })
@@ -70,6 +75,11 @@ describe('Test of TodoList class', () => {
   })
 
   // searchById
+  it('expects false when id is not equal to type Number', () => {
+    expect(todoList.searchById('robert')).toBeFalse()
+    expect(todoList.searchById(false)).toBeFalse()
+    expect(todoList.searchById([1])).toBeFalse()
+  })
   it('expects a todo item to be returned when its id is passed', () => {
     todoList.newTodo('do something')
     todoList.newTodo('do something')
@@ -78,11 +88,17 @@ describe('Test of TodoList class', () => {
       text: 'do something',
       checked: false
     })
+  })
+  it('expects return of false when called with an id that does not exist', () => {
     expect(todoList.searchById(3)).toBeFalse()
   })
-  it('expects return of false when called with an id that does not exist')
 
   // removeTodo
+  it('expects false when id is not equal to type Number', () => {
+    expect(todoList.removeTodo('robert')).toBeFalse()
+    expect(todoList.removeTodo(false)).toBeFalse()
+    expect(todoList.removeTodo([1])).toBeFalse()
+  })
   it('expects the removeTodo to return false if id does not exist', () => {
     expect(todoList.removeTodo(1)).toBeFalse()
   })
