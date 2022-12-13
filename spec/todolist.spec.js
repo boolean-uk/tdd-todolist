@@ -98,4 +98,19 @@ describe('Todo list', () => {
       todoList.search(1).toThrowError('Item not found')
     })
   })
+
+  it('deletes item by id', () => {
+    // eslint-disable-next-line no-unused-vars
+    const item1 = todoList.create('exercise')
+    const expected = {
+      id: 1,
+      text: 'exercise',
+      status: 'incomplete'
+    }
+
+    const deletedItem = todoList.remove(1)
+
+    expect(deletedItem).toEqual(expected)
+    expected(todoList.getAll()).toEqual([])
+  })
 })
