@@ -51,4 +51,32 @@ describe('Todo list', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('gets items with status complete', () => {
+    // eslint-disable-next-line no-unused-vars
+    const item1 = todoList.create('exercise')
+    const item2 = todoList.create('wash the pots')
+    const item3 = todoList.create('feed the cat')
+
+    todoList.setComplete(item2.id)
+    todoList.setComplete(item3.id)
+
+    const expected = [item2, item3]
+    const result = todoList.getByStatus('complete')
+
+    expect(result).toEqual(expected)
+  })
+
+  it('gets items with status incomplete', () => {
+    const item1 = todoList.create('exercise')
+    const item2 = todoList.create('wash the pots')
+    const item3 = todoList.create('feed the cat')
+
+    todoList.setComplete(item3.id)
+
+    const expected = [item1, item2]
+    const result = todoList.getByStatus('incomplete')
+
+    expect(result).toEqual(expected)
+  })
 })
