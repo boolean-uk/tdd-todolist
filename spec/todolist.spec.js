@@ -92,4 +92,10 @@ describe('Todo list', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('search throws error if no item found', () => {
+    expect(() => {
+      todoList.search(1).toThrowError('Item not found')
+    })
+  })
 })
