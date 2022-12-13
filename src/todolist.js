@@ -11,9 +11,9 @@ class TodoList {
     return item
   }
 
-  // getAll() {
-  //   return this.items
-  // }
+  getAll() {
+    return this.items
+  }
 }
 
 module.exports = TodoList
