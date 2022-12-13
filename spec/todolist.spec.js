@@ -113,4 +113,10 @@ describe('Todo list', () => {
     expect(deletedItem).toEqual(expected)
     expect(todoList.getAll()).toEqual([])
   })
+
+  it('remove throws error if no item found', () => {
+    expect(() => {
+      todoList.remove(1).toThrowError('Item not found')
+    })
+  })
 })
