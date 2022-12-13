@@ -23,6 +23,16 @@ class TodoList {
     return this.todos
   }
 
+  getIncompleteTodos() {
+    const incompleteList = this.todos.filter((todo) => !todo.checked)
+    return incompleteList
+  }
+
+  getCompleteTodos() {
+    const completeList = this.todos.filter((todo) => todo.checked)
+    return completeList
+  }
+
   updateTodo(id, checked) {
     const todoIndex = id - 1
     if (this.todos[todoIndex] === undefined) return false

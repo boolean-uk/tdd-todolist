@@ -31,6 +31,18 @@ describe('Test of TodoList class', () => {
     expect(todoList.getAllTodos()).toHaveSize(2)
   })
 
+  // getIncompleteTodos
+  it('expects to receive list of incompleted todos', () => {
+    todoList.newTodo('jump')
+    todoList.updateTodo(1, true)
+    todoList.newTodo('jump')
+    todoList.updateTodo(2, true)
+    todoList.newTodo('travel')
+    expect(todoList.getIncompleteTodos()).toEqual([
+      { id: 3, text: 'travel', checked: false }
+    ])
+  })
+
   // removeTodo
   it('expects the removeTodo to return false if id does not exist', () => {
     expect(todoList.removeTodo(1)).toBeFalse()
