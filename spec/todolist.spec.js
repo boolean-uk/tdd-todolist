@@ -3,7 +3,8 @@ const {
   todos,
   getAllTodos,
   setComplete,
-  searchById
+  searchById,
+  filterByComplete
 } = require('../src/todolist')
 
 describe('todos', () => {
@@ -53,5 +54,15 @@ describe('todos', () => {
     const match = searchById(1)
 
     expect(match).toBeFalse()
+  })
+
+  it('filterByComplete should return a list of only completed todos', () => {
+    createTodo('Clean the kitchen')
+    const expected = createTodo('Feed the local pigeons')
+    createTodo('Fold laundry')
+    setComplete(2)
+    const completeTodos = filterByComplete()
+
+    expect(completeTodos).toEqual([expected])
   })
 })

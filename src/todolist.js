@@ -29,9 +29,21 @@ const searchById = (id) => {
   return found
 }
 
-// createTodo('Watch world cup')
-// console.log(todos)
-// setComplete(1)
-// console.log(todos)
+const filterByComplete = () => {
+  return todos.filter((todo) => todo.complete === true)
+}
 
-module.exports = { createTodo, todos, getAllTodos, setComplete, searchById }
+// createTodo('Clean the kitchen')
+// createTodo('Feed the local pigeons')
+// createTodo('Fold laundry')
+// setComplete(2)
+// console.log(filterByComplete())
+
+module.exports = {
+  createTodo,
+  todos,
+  getAllTodos,
+  setComplete,
+  searchById,
+  filterByComplete
+}
