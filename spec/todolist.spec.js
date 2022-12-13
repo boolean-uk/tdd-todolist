@@ -38,4 +38,17 @@ describe('Todo list', () => {
 
     expect(todoList.getAll()).toEqual(expected)
   })
+
+  it('sets status of todo item as complete if found', () => {
+    const item1 = todoList.create('exercise')
+    const expected = {
+      text: 'exercise',
+      id: 1,
+      status: 'complete'
+    }
+
+    todoList.setComplete(item1.id)
+
+    expect(result).toEqual(expected)
+  })
 })
