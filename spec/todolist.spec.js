@@ -2,7 +2,8 @@ const {
   createTodo,
   todos,
   getAllTodos,
-  setComplete
+  setComplete,
+  searchById
 } = require('../src/todolist')
 
 describe('todos', () => {
@@ -31,5 +32,26 @@ describe('todos', () => {
       id: 1,
       complete: true
     })
+  })
+
+  it('setComplete returns updated todos', () => {
+    createTodo('Work on React project')
+    const updatedTodos = setComplete(1)
+
+    expect(updatedTodos).toEqual(todos)
+  })
+
+  it('searchById returns matching todo item', () => {
+    createTodo('Work on React project')
+    const expected = createTodo('Watch world cup')
+    const match = searchById(2)
+
+    expect(match).toEqual(expected)
+  })
+
+  it('searchById returns false if no match', () => {
+    const match = searchById(1)
+
+    expect(match).toBeFalse()
   })
 })
