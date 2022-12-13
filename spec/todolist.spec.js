@@ -6,6 +6,15 @@ describe('Test of TodoList class', () => {
     todoList = new TodoList()
   })
 
+  // createUniqueId
+  it('expects a unique id to be returned', () => {
+    todoList.newTodo('first') // 1
+    todoList.newTodo('second') // 2 REM
+    todoList.newTodo('third') // 3
+    todoList.removeTodo(2)
+    expect(todoList.newTodo('forth').id).not.toBe(3)
+  })
+
   // newTodo
   it('expects newTodo to return nothing if empty value is given to it', () => {
     todoList.newTodo('')
@@ -72,6 +81,13 @@ describe('Test of TodoList class', () => {
   it('expects false if checked is not of type bool', () => {
     todoList.newTodo('do something')
     expect(todoList.updateTodo(1, 1234)).toBeFalse()
+  })
+  it('expects updateTodo to work after an item is removed', () => {
+    todoList.newTodo('do something') // 1
+    todoList.newTodo('do something') // 2 REM
+    todoList.newTodo('do something') // 3
+    todoList.removeTodo(2)
+    todoList.newTodo('do something') // 2or4
   })
 
   // searchById

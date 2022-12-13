@@ -3,10 +3,20 @@ class TodoList {
     this.todos = []
   }
 
+  createUniqueId() {
+    let uniqueId = this.todos.length + 1
+
+    while (this.todos.filter((todo) => todo.id === uniqueId)[0]) {
+      uniqueId += 1
+    }
+
+    return uniqueId
+  }
+
   newTodo(text) {
     if (!text || text === '') return false
 
-    const newId = this.todos.length + 1
+    const newId = this.createUniqueId()
     const newTodo = {
       id: newId,
       text: text,
