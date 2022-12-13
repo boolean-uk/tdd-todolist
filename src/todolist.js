@@ -39,6 +39,12 @@ class TodoList {
     this.todos[todoIndex].checked = checked
   }
 
+  searchById(id) {
+    const todoIndex = id - 1
+    if (this.todos[todoIndex] === undefined) return false
+    return this.todos[todoIndex]
+  }
+
   removeTodo(id) {
     const todoIndex = id - 1
     if (this.todos[todoIndex] === undefined) return false
