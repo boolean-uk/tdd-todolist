@@ -39,4 +39,13 @@ describe('Test of TodoList class', () => {
     todoList.newTodo('do something')
     expect(todoList.removeTodo(1)).toHaveSize(0)
   })
+
+  // updateTodo
+  it('expects the updateTodo to return false if id does not exist', () => {
+    expect(todoList.updateTodo(1, true)).toBeFalse()
+  })
+  it('expects false if checked is not of type bool', () => {
+    todoList.newTodo('do something')
+    expect(todoList.updateTodo(1, 1234)).toBeFalse()
+  })
 })

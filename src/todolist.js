@@ -25,6 +25,9 @@ class TodoList {
 
   updateTodo(id, checked) {
     const todoIndex = id - 1
+    if (this.todos[todoIndex] === undefined) return false
+    if (typeof checked !== 'boolean') return false
+
     this.todos[todoIndex].checked = checked
   }
 
