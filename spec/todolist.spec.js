@@ -79,4 +79,17 @@ describe('Todo list', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('searches for item by id', () => {
+    const item1 = todoList.create('exercise')
+    const expected = {
+      id: 1,
+      text: 'exercise',
+      status: 'incomplete'
+    }
+
+    const result = todoList.search(item1.id)
+
+    expect(result).toEqual(expected)
+  })
 })
