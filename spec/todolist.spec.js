@@ -30,4 +30,10 @@ describe('Test of TodoList class', () => {
     todoList.newTodo('do second something')
     expect(todoList.getAllTodos()).toHaveSize(2)
   })
+
+  // removeTodo
+  it('expects the return of removeTodo to have length of 0 due to the removal by id', () => {
+    todoList.newTodo('do something')
+    expect(todoList.removeTodo(1)).toHaveSize(0)
+  })
 })

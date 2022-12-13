@@ -20,6 +20,12 @@ class TodoList {
   getAllTodos() {
     return this.todos
   }
+
+  removeTodo(id) {
+    const todoIndex = id - 1
+    this.todos.splice(todoIndex, 1)
+    return this.todos
+  }
 }
 
 module.exports = {
