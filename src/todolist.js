@@ -30,6 +30,12 @@ class TodoList {
   getByStatus(status) {
     return this.items.filter((item) => item.status === status)
   }
+
+  remove(id) {
+    const item = this.search(id)
+    const index = this.items.indexOf(item)
+    return this.items.splice(index, 1)[0]
+  }
 }
 
 module.exports = TodoList

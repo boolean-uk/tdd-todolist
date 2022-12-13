@@ -111,6 +111,6 @@ describe('Todo list', () => {
     const deletedItem = todoList.remove(1)
 
     expect(deletedItem).toEqual(expected)
-    expected(todoList.getAll()).toEqual([])
+    expect(todoList.getAll()).toEqual([])
   })
 })
