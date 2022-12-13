@@ -4,11 +4,17 @@ class TodoList {
   }
 
   newTodo(text) {
+    if (!text || text === '') return false
+
+    const newId = this.todos.length + 1
     const newTodo = {
-      text: null
+      id: newId,
+      text: text,
+      checked: false
     }
 
     this.todos.push(newTodo)
+    return newTodo
   }
 }
 
