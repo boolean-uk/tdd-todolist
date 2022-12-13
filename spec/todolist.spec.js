@@ -1,11 +1,11 @@
-const TodoList = require('../src/todolist')
+const TodoList = require('../src/todolist.js')
 
-describe('todolist', () => {
-  // don't need yet, just wanted to get it down ready
-  // let todoList
-  // beforeEach(() => {
-  //   todoList = new TodoList()
-  // })
+describe('Todo list', () => {
+  let todoList
+
+  beforeEach(() => {
+    todoList = new TodoList()
+  })
 
   it('creates a todo item', () => {
     const expected = {
@@ -13,6 +13,9 @@ describe('todolist', () => {
       id: 1,
       status: 'incomplete'
     }
-    expected(result).ToEqual(expected)
+
+    const result = todoList.create('exercise')
+
+    expect(result).toEqual(expected)
   })
 })
