@@ -1,3 +1,5 @@
+const { check } = require('prettier')
+
 class TodoList {
   constructor() {
     this.todos = []
@@ -21,8 +23,15 @@ class TodoList {
     return this.todos
   }
 
+  updateTodo(id, checked) {
+    const todoIndex = id - 1
+    this.todos[todoIndex].checked = checked
+  }
+
   removeTodo(id) {
     const todoIndex = id - 1
+    if (this.todos[todoIndex] === undefined) return false
+
     this.todos.splice(todoIndex, 1)
     return this.todos
   }

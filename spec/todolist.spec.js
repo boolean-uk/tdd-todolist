@@ -32,6 +32,9 @@ describe('Test of TodoList class', () => {
   })
 
   // removeTodo
+  it('expects the removeTodo to return false if id does not exist', () => {
+    expect(todoList.removeTodo(1)).toBeFalse()
+  })
   it('expects the return of removeTodo to have length of 0 due to the removal by id', () => {
     todoList.newTodo('do something')
     expect(todoList.removeTodo(1)).toHaveSize(0)
