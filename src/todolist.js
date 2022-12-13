@@ -10,6 +10,10 @@ class TodoList {
     this.items.push(item)
     return item
   }
+
+  // getAll() {
+  //   return this.items
+  // }
 }
 
 module.exports = TodoList

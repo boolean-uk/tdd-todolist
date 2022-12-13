@@ -18,4 +18,24 @@ describe('Todo list', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('gets all items', () => {
+    const item1 = {
+      text: 'exercise',
+      id: 1,
+      status: 'incomplete'
+    }
+    const item2 = {
+      text: 'wash pots',
+      id: 2,
+      status: 'incomplete'
+    }
+
+    const expected = [item1, item2]
+
+    todoList.create('exercise')
+    todoList.create('wash pots')
+
+    expect(todoList.getAll()).toEqual(expected)
+  })
 })
