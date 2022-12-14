@@ -1,27 +1,53 @@
-const { createToDo } = require('../src/todolist')
+const {
+  create,
+  resetTodolist,
+  getAll,
+  setComplete
+} = require('../src/todolist.js')
 
-describe('createToDo', () => {
-  it('should create a ToDo item that has the properties of ID = array.index, Text = "", completed = false', () => {
-    const result = createToDo('ToDo created')
+describe('TodoList', () => {
+  beforeEach(() => {
+    resetTodolist()
+  })
 
-    expect(result).toBe('ToDo created')
+  it('creates a todo item', () => {
+    const item = create('write code')
+
+    expect(item).toEqual({
+      id: 1,
+      description: 'write code',
+      status: 'incomplete'
+    })
+  })
+
+  it('creates multiple todo items', () => {
+    create('make coffee')
+    const item2 = create('go outside for once')
+
+    expect(item2).toEqual({
+      id: 2,
+      description: 'go outside for once',
+      status: 'incomplete'
+    })
+  })
+
+  it('should get all todos', () => {
+    create('make coffee')
+    create('go outside for once')
+
+    const todos = getAll()
+
+    expect(todos).toEqual([
+      {
+        id: 1,
+        description: 'make coffee',
+        status: 'incomplete'
+      },
+      {
+        id: 2,
+        description: 'go outside for once',
+        status: 'incomplete'
+      }
+    ])
   })
 })
-
-// const { addedItem } = require('./index.js')
-
-// describe('addingItem', () => {
-//   it('Should show me that an item has been added to the basket', () => {
-//     const result = addedItem('item added to basket')
-
-//     expect(result).toEqual('item added to basket')
-//     // write code one line at a time, testing after each line.
-//     // As soon as the test fails, start writing source code
-//   })
-
-//   it('Should tell if i have the item in my basket already', () => {
-//     const result = addedItem('item in cart already')
-
-//     expect(result).toBe('item in cart already')
-//   })
-// })
