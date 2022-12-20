@@ -1,35 +1,144 @@
-const { TodoList } = require('../src/todolist')
+const TodoList = require('../src/TodoList.js')
 
-describe('todoList', () => {
-  let todoList 
-  beforeEach(()=>{
+describe('TodoList', () => {
+  let todoList
+
+  beforeEach(() => {
     todoList = new TodoList()
   })
 
-  it('should define todoList', () => {
-    expect(todoList).toBeDefined()
-  })
-
-  it('Create a todo item that has an ID, text description, and starts off incomplete', () => {
-    const todoItem = 'Do something'
-    expect(todoList.create(todoItem)).toEqual({
+  it('creates a todo item', () => {
+    // set up
+    const expected = {
       id: 1,
-      description: 'Do something',
+      text: 'turn the heating on!',
       status: 'incomplete'
-    })
+    }
+
+    // execute
+    const result = todoList.create('turn the heating on!')
+
+    // verify
+    expect(result).toEqual(expected)
   })
 
-  it('get all todo items', ()=>{
-    todoList.create('google code')
-    todoList.create('to code facebook')
-    expect(todoList.getAlltodo()).toHaveSize(2)
+  it('returns all items', () => {
+    // set up
+    const item1 = {
+      id: 1,
+      text: 'turn the heating on!',
+      status: 'incomplete'
+    }
+    const item2 = {
+      id: 2,
+      text: 'Do the washing up',
+      status: 'incomplete'
+    }
+    const expected = [item1, item2]
+
+    // execute
+    todoList.create('turn the heating on!')
+    todoList.create('Do the washing up')
+
+    // verify
+    expect(todoList.showAll()).toEqual(expected)
   })
 
-  it('completed todo by its id', ()=>{
-    todoList.create('be happy')
-    expect(todoList.completedTodo()).toEqual([
-      { id:1, description: 'be happy', status: true}
-    ])
+  it('sets item to be complete if found', () => {
+    // set up
+    const item1 = todoList.create('turn the heating on!')
+    const expected = {
+      id: 1,
+      text: 'turn the heating on!',
+      status: 'complete'
+    }
+
+    // execute
+    const result = todoList.setComplete(item1.id)
+
+    // verify
+    expect(result).toEqual(expected)
+  })
+
+  it('throws error if not found', () => {
+    // set up
+
+    // execute, verify
+    expect(() => todoList.setComplete(1)).toThrowError('Item not found')
+  })
+
+  it('gets incomplete items', () => {
+    // set up
+    const item1 = todoList.create('turn the heating on!')
+    const item2 = todoList.create('Do the washing up')
+    todoList.setComplete(item1.id)
+    const expected = [item2]
+
+    // execute
+    const result = todoList.getByStatus('incomplete')
+
+    // verify
+    expect(result).toEqual(expected)
+  })
+
+  it('gets complete items', () => {
+    // set up
+    const item1 = todoList.create('turn the heating on!')
+    const item2 = todoList.create('Do the washing up')
+    todoList.setComplete(item1.id)
+    const expected = [item1]
+
+    // execute
+    const result = todoList.getByStatus('complete')
+
+    // verify
+    expect(result).toEqual(expected)
+  })
+
+  it('finds item by id', () => {
+    // set up
+    const item1 = todoList.create('turn the heating on!')
+    const expected = {
+      id: 1,
+      text: 'turn the heating on!',
+      status: 'incomplete'
+    }
+
+    // execute
+    const result = todoList.findBy(item1.id)
+
+    // verify
+    expect(result).toEqual(expected)
+  })
+
+  it('findBy throws error if not found', () => {
+    // set up
+
+    // execute, verify
+    expect(() => todoList.findBy(1)).toThrowError('Item not found')
+  })
+
+  it('deletes item by id', () => {
+    // set up
+    const item1 = todoList.create('turn the heating on!')
+    const expected = {
+      id: 1,
+      text: 'turn the heating on!',
+      status: 'incomplete'
+    }
+
+    // execute
+    const deletedItem = todoList.deleteBy(1)
+
+    // verify
+    expect(deletedItem).toEqual(expected)
+    expect(todoList.showAll()).toEqual([])
+  })
+
+  it('delete throws error if not found', () => {
+    // set up
+
+    // execute, verify
+    expect(() => todoList.deleteBy(1)).toThrowError('Item not found')
   })
 })
-
