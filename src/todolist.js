@@ -1,27 +1,41 @@
-const todoList = []
-
-function getAll() {
-  return todoList
-}
-
-function create(description) {
-  const todo = {
-    id: todoList.length + 1,
-    description,
-    status: 'incomplete'
+class TodoList {
+  constructor() {
+    this.id = 0
+    this.items = []
   }
 
-  todoList.push(todo)
+  create(str) {
+    this.id++
+    const item = { id: this.id, text: str, status: 'incomplete' }
+    this.items.push(item)
+    return item
+  }
 
-  return todo
+  showAll() {
+    return this.items
+  }
+
+  setComplete(id) {
+    const item = this.findBy(id)
+    item.status = 'complete'
+    return item
+  }
+
+  getByStatus(status) {
+    return this.items.filter((item) => item.status === status)
+  }
+
+  findBy(id) {
+    const item = this.items.find((item) => item.id === id)
+    if (item === undefined) throw new Error('Item not found')
+    return item
+  }
+
+  deleteBy(id) {
+    const item = this.findBy(id)
+    const index = this.items.indexOf(item)
+    return this.items.splice(index, 1)[0]
+  }
 }
 
-function resetTodolist() {
-  todoList.splice(0, todoList.length)
-}
-
-module.exports = {
-  create,
-  resetTodolist,
-  getAll
-}
+module.exports = TodoList
