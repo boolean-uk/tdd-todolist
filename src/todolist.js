@@ -10,12 +10,16 @@ class ToDoList {
     this.items.push(item)
     return item
   }
-  // create new task
+
+  getAll() {
+    return this.items
+  }
 }
 
-// complete
-// get
-// search
-// remove
+// get all complete
+// get all incomplete
+// complete task
+// search byId
+// remove byId
 
 module.exports = ToDoList
