@@ -36,4 +36,8 @@ describe('A to-do list', () => {
     ]
     expect(result).toEqual(expect)
   })
+  it('returns removes item on the list', () => {})
+  it('returns all complete item on the list', () => {})
+  it('returns all incomplete item on the list', () => {})
+  it('returns item with the matching Id from the list', () => {})
 })

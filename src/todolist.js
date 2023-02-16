@@ -14,12 +14,16 @@ class ToDoList {
   getAll() {
     return this.items
   }
-}
 
-// get all complete
-// get all incomplete
-// complete task
-// search byId
-// remove byId
+  comlplete(id) {
+    const found = this.items.find((todo) => todo.id === this.items.id)
+    if (!found) return 'a task with this id does not exist'
+  }
+
+  getAllComplete() {}
+  getAllIncomplet() {}
+  searchById() {}
+  removeById() {}
+}
 
 module.exports = ToDoList
