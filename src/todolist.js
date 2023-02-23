@@ -15,15 +15,27 @@ class ToDoList {
     return this.items
   }
 
-  comlplete(id) {
-    const found = this.items.find((todo) => todo.id === this.items.id)
-    if (!found) return 'a task with this id does not exist'
+  searchBy(id) {
+    const item = this.items.find((item) => item.id === id)
+    if (!item) throw Error('Item not found')
+    return item
   }
 
-  getAllComplete() {}
-  getAllIncomplet() {}
-  searchById() {}
-  removeById() {}
+  setComplete(id) {
+    const item = this.search(id)
+    item.status = 'complete'
+    return item
+  }
+
+  getByStatus(status) {
+    return this.items.filter((item) => item.status === status)
+  }
+
+  removeBy(id) {
+    const item = this.search(id)
+    const index = this.items.indexOf(item)
+    return this.items.splice(index, 1)[0]
+  }
 }
 
 module.exports = ToDoList
