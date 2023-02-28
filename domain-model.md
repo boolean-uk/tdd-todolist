@@ -6,4 +6,4 @@ As a productive user, I want to be able to create a to-do item allowing me to ha
 
 ### Table
 
-(./images/domain-model-table.png)
+![](./images/domain-model-table.png)
