@@ -1,22 +1,34 @@
-toDoList array of toDoItem js object
-
 toDoItem js object
 PROPERTIES
 - id: number
 - description: string
 - status: string
 
-createToDo(id, description, status) ->
-INPUTS:
-- id: number
-- description: string
-- status: string
-makes a js object with keys and values matching above and pushes the object to the toDoList array.
+CLASS toDoList
+- id: 0
+- items: array [empty]
 
-getAll(toDoList) ->
-returns "nothing left to do" if array is empty
-returns a toDolist array if toDOlist items are present.
+METHODS
+create(string)
+INPUT: text of the todo
 
-setStatus(number) ->
-finds the object in the the array with the id matching the number parameter
-sets toDoItem.status to completed
+getItems
+OUTPUT: the array of items
+
+completeToDo(id)
+INPUT: id of task you want to set as completed
+OUTPUT: todo.status = 'completed'
+
+getIncompleteTodos
+OUTPUT: array of todos with the status 'incomplete'
+
+getCompleteTodos
+OUTPUT: array of todos with the status 'complete'
+
+searchById(id)
+INPUT: id of the todo
+OUTPUT: returns the todo with the id or returns 'Does not exist'
+
+deleteById(id)
+INPUT: id of todo to delete
+OUTPUT: todo removed from items list else 'Does not exist'
