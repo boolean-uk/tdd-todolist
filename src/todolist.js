@@ -1,57 +1,59 @@
 const todoList = [
-    { id: 0, text: "create test codes", completed: true },
-    { id: 1, text: "test the test codes", completed: false }
+  { id: 0, text: 'create test codes', completed: true },
+  { id: 1, text: 'test the test codes', completed: false }
 ]
 
 const createTodos = (id, text) => {
-    const todo = {
-        id: id,
-        text: text,
-        completed: false,
-    };
-    return todoList.push(todo)
+  const todo = {
+    id: id,
+    text: text,
+    completed: false
+  }
+  return todoList.push(todo)
 }
 
 function getAllTodos() {
-    return todoList
+  return todoList
 }
-
 
 let incompleteTodoList = []
 
 function getIncompleteTodos() {
-    // return todoList
-    for (let i = 0; i < todoList.length; i++) {
-        if (todoList[i].completed === false) {
-            incompleteTodoList.push(todoList[i])
-        }
+  // return todoList
+  for (let i = 0; i < todoList.length; i++) {
+    if (todoList[i].completed === false) {
+      incompleteTodoList.push(todoList[i])
     }
-    return incompleteTodoList
+  }
+  return incompleteTodoList
 }
 
 let completeTodoList = []
 function getCompleteTodos() {
-    // return todoList
-    for (let i = 0; i < todoList.length; i++) {
-        if (todoList[i].completed === true) {
-            completeTodoList.push(todoList[i])
-        }
+  // return todoList
+  for (let i = 0; i < todoList.length; i++) {
+    if (todoList[i].completed === true) {
+      completeTodoList.push(todoList[i])
     }
-    return completeTodoList
+  }
+  return completeTodoList
 }
 
 function toggleCompleted(id) {
-    const target = todoList.find((todo) => todo.id === id)
-    target.completed === false ?
-        (target.completed = true)
-        :
-        (target.completed = false)
+  const target = todoList.find((todo) => todo.id === id)
+  target.completed === false
+    ? (target.completed = true)
+    : (target.completed = false)
+
+  return todoList
 }
 
+console.log(todoList)
+
 module.exports = {
-    createTodos,
-    getAllTodos,
-    getIncompleteTodos,
-    getCompleteTodos,
-    toggleCompleted
+  createTodos,
+  getAllTodos,
+  getIncompleteTodos,
+  getCompleteTodos,
+  toggleCompleted
 }
