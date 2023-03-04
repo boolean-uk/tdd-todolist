@@ -3,7 +3,9 @@ const {
   getAllTodos,
   getIncompleteTodos,
   getCompleteTodos,
-  toggleCompleted
+  toggleCompleted,
+  removeTodo,
+  searchItem
 } = require('../src/todolist.js')
 
 describe('Todo list:', () => {
@@ -89,4 +91,47 @@ describe('Todo list:', () => {
     // verify
     expect(result).toEqual(expectedResult)
   })
+})
+
+it('(6) removes a todoItem by its id', () => {
+  // setup
+  const todoList = [
+    { id: 0, text: 'create test codes', completed: true },
+    { id: 1, text: 'test the test codes', completed: false }
+  ]
+  // execute
+  const expectedResult = [{ id: 0, text: 'create test codes', completed: true }]
+  const result = removeTodo(0)
+
+  // verify
+  expect(result).toEqual(expectedResult)
+})
+
+it('(7) returns an error if searching for a non-existent todoItem', () => {
+  // setup
+  const todoList = [
+    { id: 0, text: 'create test codes', completed: true },
+    { id: 1, text: 'test the test codes', completed: false }
+  ]
+  // execute
+  const expectedResult = 'Todo item not found'
+  // can I do result = removeTodo(3) || searchItem(3) instead of writing the same test twice?
+  const result = removeTodo(3) || searchItem(3)
+
+  // verify
+  expect(result).toEqual(expectedResult)
+})
+
+it('(8) searches a todoItem by its id', () => {
+  // setup
+  const todoList = [
+    { id: 0, text: 'create test codes', completed: true },
+    { id: 1, text: 'test the test codes', completed: false }
+  ]
+  // execute
+  const expectedResult = [{ id: 0, text: 'create test codes', completed: true }]
+  const result = searchItem(0)
+
+  // verify
+  expect(result).toEqual(expectedResult)
 })

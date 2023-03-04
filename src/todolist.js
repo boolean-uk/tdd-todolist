@@ -48,12 +48,46 @@ function toggleCompleted(id) {
   return todoList
 }
 
-console.log(todoList)
+filteredList = []
+function removeTodo(id) {
+  const filteredTodoList = todoList.filter((todo) => todo.id !== id)
+  const removedTodo = (todo) => todo.id === id
+
+  const index = todoList.findIndex(removedTodo)
+
+  if (index === -1) {
+    console.log('Todo item not found')
+    return 'Todo item not found'
+  } else {
+    const filteredList = filteredTodoList
+    console.log(filteredList)
+    return filteredList
+  }
+}
+
+function searchItem(id) {
+  const filteredTodoList = todoList.filter((todo) => todo.id === id)
+  const searchedTodo = (todo) => todo.id === id
+
+  const index = todoList.findIndex(searchedTodo)
+
+  if (index === -1) {
+    console.log('Search: Todo item not found')
+    return 'Todo item not found'
+  } else {
+    const filteredList = filteredTodoList
+    console.log('searched:', filteredList)
+    return filteredList
+  }
+}
 
 module.exports = {
   createTodos,
   getAllTodos,
   getIncompleteTodos,
   getCompleteTodos,
-  toggleCompleted
+  toggleCompleted,
+  removeTodo,
+  // eslint-disable-next-line no-undef
+  searchItem
 }
