@@ -4,31 +4,20 @@ nouns: todo item
 
 Class ToDoList
 Properties
--toDoArray(@ToDo)
+-toDoArray(@{@number, @string, @boolean})
 
 Methods
--AddToDo(@string)
+-CreateToDo(@string)
     no return
 -GetAllItems()
     return toDoArray
 -SetCompletedById(id@number)
     return success(@boolean)
 -GetIncomplete()
-    return incompleteArray(@todo)
+    return incompleteArray(@{@number, @string, @boolean})
 -GetComplete()
-    return incompleteArray(@todo)
+    return incompleteArray(@{@number, @string, @boolean})
 -SearchById(id@number)
-    return todo / error (@string)
+    return @{@number, @string, @boolean} / error (@string)
 -removeTodoById(id@number)
     return success(@boolean)
-
-
-Class ToDo
-Properties
--ID (@number)
--Text (@string)
--status (@boolean)
-
-Methods
-constructor (@string)
-    return this
