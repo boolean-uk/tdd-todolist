@@ -1,15 +1,15 @@
-const todoList = [
-  { id: 0, text: 'create test codes', completed: true },
-  { id: 1, text: 'test the test codes', completed: false }
-]
+const todoList = []
+let ID = -1
 
-const createTodos = (id, text) => {
+const createTodos = (text) => {
+  ID += 1
   const todo = {
-    id: id,
+    id: ID,
     text: text,
     completed: false
   }
-  return todoList.push(todo)
+  todoList.push(todo)
+  return todo
 }
 
 function getAllTodos() {
