@@ -45,7 +45,10 @@ function searchToDoById(id) {
   return toDos.find((toDo) => toDo.id === id)
 }
 
-function removeToDo(id) {}
+function removeToDo(id) {
+  const foundToDo = searchToDoById(id)
+  return toDos.splice(toDos.indexOf(foundToDo), 1)
+}
 
 module.exports = {
   createToDo,
