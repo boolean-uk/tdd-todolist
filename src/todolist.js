@@ -25,7 +25,7 @@ function toggleToDo(id) {
   // this is why I can use foundToDo.status to update the original value
   // In this case, find() is more simple than using findIndex()
 
-  const foundToDo = toDos.find((toDo) => toDo.id === id)
+  const foundToDo = searchToDoById(id)
 
   if (foundToDo.status === 'incomplete') {
     foundToDo.status = 'complete'
@@ -41,9 +41,9 @@ function getCompleteToDos() {
   return toDos.filter((toDo) => toDo.status === 'complete')
 }
 
-// function findToDo(id) {
-//   return toDos.findIndex((toDo) => toDo.id === id)
-// }
+function searchToDoById(id) {
+  return toDos.find((toDo) => toDo.id === id)
+}
 
 module.exports = {
   createToDo,
@@ -51,5 +51,6 @@ module.exports = {
   clearToDos,
   toggleToDo,
   getIncompleteToDos,
-  getCompleteToDos
+  getCompleteToDos,
+  searchToDoById
 }

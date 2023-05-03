@@ -4,7 +4,8 @@ const {
   clearToDos,
   toggleToDo,
   getIncompleteToDos,
-  getCompleteToDos
+  getCompleteToDos,
+  searchToDoById
 } = require('./../src/todolist.js')
 
 describe('To dos', () => {
@@ -84,7 +85,23 @@ describe('To dos', () => {
     expect(getCompleteToDos()).toEqual(expectedToDos)
   })
 
-  // it('Returns a todo by ID', () => {})
+  it('Returns a todo by ID', () => {
+    createToDo('Feed the cat')
+    createToDo('Feed the dog')
+    createToDo('Feed the wolf')
+    createToDo('Feed the whale')
+
+    expect(searchToDoById(4)).toEqual({
+      id: 4,
+      text: 'Feed the whale',
+      status: 'incomplete'
+    })
+    expect(searchToDoById(1)).toEqual({
+      id: 1,
+      text: 'Feed the cat',
+      status: 'incomplete'
+    })
+  })
 
   // it('Removes a todo item by ID', () => {})
 })
