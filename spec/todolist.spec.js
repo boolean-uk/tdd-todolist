@@ -35,7 +35,7 @@ describe('To dos', () => {
     createToDo('Feed the cat')
     createToDo('Feed the dog')
 
-    const result = toggleToDo(1)
+    const result = toggleToDo(2)
 
     const expectedToDos = [
       { id: 1, text: 'Feed the cat', status: 'incomplete' },
@@ -44,4 +44,20 @@ describe('To dos', () => {
     expect(getAllToDos()).toEqual(expectedToDos)
     expect(result).toEqual(expectedToDos[1])
   })
+
+  // it('Returns only incomplete todos', () => {
+  //   createToDo('Feed the cat')
+  //   createToDo('Feed the dog')
+  //   createToDo('Feed the wolf')
+  //   createToDo('Feed the whale')
+
+  //   toggleToDo(0)
+  //   toggleToDo()
+  // })
+
+  // it('Returns only complete todos', () => {})
+
+  // it('Returns a todo by ID', () => {})
+
+  // it('Removes a todo item by ID', () => {})
 })
