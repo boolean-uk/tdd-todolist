@@ -33,8 +33,23 @@ function toggleToDo(id) {
   return foundToDo
 }
 
+function getIncompleteToDos() {
+  return toDos.filter((toDo) => toDo.status === 'incomplete')
+}
+
+function getCompleteToDos() {
+  return toDos.filter((toDo) => toDo.status === 'complete')
+}
+
 // function findToDo(id) {
 //   return toDos.findIndex((toDo) => toDo.id === id)
 // }
 
-module.exports = { createToDo, getAllToDos, clearToDos, toggleToDo }
+module.exports = {
+  createToDo,
+  getAllToDos,
+  clearToDos,
+  toggleToDo,
+  getIncompleteToDos,
+  getCompleteToDos
+}

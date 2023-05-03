@@ -2,7 +2,9 @@ const {
   createToDo,
   getAllToDos,
   clearToDos,
-  toggleToDo
+  toggleToDo,
+  getIncompleteToDos,
+  getCompleteToDos
 } = require('./../src/todolist.js')
 
 describe('To dos', () => {
@@ -45,17 +47,42 @@ describe('To dos', () => {
     expect(result).toEqual(expectedToDos[1])
   })
 
-  // it('Returns only incomplete todos', () => {
-  //   createToDo('Feed the cat')
-  //   createToDo('Feed the dog')
-  //   createToDo('Feed the wolf')
-  //   createToDo('Feed the whale')
+  it('Returns only incomplete todos', () => {
+    createToDo('Feed the cat')
+    createToDo('Feed the dog')
+    createToDo('Feed the wolf')
+    createToDo('Feed the whale')
 
-  //   toggleToDo(0)
-  //   toggleToDo()
-  // })
+    toggleToDo(1)
+    toggleToDo(3)
 
-  // it('Returns only complete todos', () => {})
+    const expectedToDos = [
+      { id: 2, text: 'Feed the dog', status: 'incomplete' },
+      { id: 4, text: 'Feed the whale', status: 'incomplete' }
+    ]
+
+    // const result = getIncompleteToDos()
+    // console.log('RESULT: ', result)
+
+    expect(getIncompleteToDos()).toEqual(expectedToDos)
+  })
+
+  it('Returns only complete todos', () => {
+    createToDo('Feed the cat')
+    createToDo('Feed the dog')
+    createToDo('Feed the wolf')
+    createToDo('Feed the whale')
+
+    toggleToDo(1)
+    toggleToDo(3)
+
+    const expectedToDos = [
+      { id: 1, text: 'Feed the cat', status: 'complete' },
+      { id: 3, text: 'Feed the wolf', status: 'complete' }
+    ]
+
+    expect(getCompleteToDos()).toEqual(expectedToDos)
+  })
 
   // it('Returns a todo by ID', () => {})
 
