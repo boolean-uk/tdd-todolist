@@ -45,6 +45,8 @@ function searchToDoById(id) {
   return toDos.find((toDo) => toDo.id === id)
 }
 
+function removeToDo(id) {}
+
 module.exports = {
   createToDo,
   getAllToDos,
@@ -52,5 +54,6 @@ module.exports = {
   toggleToDo,
   getIncompleteToDos,
   getCompleteToDos,
-  searchToDoById
+  searchToDoById,
+  removeToDo
 }
