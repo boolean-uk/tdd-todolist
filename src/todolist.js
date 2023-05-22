@@ -2,11 +2,19 @@
 let toDos = []
 let lastUsedId = 0
 
+function searchToDoById(id) {
+  const foundToDo = toDos.find((toDo) => toDo.id === id)
+
+  if (foundToDo) {
+    return foundToDo
+  } else {
+    return 'To-Do does not exist!'
+  }
+}
+
 function createToDo(description) {
   lastUsedId += 1
   toDos.push({ id: lastUsedId, text: description, status: 'incomplete' })
-  // console.log('TO DO DATA: ', toDos)
-  // console.log('toDos LAST ID: ', toDos[lastUsedId])
 
   return toDos[lastUsedId - 1]
 }
@@ -39,10 +47,6 @@ function getIncompleteToDos() {
 
 function getCompleteToDos() {
   return toDos.filter((toDo) => toDo.status === 'complete')
-}
-
-function searchToDoById(id) {
-  return toDos.find((toDo) => toDo.id === id)
 }
 
 function removeToDo(id) {

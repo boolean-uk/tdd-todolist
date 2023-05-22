@@ -120,4 +120,10 @@ describe('To dos', () => {
 
     expect(getAllToDos()).toEqual(expectedToDos)
   })
+
+  it('Returns a message if To-do does not exist', () => {
+    createToDo('Feed the cat')
+    createToDo('Feed the dog')
+    expect(searchToDoById(3)).toEqual('To-Do does not exist!')
+  })
 })
