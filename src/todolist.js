@@ -16,12 +16,46 @@ class Todolist {
 
   setComplete(id) {
     const todoItem = this.todoItems.find(item => item.id === id);
-    if (todoItem) {
+    if (todoItem.status === 'incomplete') {
       todoItem.status = 'complete';
       return todoItem;
     }
   }
+  getIncomplete() {
+    const incompleteTodoItems = this.todoItems.map(item => {
+      if(item.status === 'incomplete'){
+        return item
+      }
+    });
+    return incompleteTodoItems;
+  }
+  getComplete() {
+    const completeTodoItems = this.todoItems.map(item => {
+      if(item.status === 'complete'){
+        return item
+      }
+    });
+    return completeTodoItems;
+  }
+  getTodoById(id) {
+    const todoById = this.todoItems.find(item => {
+      if(item.id === id){
+        return item
+      }
+      else return false
+    })
+    return todoById
+  }
+  removeTodo(id) {
+    const todoIndex = this.todoItems.find((item, index) => {
+      if(item.id === id){
+        return index
+      }
+      else return false
+    })
+    this.todoItems.splice(todoIndex, 1)
+    return this.todoItems
+  }
 }
-
 
 export default Todolist;

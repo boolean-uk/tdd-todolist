@@ -18,12 +18,43 @@ describe("to do list", () => {
     })
 
     describe("setComplete", function (){
-        fit("set todo complete by id", function() {
-            const todoList = new Todolist([])
+        it("set todo complete by id", function() {
+            const todoList = new Todolist()
+            todoList.createTodoItem(1, "finish the exercise")
             expect(todoList.setComplete(1)).toEqual({id: 1, text: "finish the exercise", status: "complete"})
         }) 
     })
-
-  
-   
+    describe("getIncomplete", () => {
+        it("get all incomplete todos", () => {
+            const todoList = new Todolist()
+            todoList.createTodoItem(1, "finish the exercise")
+            todoList.createTodoItem(2, "finish the exercise")
+            expect(todoList.getIncomplete()).toEqual([{id: 1, text: "finish the exercise", status: "incomplete"}, {id: 2, text: "finish the exercise", status: "incomplete"}])
+        })
+    })
+    describe("getComplete", () => {
+        it("get all complete todos", () => {
+            const todoList = new Todolist()
+            todoList.createTodoItem(1, "finish the exercise")
+            todoList.createTodoItem(2, "finish the exercise")
+            todoList.setComplete(1)
+            todoList.setComplete(2)
+            expect(todoList.getComplete()).toEqual([{id: 1, text: "finish the exercise", status: "complete"}, {id: 2, text: "finish the exercise", status: "complete"}])
+        })
+    })
+    describe('getTodoById', () => {
+        it('get todo by id', () => {
+            const todoList = new Todolist()
+            todoList.createTodoItem(1, "finish the exercise")
+            todoList.createTodoItem(2, "finish the exercise")
+            expect(todoList.getTodoById(2)).toEqual({id: 2, text: "finish the exercise", status: "incomplete"})
+        })
+    })
+   describe('removeTodo', () => {
+    it('remove a specified todo by id', () => {
+        const todoList = new Todolist()
+        todoList.createTodoItem(1, "finish the exercise")
+        expect(todoList.removeTodo(1)).toEqual([])
+    })
+   })
 })
