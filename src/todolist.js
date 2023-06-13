@@ -25,6 +25,23 @@ class CreateTodoList {
     }
     return 'The todo your looking for was not found'
   }
+
+  getAlltodoIncompleteItems() {
+    return this.todoItems.filter((item) => item.status === 'incomplete')
+  }
+
+  getAlltodoCompleteItems() {
+    return this.todoItems.filter((item) => item.status === 'complete')
+  }
+
+  searchByToDoId(id) {
+    return this.todoItems.filter((item) => item.id === id)
+  }
+
+  deleteTodo(id) {
+    this.todoItems = this.todoItems.filter((item) => item.id !== id)
+    return this.todoItems
+  }
 }
 
 const td = new CreateTodoList()
@@ -37,6 +54,13 @@ td.createNewTodo('beaching')
 console.log(td)
 console.log('all todos', td.getAllTodoItems())
 console.log('set complete:', td.setTodoComplete(3))
+console.log('set complete:', td.setTodoComplete(4))
+console.log('all todos', td.getAllTodoItems())
+console.log('all incomplete', td.getAlltodoIncompleteItems())
+console.log('all todos', td.getAllTodoItems())
+console.log('all complete', td.getAlltodoCompleteItems())
+console.log('search', td.searchByToDoId(1))
+console.log('delete', td.deleteTodo(1))
 console.log('all todos', td.getAllTodoItems())
 
 module.exports = CreateTodoList
