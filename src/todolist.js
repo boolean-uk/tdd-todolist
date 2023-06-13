@@ -24,32 +24,42 @@ const completeById = (givenTaskId) => {
   })
 }
 
-
 const completedTasks = (givenComplete) => {
-
-    data.filter((item) => {
-        if (givenComplete === item.taskComplete) {
-            console.log(item)
-        }
-    })
+  data.filter((item) => {
+    if (givenComplete === item.taskComplete) {
+      console.log(item)
+    }
+  })
 }
 
 const searchById = (givenTaskId) => {
-    data.find((item) => {
-        if (item.taskId === givenTaskId) {
-          console.log('searchById', item)
+  data.find((item) => {
+    if (item.taskId === givenTaskId) {
+      console.log('searchById', item)
+    }
+  })
+}
 
-    }})}
+const removeById = (givenTaskId) => {
+    let filteredData = []
+    data.map((item) => {
+      if (item.taskId !== givenTaskId) {
+       filteredData.push(item)
+      }
+    })
+    console.log('removeById', filteredData)
+  }
 
 //CALL
 
 createTask('write tests', 1, 'Stores List of tests', false)
 createTask('write tests', 2, 'Stores List of tests', false)
 
-getAll(data)
-completeById(1)
+removeById(1)
+// getAll(data)
+// completeById(1)
 
-completedTasks(true)
-searchById(2)
+// completedTasks(true)
+// searchById(2)
 
-export { createTask, getAll, completeById, completedTasks, searchById }
+export { createTask, getAll, completeById, completedTasks, searchById, removeById }

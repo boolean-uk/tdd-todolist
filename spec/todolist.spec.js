@@ -1,6 +1,12 @@
 import data from '../src/data.js'
-import { completeById, completedTasks, getAll, createTask, searchById } from '../src/todolist.js'
-
+import {
+  completeById,
+  completedTasks,
+  getAll,
+  createTask,
+  searchById,
+  removeById
+} from '../src/todolist.js'
 
 describe('Create Todo', () => {
   it('Return item with ID, name, provided description and complete set to false', () => {
@@ -55,51 +61,60 @@ describe('complete by ID', () => {
     }
 })
 
-describe("Get Complete Tasks", () => {
-
-    it('return the items where task complete is true'),
+describe('Get Complete Tasks', () => {
+  it('return the items where task complete is true'),
     () => {
-    //setup
+      //setup
 
-        const complete = true
+      const complete = true
 
-    //execute
+      //execute
 
-        const res = completedTasks(complete)
+      const res = completedTasks(complete)
 
-    //verify
+      //verify
 
-        expect(res).toEqual({
-                taskName: 'write tests',
-                taskId: 1,
-                taskDescription: 'Stores List of tests',
-                taskComplete: true
-              }
-        )
-
+      expect(res).toEqual({
+        taskName: 'write tests',
+        taskId: 1,
+        taskDescription: 'Stores List of tests',
+        taskComplete: true
+      })
     }
-
-
 })
 
-describe("Search Item", () => {
-    it('Return item based on searched ID')
+describe('Search Item', () => {
+  it('Return item based on searched ID'),
+    () => {
+      //setup
 
-    //setup
+      const taskId = 1
 
-    const taskId = 2
+      //execute
 
-    //execute
+      const res = searchById(taskId)
 
-    const res = searchById(taskId)
+      //verify
 
-    //verify
-
-    expect(res).toEqual({
+      expect(res).toEqual({
         taskName: 'write tests',
-        taskId: 2,
+        taskId: 1,
         taskDescription: 'Stores List of tests',
         taskComplete: false
-    })
+      })
+    }
+})
 
+describe('delete item', () => {
+  it('remove the item with matching id from the data array '),
+  () => {
+    ///setup
+    const taskId = 1
+    
+    //execute
+    removeById(taskId)
+
+    //verify
+    expect(data).toEqual([])
+  }
 })
