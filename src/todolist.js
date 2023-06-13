@@ -5,7 +5,7 @@ class TodoList {
     this.todoList = []
   }
 
-  create(description, id = 0, status = 'incomplete') {
+  create(description) {
     // update the id value.
     this.id++
 
@@ -37,6 +37,14 @@ class TodoList {
     return this.todoList.find((todo) => todo.id === id)
   }
 
+  getIncomplete() {
+    return this.todoList.filter((todo) => todo.status === 'incomplete')
+  }
+
+  getComplete() {
+    return this.todoList.filter((todo) => todo.status === 'complete')
+  }
+
   delete(id) {
     const index = this.todoList.findIndex((todo) => todo.id === id)
     if (index !== -1) {
@@ -51,8 +59,10 @@ class TodoList {
 const myTodoList = new TodoList() // Create a new instance of TodoList
 myTodoList.create('Wash the dishes')
 myTodoList.create('Complete the article')
-console.log(myTodoList.todoList)
+// console.log(myTodoList.todoList)
 
 myTodoList.getAll()
+
+// console.log(myTodoList.getIncomplete())
 
 export default TodoList
