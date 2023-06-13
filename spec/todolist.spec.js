@@ -48,4 +48,81 @@ describe('TodoList', () => {
       status: 'complete'
     }
   })
+  it('Get all incomplete tasks', () => {
+    // Given
+    const newTodoList = new TodoList()
+    const task1 = 'make the bed'
+    const task2 = 'cook dinner'
+    const task3 = 'do the washing up'
+    // When
+    newTodoList.create(task1)
+    newTodoList.create(task2)
+    newTodoList.create(task3)
+    newTodoList.setComplete(3)
+    const result = newTodoList.getIncomplete()
+    // Then
+    expect(result).toEqual = [
+      {
+        id: 1,
+        text: 'make the bed',
+        status: 'incomplete'
+      },
+      { id: 2, text: 'cook dinner', status: 'incomplete' }
+    ]
+  })
+  it('Get all complete tasks', () => {
+    // Given
+    const newTodoList = new TodoList()
+    const task1 = 'make the bed'
+    const task2 = 'cook dinner'
+    const task3 = 'do the washing up'
+    // When
+    newTodoList.create(task1)
+    newTodoList.create(task2)
+    newTodoList.create(task3)
+    newTodoList.setComplete(3)
+    const result = newTodoList.getComplete()
+    // Then
+    expect(result).toEqual = [
+      {
+        id: 3,
+        text: 'do the washing up',
+        status: 'complete'
+      },
+    ]
+  });
+  it('Search task by id', () => {
+    // Given
+    const newTodoList = new TodoList()
+    const task1 = 'make the bed'
+    const task2 = 'cook dinner'
+    const task3 = 'do the washing up'
+    // When
+    newTodoList.create(task1)
+    newTodoList.create(task2)
+    newTodoList.create(task3)
+    const result = newTodoList.search(3)
+    // Then
+    expect(result).toEqual = [
+      {
+        id: 3,
+        text: 'do the washing up',
+        status: 'incomplete'
+      },
+    ]
+  });
+  it('Remove task by id', () => {
+    // Given
+    const newTodoList = new TodoList()
+    const task1 = 'make the bed'
+    const task2 = 'cook dinner'
+    const task3 = 'do the washing up'
+    // When
+    newTodoList.create(task1)
+    newTodoList.create(task2)
+    newTodoList.create(task3)
+    const result = newTodoList.remove(3)
+    // Then
+    expect(result).toEqual = `task of id 3 has been deleted`
+  })
 })
