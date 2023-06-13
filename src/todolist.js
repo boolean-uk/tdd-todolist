@@ -18,6 +18,7 @@ class Todolist {
     const todoItem = this.todoItems.find(item => item.id === id);
     if (todoItem) {
       todoItem.status = 'complete';
+      return todoItem;
     }
   }
 }

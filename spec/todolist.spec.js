@@ -3,10 +3,10 @@ import Todolist from '../src/todolist.js'
 describe("to do list", () => {
 
     describe("getAll",() => { 
-        fit("can get all todo items", function() {
+        it("can get all todo items", function() {
             const todoList = new Todolist() 
             todoList.createTodoItem(1, "finish the exercise")
-            expect(todoList.getAll()).toEqual({id: 1, text: "finish the exercise", status: "incomplete"})
+            expect(todoList.getAll()).toEqual([{id: 1, text: "finish the exercise", status: "incomplete"}])
         })
      })  
     
@@ -18,7 +18,7 @@ describe("to do list", () => {
     })
 
     describe("setComplete", function (){
-        it("set todo complete by id", function() {
+        fit("set todo complete by id", function() {
             const todoList = new Todolist([])
             expect(todoList.setComplete(1)).toEqual({id: 1, text: "finish the exercise", status: "complete"})
         }) 
