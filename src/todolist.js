@@ -17,15 +17,31 @@ class CreateTodoList {
   getAllTodoItems() {
     return this.todoItems
   }
+
+  setTodoComplete(id) {
+    const setTodoComplete = this.todoItems.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          status: 'complete'
+        }
+      } else {
+        return item
+      }
+    })
+  }
 }
 
-const newTodo = new CreateTodoList()
-console.log(newTodo)
-newTodo.createNewTodo('study')
-console.log(newTodo)
-newTodo.createNewTodo('laundry')
-console.log(newTodo)
-newTodo.createNewTodo('beaching')
-console.log(newTodo)
+const td = new CreateTodoList()
+console.log(td)
+td.createNewTodo('study')
+console.log(td)
+td.createNewTodo('laundry')
+console.log(td)
+td.createNewTodo('beaching')
+console.log(td)
+console.log('all todos', td.getAllTodoItems())
+console.log('set complete', td.setTodoComplete(3))
+console.log('all todos', td.getAllTodoItems())
 
 module.exports = CreateTodoList
