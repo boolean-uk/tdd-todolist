@@ -1,4 +1,4 @@
-import Todolist from '../src/todolist'
+import Todolist from '../src/todolist.js'
 
 describe("to do list", () => {
     const todoList = new Todolist([])
