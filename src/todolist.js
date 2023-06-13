@@ -24,6 +24,23 @@ const completeById = (givenTaskId) => {
   })
 }
 
+
+const completedTasks = (givenComplete) => {
+
+    data.filter((item) => {
+        if (givenComplete === item.taskComplete) {
+            console.log(item)
+        }
+    })
+}
+
+const searchById = (givenTaskId) => {
+    data.find((item) => {
+        if (item.taskId === givenTaskId) {
+          console.log('searchById', item)
+
+    }})}
+
 //CALL
 
 createTask('write tests', 1, 'Stores List of tests', false)
@@ -32,4 +49,7 @@ createTask('write tests', 2, 'Stores List of tests', false)
 getAll(data)
 completeById(1)
 
-export { createTask, getAll, completeById }
+completedTasks(true)
+searchById(2)
+
+export { createTask, getAll, completeById, completedTasks, searchById }

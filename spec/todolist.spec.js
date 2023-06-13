@@ -1,6 +1,6 @@
-import { createTask } from '../src/todolist.js'
 import data from '../src/data.js'
-import { getAll } from '../src/todolist.js'
+import { completeById, completedTasks, getAll, createTask, searchById } from '../src/todolist.js'
+
 
 describe('Create Todo', () => {
   it('Return item with ID, name, provided description and complete set to false', () => {
@@ -37,7 +37,7 @@ describe('Get all', () => {
 })
 
 describe('complete by ID', () => {
-  it('return the item with the complete set to true'),
+  it('return the item, and set task complete to true'),
     () => {
       //setup
       const taskId = 1
@@ -53,4 +53,53 @@ describe('complete by ID', () => {
         taskComplete: true
       })
     }
+})
+
+describe("Get Complete Tasks", () => {
+
+    it('return the items where task complete is true'),
+    () => {
+    //setup
+
+        const complete = true
+
+    //execute
+
+        const res = completedTasks(complete)
+
+    //verify
+
+        expect(res).toEqual({
+                taskName: 'write tests',
+                taskId: 1,
+                taskDescription: 'Stores List of tests',
+                taskComplete: true
+              }
+        )
+
+    }
+
+
+})
+
+describe("Search Item", () => {
+    it('Return item based on searched ID')
+
+    //setup
+
+    const taskId = 2
+
+    //execute
+
+    const res = searchById(taskId)
+
+    //verify
+
+    expect(res).toEqual({
+        taskName: 'write tests',
+        taskId: 2,
+        taskDescription: 'Stores List of tests',
+        taskComplete: false
+    })
+
 })
