@@ -1,32 +1,30 @@
-class CreateNewTodo {
-  constructor(description) {
-    this.description = description
-    this.id = Math.random()
-    this.status = 'incomplete'
+class CreateTodoList {
+  constructor() {
+    this.todoItems = []
+    this.id = 1
   }
 
-//   create(newTodo) {
-//     return this.todoList.push(newTodo)
-//   }
-}
+  createNewTodo(todo) {
+    const todoItem = {
+      id: this.id++,
+      description: todo,
+      status: 'incomplete'
+    }
+    this.todoItems.push(todoItem)
+    return this.todoItems
+  }
 
-class TodoList {
-constructor() {
-    this.todoItems = []
-    this.id = 0
-}
-
-create(todo) {
   
-  id: this.id,
 
 }
 
-}
-
-const newTodo = new CreateNewTodo('study')
+const newTodo = new CreateTodoList()
+console.log(newTodo)
+newTodo.createNewTodo('study')
+console.log(newTodo)
+newTodo.createNewTodo('laundry')
+console.log(newTodo)
+newTodo.createNewTodo('beaching')
 console.log(newTodo)
 
-
-
-export default CreateNewTodo
+export default CreateTodoList
