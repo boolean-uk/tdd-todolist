@@ -62,6 +62,7 @@ myTodoList.create('Complete the article')
 // console.log(myTodoList.todoList)
 
 myTodoList.getAll()
+console.log(myTodoList.getTodoById(1))
 
 // console.log(myTodoList.getIncomplete())
 
