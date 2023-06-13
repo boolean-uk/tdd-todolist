@@ -14,8 +14,9 @@ class CreateTodoList {
     return this.todoItems
   }
 
-  
-
+  getAllTodoItems() {
+    return this.todoItems
+  }
 }
 
 const newTodo = new CreateTodoList()
@@ -27,4 +28,4 @@ console.log(newTodo)
 newTodo.createNewTodo('beaching')
 console.log(newTodo)
 
-export default CreateTodoList
+module.exports = CreateTodoList

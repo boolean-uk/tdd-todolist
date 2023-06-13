@@ -1,14 +1,18 @@
-// import file.js
-
+const CreateTodoList = require('../src/todolist.js')
 // write tests
 
-describe('Add a new todo to List', () => {
-  it('returns a new todo item', () => {
-    const newItem = { description: 'laundry', id: 1, status: 'incomplete' }
-    const todoList = []
+describe('Create Todo List', () => {
+  let td
+  beforeEach(() => {
+    td = new CreateTodoList()
   })
-  const todoList = createNewTodo(newItem)
-  expect(todoList).toEqual([
-    { description: 'laundry', id: 1, status: 'incomplete' }
-  ])
+  it('returns a new todo item', () => {
+    expect(td.createNewTodo('laundry')).toEqual([
+      {
+        id: 1,
+        description: 'laundry',
+        status: 'incomplete'
+      }
+    ])
+  })
 })
