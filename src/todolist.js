@@ -1,12 +1,26 @@
 class Todolist {
-  constructor(id, text) {
-    this.id = id
-    this.text = text
+  constructor() {
+    this.todoItems = [];
   }
 
-  createToDoItem(id, text) {
-    return { id: id, text: text, status: 'incomplete' }
+  createTodoItem(id, text) {
+    const todoItem =  { id: id, text: text, status: 'incomplete' };
+    this.todoItems.push(todoItem)
+    return todoItem;
+  }
+
+  getAll() {
+    return this.todoItems;
+  
+  }
+
+  setComplete(id) {
+    const todoItem = this.todoItems.find(item => item.id === id);
+    if (todoItem) {
+      todoItem.status = 'complete';
+    }
   }
 }
 
-export default Todolist
+
+export default Todolist;

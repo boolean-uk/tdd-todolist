@@ -1,14 +1,29 @@
 import Todolist from '../src/todolist.js'
 
 describe("to do list", () => {
-    const todoList = new Todolist([])
-    it("create todo item", function() {
-        expect(todoList.createTodoItem(1, "finish the exercise")).toEqual({id: 1, text: "finish the exercise", status: "incomplete"})
+
+    describe("getAll",() => { 
+        fit("can get all todo items", function() {
+            const todoList = new Todolist() 
+            todoList.createTodoItem(1, "finish the exercise")
+            expect(todoList.getAll()).toEqual({id: 1, text: "finish the exercise", status: "incomplete"})
+        })
+     })  
+    
+    describe("createTodoItem", function (){
+        it("create todo item", function() {
+            const todoList = new Todolist([])
+            expect(todoList.createTodoItem(1, "finish the exercise")).toEqual({id: 1, text: "finish the exercise", status: "incomplete"})
+        })
     })
-    it("get all todo items", function() {
-        expect(todoList.getAll().toEqual({id: 1, text: "finish the exercise", status: "incomplete"}))
+
+    describe("setComplete", function (){
+        it("set todo complete by id", function() {
+            const todoList = new Todolist([])
+            expect(todoList.setComplete(1)).toEqual({id: 1, text: "finish the exercise", status: "complete"})
+        }) 
     })
-    it("set todo complete by id", function() {
-        expect(todoList.setComplete(1).toEqual({id: 1, text: "finish the exercise", status: "complete"}))
-    })
+
+  
+   
 })
