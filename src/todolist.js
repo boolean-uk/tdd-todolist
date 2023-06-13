@@ -19,16 +19,11 @@ class CreateTodoList {
   }
 
   setTodoComplete(id) {
-    const setTodoComplete = this.todoItems.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          status: 'complete'
-        }
-      } else {
-        return item
-      }
-    })
+    const todoItem = this.todoItems.find((item) => item.id === id)
+    if (todoItem) {
+      return (todoItem.status = 'complete')
+    }
+    return 'The todo your looking for was not found'
   }
 }
 
@@ -41,7 +36,7 @@ console.log(td)
 td.createNewTodo('beaching')
 console.log(td)
 console.log('all todos', td.getAllTodoItems())
-console.log('set complete', td.setTodoComplete(3))
+console.log('set complete:', td.setTodoComplete(3))
 console.log('all todos', td.getAllTodoItems())
 
 module.exports = CreateTodoList
