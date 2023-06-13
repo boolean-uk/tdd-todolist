@@ -11,14 +11,17 @@ class CreateNewTodo {
 }
 
 class TodoList {
-constructor(todoItems) {
+constructor() {
     this.todoItems = []
+    this.id = 0
 }
 
-create(description) {
-    const newTodo = new CreateNewTodo(description)
+create(todo) {
+  
+  id: this.id,
 
 }
+
 }
 
 const newTodo = new CreateNewTodo('study')
