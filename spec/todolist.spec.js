@@ -77,7 +77,7 @@ describe('TodoList Application', () => {
     expect(myTodoList.getComplete().length).toEqual(1)
   })
 
-  // 006. Search and return a todo item by its ID, or return a message saying it doesn’t exist. To return undefine
+  // 006. Search and return a todo item by its ID, or return a message saying it doesn’t exist.
   it('Search and return a todo item by its ID, or return a message saying it doesn’t exist', () => {
     const todos = [
       { id: 1, description: 'Wash the dishes', status: 'incomplete' },
@@ -104,7 +104,7 @@ describe('TodoList Application', () => {
     expect(todo).toBe(undefined)
   })
 
-  // 007
+  // 007. Remove a todo item by its ID
   it('should remove a todo from the list', () => {
     // Test removing a todo from the list
     const todo = { id: 1, description: 'Todo 1', status: 'incomplete' }
