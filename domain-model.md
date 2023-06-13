@@ -13,7 +13,7 @@
 |                           |               |                                                               | unsuccessful        | false
 | getAllTodos()             | ()            |                                                               | list not empty      | todos(@object[])
 |                           |               |                                                               | list empty          | false
-| setCompleted(id)          | @number       |                                                               | [todo.id === true]  | [todo.id === false]
+| toggleStatus(id)          | @number       |                                                               | [todo.id === true]  | [todo.id === false]
 |                           |               |                                                               | [todo.id === false] | [todo.id === true]
 | getCompleted(completed)   | @boolean      |                                                               | some completed      | [todos.completed === true]
 |                           |               |                                                               | no completed        | false
