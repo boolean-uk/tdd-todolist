@@ -110,8 +110,101 @@ describe('Testing toggleStatus, getComplete and getIncomplete', () => {
   })
 })
 
+describe('Testing getTodoByID()', () => {
+  it('Returns the todoItem if an item exists with given ID', () => {
     // Setup
-
+    const items = [
+      new TodoItem(1, 'item 1'),
+      new TodoItem(2, 'item 2'),
+      new TodoItem(3, 'item 3')
+    ]
+    const list = new TodoList(items)
     // Execution
-
+    const expectedResult = new TodoItem(3, 'item 3')
+    const result = list.getTodoByID(3)
     // Check
+    expect(result).toEqual(expectedResult)
+  })
+
+  it('Returns false if no todoItem exists with given ID', () => {
+    // Setup
+    const items = [
+      new TodoItem(1, 'item 1'),
+      new TodoItem(2, 'item 2'),
+      new TodoItem(3, 'item 3')
+    ]
+    const list = new TodoList(items)
+    // Execution
+    const result = list.getTodoByID(4)
+    // Check
+    expect(result).toBe('Given ID was not found')
+  })
+
+  it('Returns error if no/wrong ID is given', () => {
+    // Setup
+    const items = [
+      new TodoItem(1, 'item 1'),
+      new TodoItem(2, 'item 2'),
+      new TodoItem(3, 'item 3')
+    ]
+    const list = new TodoList(items)
+    // Execution
+    const result = list.getTodoByID()
+    // Check
+    expect(result).toBe('No ID given or incorrect format used')
+  })
+})
+
+describe('Testing removeTodoByID', () => {
+  it('If item with ID is found, removes it and returns the new list', () => {
+    // Setup
+    const items = [
+      new TodoItem(1, 'item 1'),
+      new TodoItem(2, 'item 2'),
+      new TodoItem(3, 'item 3')
+    ]
+    const list = new TodoList(items)
+    // Execution
+    const expectedResult = [
+      new TodoItem(1, 'item 1'),
+      new TodoItem(3, 'item 3')
+    ]
+    list.removeTodoByID(2)
+    // Check
+    expect(list.todoList).toEqual(expectedResult)
+  })
+
+  it('If item with ID is not found, returns an error', () => {
+    // Setup
+    const items = [
+      new TodoItem(1, 'item 1'),
+      new TodoItem(2, 'item 2'),
+      new TodoItem(3, 'item 3')
+    ]
+    const list = new TodoList(items)
+    // Execution
+    const result = list.removeTodoByID(4)
+    // Check
+    expect(result).toBe('Given ID was not found')
+  })
+
+  it('Returns error if no/wrong ID is given', () => {
+    // Setup
+    const items = [
+      new TodoItem(1, 'item 1'),
+      new TodoItem(2, 'item 2'),
+      new TodoItem(3, 'item 3')
+    ]
+    const list = new TodoList(items)
+    // Execution
+    const result = list.removeTodoByID()
+    // Check
+    expect(result).toBe('No ID given or incorrect format used')
+  })
+})
+
+// Setup
+
+// Execution
+
+// Check

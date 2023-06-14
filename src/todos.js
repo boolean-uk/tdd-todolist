@@ -59,6 +59,30 @@ class TodoList {
     )
     return incompletedTodos
   }
+
+  getTodoByID(id) {
+    const chosenTodo = this.todoList.find((item) => item.id === id)
+    if (chosenTodo) {
+      return chosenTodo
+    } else if (isNaN(id)) {
+      return 'No ID given or incorrect format used'
+    } else {
+      return 'Given ID was not found'
+    }
+  }
+
+  removeTodoByID(id) {
+    const chosenTodo = this.todoList.find((item) => item.id === id)
+    if (chosenTodo) {
+      const deletionIndex = this.todoList.indexOf(chosenTodo)
+      this.todoList.splice(deletionIndex, 1)
+      return this.todoList
+    } else if (isNaN(id)) {
+      return 'No ID given or incorrect format used'
+    } else {
+      return 'Given ID was not found'
+    }
+  }
 }
 
 module.exports = { TodoItem, TodoList }
