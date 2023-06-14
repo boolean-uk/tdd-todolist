@@ -14,13 +14,13 @@ class TodoList {
   createTodoItem(text) {
     if (text === '') {
       return false
-    } else if (this.todoList.length !== 0) {
-      const newId = this.todoList[this.todoList.length - 1].id + 1
-      const newTodo = new TodoItem(newId, text)
+    } else if (this.todoList.length === 0) {
+      const newTodo = new TodoItem(1, text)
       this.todoList.push(newTodo)
       return true
     } else {
-      const newTodo = new TodoItem(1, text)
+      const newId = this.todoList[this.todoList.length - 1].id + 1
+      const newTodo = new TodoItem(newId, text)
       this.todoList.push(newTodo)
       return true
     }

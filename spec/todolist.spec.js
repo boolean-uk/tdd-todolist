@@ -1,4 +1,4 @@
-const { TodoItem, TodoList } = require('../src/todos.js')
+const { TodoItem, TodoList } = require('../src/todolist.js')
 
 describe('Testing TodoItem Class', () => {
   it('New todos have an ID, text and status === incomplete', () => {
