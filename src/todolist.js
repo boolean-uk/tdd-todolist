@@ -1,5 +1,6 @@
 const toDoList = []
 let id = 1
+
 const create = (todo) => {
   const obj = {
     id: id++,
@@ -9,7 +10,7 @@ const create = (todo) => {
 
   toDoList.push(obj)
 
-  return toDoList
+  return obj
 }
 
 const get = () => {
@@ -24,13 +25,15 @@ const setDone = (id) => {
   arr[0].status = 'complete'
   toDoList.splice(toDoList.indexOf(arr[0]), 1, arr[0])
 
-  return toDoList
+  return arr[0]
 }
 
 const getIncomplete = () => {
-  toDoList.filter((object) => {
+  const incompleteArr = toDoList.filter((object) => {
     return object.status === 'incomplete'
   })
+
+  return incompleteArr
 }
 
-module.exports = { create, get, setDone, getIncomplete, toDoList }
+module.exports = { create, get, setDone, getIncomplete }
