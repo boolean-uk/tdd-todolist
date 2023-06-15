@@ -11,7 +11,11 @@ class CreateTodoList {
       status: 'incomplete'
     }
     this.todoItems.push(todoItem)
-    return this.todoItems
+    if (todo === '') {
+      return false
+    }
+    console.log(this.todoItems)
+    return true
   }
 
   getAllTodoItems() {
@@ -21,9 +25,12 @@ class CreateTodoList {
   setTodoComplete(id) {
     const todoItem = this.todoItems.find((item) => item.id === id)
     if (todoItem) {
-      return (todoItem.status = 'complete')
+      todoItem.status = 'complete'
+      return true
+    } else {
+      console.log('the item your are trying to set to complete does not extist')
+      return false
     }
-    return 'The todo your looking for was not found'
   }
 
   getAlltodoIncompleteItems() {
@@ -35,12 +42,19 @@ class CreateTodoList {
   }
 
   searchByToDoId(id) {
-    return this.todoItems.filter((item) => item.id === id)
+    if (this.todoItems.find((item) => item.id === id)) {
+      console.log(this.todoItems)
+      return true
+    }
+    return false
   }
 
   deleteTodo(id) {
-    this.todoItems = this.todoItems.filter((item) => item.id !== id)
-    return this.todoItems
+    if (this.todoItems.find((item) => item.id === id)) {
+      this.todoItems = this.todoItems.filter((item) => item.id !== id)
+      return true
+    }
+    return false
   }
 }
 
@@ -60,6 +74,7 @@ console.log('all incomplete', td.getAlltodoIncompleteItems())
 console.log('all todos', td.getAllTodoItems())
 console.log('all complete', td.getAlltodoCompleteItems())
 console.log('search', td.searchByToDoId(1))
+console.log('second search', td.searchByToDoId(7))
 console.log('delete', td.deleteTodo(1))
 console.log('all todos', td.getAllTodoItems())
 
