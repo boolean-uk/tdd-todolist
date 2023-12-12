@@ -32,4 +32,28 @@ class TodoList {
   }
 }
 
+const myList = new TodoList("My List")
+
+myList.create("Test entry")
+const handleSubmit = (event) => {
+  console.log("hello")
+}
+
+const loadList = () => {
+  const ul = document.querySelector("ul#todos")
+  const todos = myList.getAll()
+
+  todos.forEach((todo) => {
+    const checkbox = document.createElement("input")
+    checkbox.setAttribute("type", "checkbox")
+
+    const li = document.createElement("li")
+    li.innerText = todo.description
+    li.appendChild(checkbox)
+    ul.appendChild(li)
+  })
+}
+
+loadList()
+
 module.exports = { TodoList }
