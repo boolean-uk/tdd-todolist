@@ -49,23 +49,31 @@ describe('get todo list', () => {
   })
 })
 
-describe('set a todo to complete', () => {
+describe('find and set a todo to complete', () => {
   it('item found and completion status set to true', () => {
-    const todo = { id: 3, text: 'drink coffe', complete: false }
+    const todo1 = { id: 1, text: 'buy coffee beans', complete: false }
+    const todo2 = { id: 2, text: 'make coffee', complete: false }
+    const todo3 = { id: 3, text: 'drink coffe', complete: false }
+    const todo4 = { id: 4, text: 'type some code', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
     const id = 3
 
-    const result = setCompletionStatusToTrue(id, todo)
+    const result = setCompletionStatusToTrue(id, todoList)
 
     expect(result).toEqual({ id: 3, text: 'drink coffe', complete: true })
   })
 
   it('item not found', () => {
-    const todo = { id: 3, text: 'drink coffe', complete: false }
+    const todo1 = { id: 1, text: 'buy coffee beans', complete: false }
+    const todo2 = { id: 2, text: 'make coffee', complete: false }
+    const todo3 = { id: 3, text: 'drink coffe', complete: false }
+    const todo4 = { id: 4, text: 'type some code', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
     const id = 7
 
-    const result = setCompletionStatusToTrue(id, todo)
+    const result = setCompletionStatusToTrue(id, todoList)
 
-    expect(result).toEqual('incorrect id')
+    expect(result).toEqual('incorrect id - todo item does not exist')
   })
 })
 
