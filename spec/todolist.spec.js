@@ -1,13 +1,31 @@
-const {createToDo,getToDo} = require('../src/todolist.js')
+const { createToDo, getToDo } = require('../src/todolist.js')
 
 describe('Create a new toDo Item', () => {
   it('create new item object with description', () => {
     const input = 'mow the grass'
 
-    const result = createToDo(input)
+    const toDoList = [
+      {
+        id: 1,
+        description: 'mow the grass',
+        complete: false
+      },
+      {
+        id: 2,
+        description: 'do the dishes',
+        complete: false
+      },
+      {
+        id: 3,
+        description: 'go to the gym',
+        complete: false
+      }
+    ]
+
+    const result = createToDo(input, toDoList)
 
     expect(result).toEqual({
-      id: 1,
+      id: 4,
       description: 'mow the grass',
       complete: false
     })
@@ -15,8 +33,25 @@ describe('Create a new toDo Item', () => {
 
   it('return false if no description given', () => {
     // no input
+    const toDoList = [
+      {
+        id: 1,
+        description: 'mow the grass',
+        complete: false
+      },
+      {
+        id: 2,
+        description: 'do the dishes',
+        complete: false
+      },
+      {
+        id: 3,
+        description: 'go to the gym',
+        complete: false
+      }
+    ]
 
-    const result = createToDo()
+    const result = createToDo(null, toDoList)
 
     expect(result).toBeFalse()
   })
@@ -42,9 +77,9 @@ fdescribe('Get all toDo items', () => {
       }
     ]
 
-    const result = getToDo()
+    const result = getToDo(toDoList)
 
-    expect(result).toEqual(
+    expect(result).toEqual([
       {
         id: 1,
         description: 'mow the grass',
@@ -60,13 +95,13 @@ fdescribe('Get all toDo items', () => {
         description: 'go to the gym',
         complete: false
       }
-    )
+    ])
   })
 
   it('return false if toDoList contains no items', () => {
     const toDoList = []
 
-    const result = getToDo()
+    const result = getToDo(toDoList)
 
     expect(result).toBeFalse()
   })

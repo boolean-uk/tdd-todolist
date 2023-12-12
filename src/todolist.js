@@ -1,22 +1,4 @@
-const toDoList = [
-  {
-    id: 1,
-    description: 'mow the grass',
-    complete: false
-  },
-  {
-    id: 2,
-    description: 'do the dishes',
-    complete: false
-  },
-  {
-    id: 3,
-    description: 'go to the gym',
-    complete: false
-  }
-]
-
-const createToDo = (input) => {
+const createToDo = (input, toDoList) => {
   const num = toDoList.length + 1
 
   const toDoItem = {
@@ -30,12 +12,15 @@ const createToDo = (input) => {
   } else return false
 }
 
-const getToDo = () => {
-  console.log(toDoList)
-  if (toDoList) return toDoList
+const getToDo = (toDoList) => {
+  if (toDoList.length > 0) return toDoList
+  return false
 }
 
-createToDo()
+// const setToDoComplete = (id, toDoList) => {
+
+
+// }
 module.exports = {
   createToDo,
   getToDo
