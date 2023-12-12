@@ -4,11 +4,11 @@ class Todos {
   }
 
   getAllTodos() {
-    if (this.todoList.length === 0) {
-      return []
-    } else {
+    // if (this.todoList.length === 0) {
+    //   return []
+    // } else {
       return this.todoList
-    }
+    // }
   }
 
   createTodo(text) {
@@ -26,9 +26,9 @@ class Todos {
   }
 }
 
-const todo = new Todos()
-console.log(todo.getAllTodos())
-console.log(todo.createTodo('clean'))
-console.log(todo.getAllTodos())
+// const todo = new Todos()
+// console.log(todo.getAllTodos())
+// console.log(todo.createTodo('clean'))
+// console.log(todo.getAllTodos())
 
 module.exports = { Todos }

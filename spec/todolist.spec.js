@@ -28,5 +28,9 @@ describe('Todos', () => {
       const todoList = [newToDo1, newToDo2]
       expect(todoList).toEqual(todo.getAllTodos())
     })
+
+    it('returns empty array when there are no todo items in list', () => {
+      expect(todo.getAllTodos()).toEqual([])
+    })
   })
 })
