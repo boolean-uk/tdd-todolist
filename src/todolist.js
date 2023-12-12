@@ -6,6 +6,9 @@ function createToDo(newTodo) {
   return todo.text
 }
 function getToDos(todoList) {
+  if (!todoList || todoList.length < 1) {
+    return 'no todos added yet'
+  }
   return todoList
 }
 function getIncompleteToDos() {}

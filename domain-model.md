@@ -57,7 +57,7 @@ I need to be able to remove a specific todo item by its id.
 
 1. todo(@Object)
 2. todoList(@todo[])
-3. todoList(@todo[])
+3. todoList(@todo[]), id(@Number)
 4. todoList(@todo[])
 5. todoList(@todo[]), id(@Number)
 6. todoList(@todo[]), id(@Number)

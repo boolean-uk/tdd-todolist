@@ -47,3 +47,6 @@ describe('get todo list', () => {
     expect(result).toEqual('no todos added yet')
   })
 })
+
+
+describe('set a todo item to complete', () => {})
