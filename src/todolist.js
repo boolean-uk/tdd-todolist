@@ -1,22 +1,28 @@
 const todos = []
-let counter = 1
+let counter = 0
 
 function createTodo(string) {
   if (!string) return false
   const id = counter++
   const todo = {
-    id: id,
+    id,
     description: string,
     completed: false
   }
   return todo
 }
 
-todos.push(createTodo('Do laundry'))
-console.log(todos)
-todos.push(createTodo('pet the cat'))
-console.log(todos)
+function getTodos(todos) {
+  if (!todos || !todos.length) return 'No todo items'
+  const todosList = todos.map((item) => {
+    return item.description
+  })
+  return todosList
+}
+
+console.log(getTodos(todos))
 
 module.exports = {
-  createTodo
+  createTodo,
+  getTodos
 }

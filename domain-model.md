@@ -56,6 +56,7 @@ I would like to click an item and see it change to completed on its ID
 ### Table
 
 | Methods | Inputs | Data | Scenario | Outputs
+| ------ | ------ | ------ | ----- | -----
 | setTodo | (ID) | ID(Number) | If that ID.completed is false | completed: true
 | ------ | ------ | ------ | If that ID.completed is true | completed: false
 
@@ -75,6 +76,7 @@ They should be able to click a box.
 ### Table
 
 | Methods | Inputs | Data | Scenario | Outputs
+| ------ | ------ | ------ | ----- | -----
 | getIncompleted | () | todo.completed(@boolean) | it should loop through all todos and if the boolean is false | return todo.description
 | ------ | ------ | ------ | if the boolean is true | return false
 | ------ | ------ | ------ | ----- | -----
@@ -96,9 +98,10 @@ They should be able to click a box.
 ### Table
 
 | Methods | Inputs | Data | Scenario | Outputs
+| ------ | ------ | ------ | ----- | -----
 | getCompleted | () | todo.completed(@boolean) | it should loop through all todos and if the boolean is true | return todo.description
 | ------ | ------ | ------ | if the boolean is false | return false
-| ------ | ------ | ------ | ----- | -----
+
 
 ## Next Function
 
@@ -116,10 +119,10 @@ they should do this by entering a number into the search field.
 ### Table
 
 | Methods | Inputs | Data | Scenario | Outputs
+| ------ | ------ | ------ | ----- | -----
 | findTodo | (ID) | ID(@number) | if the number matches an mapped todo | return that todos description
 | ------ | ------ | ------ | if the number does not match any todo's ID's or ID does not exist | return "This todo does not exist"
-| ------ | ------ | ------ | ----- | -----
-| ------ | ------ | ------ | ----- | -----
+
 
 ## Remove a todo
 
@@ -137,7 +140,7 @@ by clicking on a delete button.
 ### Table
 
 | Methods | Inputs | Data | Scenario | Outputs
+| ------ | ------ | ------ | ----- | -----
 | removeTodo | (ID) | ID(@number) | if the number matches a mapped ID number | that ID should be removed from the state.
 | ------ | ------ | ------ | if the number does not match a mapped ID number | return false
-| ------ | ------ | ------ | ----- | -----
-| ------ | ------ | ------ | ----- | -----
+
