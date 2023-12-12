@@ -11,11 +11,18 @@ function getToDos(todoList) {
   }
   return todoList
 }
-function setCompletionStatusToTrue(id, todo) {
-  if (id !== todo.id) {
-    return 'incorrect id'
+function setCompletionStatusToTrue(id, todoList) {
+  const toDoToUpdate = todoList.find((item) => item.id === id)
+
+  if (!toDoToUpdate) {
+    return 'incorrect id - todo item does not exist'
   }
-  const updatedTodo = { ...todo, complete: true }
+
+  const updatedTodo = { ...toDoToUpdate, complete: true }
+
+  // or we might want to update the actual list:
+  // const updatedTodoList = [...todoList, { ...toDoToUpdate, complete: true }]
+
   return updatedTodo
 }
 

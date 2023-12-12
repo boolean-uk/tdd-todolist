@@ -69,6 +69,7 @@ describe('find and set a todo to complete', () => {
     const todo3 = { id: 3, text: 'drink coffe', complete: false }
     const todo4 = { id: 4, text: 'type some code', complete: false }
     const todoList = [todo1, todo2, todo3, todo4]
+
     const id = 7
 
     const result = setCompletionStatusToTrue(id, todoList)
