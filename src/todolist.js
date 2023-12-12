@@ -3,4 +3,11 @@ const createTodo = (description) => {
   return { description, complete: false }
 }
 
-module.exports = { createTodo }
+class TodoList {
+  constructor(title) {
+    this.title = title;
+    this.items = [];
+  }
+}
+
+module.exports = { createTodo, TodoList }

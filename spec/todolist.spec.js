@@ -1,4 +1,4 @@
-const { createTodo } = require('../src/todolist')
+const { createTodo, TodoList } = require('../src/todolist')
 
 describe('create todos', () => {
   console.log(createTodo)
