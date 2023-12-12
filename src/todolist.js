@@ -4,7 +4,7 @@ class TodoList {
     this.items = []
   }
 
-  getTodos() {
+  getAll() {
     return this.items
   }
 

@@ -38,3 +38,11 @@ describe('marking items as complete / incomplete', () => {
     expect(myList.setComplete(6)).toEqual("Todo item not found")
   })
 })
+
+describe('getting all items', () => {
+  const myList = new TodoList("My List")
+
+  it('creating list has an empty array, initially', () => {
+    expect(myList.getAll()).toEqual([])
+  })
+})
