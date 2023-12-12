@@ -96,4 +96,19 @@ describe('Todos', () => {
       expect(result).toEqual('id does not exist')
     })
   })
+
+  describe('Remove Todo By Id', () => {
+    it('return list of todo items after items selected by id is removed', () => {
+      todo.createTodo('Do the laundry')
+      todo.createTodo('Make the bed')
+      const updatedTodos = [{ id: 1, text: 'Do the laundry', completed: false }]
+      const result = todo.removeTodoById(2)
+      expect(result).toEqual(updatedTodos)
+    })
+
+    it('unable to locate todo item to remove using this id, id does not exist', () => {
+      const result = todo.removeTodoById()
+      expect(result).toEqual('id does not exist')
+    })
+  })
 })

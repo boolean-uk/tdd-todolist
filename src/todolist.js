@@ -1,5 +1,3 @@
-const { ConsoleReporter } = require('jasmine')
-
 class Todos {
   constructor() {
     this.todoList = []
@@ -67,21 +65,47 @@ class Todos {
       return foundTodo
     }
   }
+
+  removeTodoById(id) {
+    const todosBefore = this.todoList
+    const updatedTodos = this.todoList.filter((todo) => todo.id !== id)
+    if (todosBefore.length - updatedTodos.length === 1) {
+      return updatedTodos
+    } else {
+      return 'id does not exist'
+    }
+  }
 }
 
+// CONSOLE.LOG TESTS
+// INITIAL
 const todo = new Todos()
-// console.log(todo.getAllTodos())
-// console.log(todo.createTodo('clean'))
+
+// GET ALL TODOS
+console.log(todo.getAllTodos())
+
+// CREATE TODO
 todo.createTodo('clean')
 todo.createTodo('tidy')
 todo.createTodo('hoover')
 todo.createTodo('mop')
-// todo.completeTodo(2)
-// todo.completeTodo(4)
-// console.log(todo.completeTodo())
-// console.log(todo.getAllTodos())
-// console.log(todo.getCompleteTodos())
-// todo.getIncompleteTodos(false)
-console.log(todo.searchTodoById(null))
+console.log(todo.getAllTodos())
+
+// COMPLETE TODO
+todo.completeTodo(2)
+todo.completeTodo(4)
+console.log(todo.getAllTodos())
+
+// GET INCOMPLETE TODOS
+console.log(todo.getIncompleteTodos(false))
+
+// GET COMPLETE TODOS
+console.log(todo.getCompleteTodos(true))
+
+// SEARCH TODO BY ID
+console.log(todo.searchTodoById(2))
+
+// REMOVE TODO BY ID
+console.log(todo.removeTodoById(2))
 
 module.exports = { Todos }
