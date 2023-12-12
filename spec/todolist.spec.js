@@ -33,4 +33,8 @@ describe('marking items as complete / incomplete', () => {
   it('marking item id = 2 as complete', () => {
     expect(myList.toggleComplete(2)).toEqual(true)
   })
+
+  it('toggling an id that does not exist returns false', () => {
+    expect(myList.toggleComplete(6)).toEqual(false)
+  })
 })

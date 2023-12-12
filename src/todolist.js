@@ -16,8 +16,8 @@ class TodoList {
   }
 
   toggleComplete(id) {
-    const lastId = this.items.slice(-1).id
-    if (id >= lastId) return false
+    const itemExists = !!this.items.find((item) => item.id === id)
+    if (!itemExists) return false
     this.items = this.items.map((item) => {
       if (item.id === id) {
         return {
