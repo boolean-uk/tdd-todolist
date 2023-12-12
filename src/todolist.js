@@ -1,16 +1,20 @@
 const todos = []
+let counter = 1
 
 function createTodo(string) {
   if (!string) return false
+  const id = counter++
   const todo = {
-    id: 1,
+    id: id,
     description: string,
     completed: false
   }
   return todo
 }
 
-createTodo('Do laundry')
+todos.push(createTodo('Do laundry'))
+console.log(todos)
+todos.push(createTodo('pet the cat'))
 console.log(todos)
 
 module.exports = {
