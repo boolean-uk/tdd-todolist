@@ -37,7 +37,12 @@ function getCompleteToDos(todoList) {
   return listOfCOmpleteToDos
 }
 function findToDoById(id, todoList) {
-  return todoList.find((item) => item.id === id)
+  const foundTodo = todoList.find((item) => item.id === id)
+
+  if (!foundTodo) {
+    return 'no match found'
+  }
+  return foundTodo
 }
 function removeToDo(id, todoList) {}
 
