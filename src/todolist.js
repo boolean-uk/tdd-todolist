@@ -1,3 +1,5 @@
+const { ConsoleReporter } = require('jasmine')
+
 class Todos {
   constructor() {
     this.todoList = []
@@ -34,15 +36,30 @@ class Todos {
       return todoToComplete[0]
     }
   }
+
+  getIncompleteTodos(completed) {
+    const incompleteTodos = this.todoList.filter(
+      (todo) => todo.completed === completed
+    )
+    if (completed !== false) {
+      return 'completed status is not valid'
+    } else {
+      return incompleteTodos
+    }
+  }
 }
 
 const todo = new Todos()
 // console.log(todo.getAllTodos())
 // console.log(todo.createTodo('clean'))
 todo.createTodo('clean')
-todo.completeTodo(1)
-console.log(todo.completeTodo(1))
-// console.log(todo.getAllTodos())
+todo.createTodo('tidy')
+todo.createTodo('hoover')
+todo.createTodo('mop')
+todo.completeTodo(2)
 // console.log(todo.completeTodo())
+// console.log(todo.getAllTodos())
+console.log(todo.getIncompleteTodos(false))
+// todo.getIncompleteTodos(false)
 
 module.exports = { Todos }

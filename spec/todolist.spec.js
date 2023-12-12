@@ -10,14 +10,14 @@ describe('Todos', () => {
   describe('Create new Todo', () => {
     it('returns new todo item as an object', () => {
       const text = 'new todo'
-      const newToDo = todo.createTodo(text)
-      expect(newToDo).toEqual({ id: 1, text: 'new todo', completed: false })
+      const result = todo.createTodo(text)
+      expect(result).toEqual({ id: 1, text: 'new todo', completed: false })
     })
 
     it('user can only enter a string as the todo text description', () => {
       const text = 1
-      const newToDo = todo.createTodo(text)
-      expect(newToDo).toEqual('text value must be a valid string')
+      const result = todo.createTodo(text)
+      expect(result).toEqual('text value must be a valid string')
     })
   })
 
@@ -26,26 +26,43 @@ describe('Todos', () => {
       const newToDo1 = todo.createTodo('Do the laundry')
       const newToDo2 = todo.createTodo('Make the bed')
       const todoList = [newToDo1, newToDo2]
-      expect(todoList).toEqual(todo.getAllTodos())
+      const result = todo.getAllTodos()
+      expect(result).toEqual(todoList)
     })
 
     it('returns empty array when there are no todo items in list', () => {
-      expect(todo.getAllTodos()).toEqual([])
+      const result = todo.getAllTodos()
+      expect(result).toEqual([])
     })
   })
 
   describe('Set Todo As Complete', () => {
     it('return todo item as completed', () => {
       todo.createTodo('Do the laundry')
-      expect(todo.completeTodo(1)).toEqual({
-        id: 1,
-        text: 'Do the laundry',
-        completed: true
-      })
+      const completedTodo = { id: 1, text: 'Do the laundry', completed: true }
+      const result = todo.completeTodo(1)
+      expect(result).toEqual(completedTodo)
     })
 
     it('there is no valid id submitted', () => {
-      expect(todo.completeTodo()).toEqual('id is not valid')
+      const result = todo.completeTodo()
+      expect(result).toEqual('id is not valid')
+    })
+  })
+
+  describe('Get Incomplete Todos', () => {
+    it('return all incomplete todo items', () => {
+      todo.createTodo('Do the laundry')
+      todo.createTodo('Make the bed')
+      todo.completeTodo(1)
+      const incompleteTodo = [{ id: 2, text: 'Make the bed', completed: false }]
+      const result = todo.getIncompleteTodos(false)
+      expect(result).toEqual(incompleteTodo)
+    })
+
+    it('getIncompleteTodos function can only accept a false boolean parameter', () => {
+      const result = todo.getIncompleteTodos()
+      expect(result).toEqual('completed status is not valid')
     })
   })
 })
