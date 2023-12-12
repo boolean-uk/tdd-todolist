@@ -1,4 +1,4 @@
-const { createToDo, getToDo } = require('../src/todolist.js')
+const { createToDo, getToDo, setToDoComplete } = require('../src/todolist.js')
 
 describe('Create a new toDo Item', () => {
   it('create new item object with description', () => {
@@ -57,7 +57,7 @@ describe('Create a new toDo Item', () => {
   })
 })
 
-fdescribe('Get all toDo items', () => {
+describe('Get all toDo items', () => {
   it('returns all items in toDoList', () => {
     const toDoList = [
       {
@@ -107,7 +107,7 @@ fdescribe('Get all toDo items', () => {
   })
 })
 
-describe('set a todo item as complete', () => {
+fdescribe('set a todo item as complete', () => {
   it('set toDoItem as complete', () => {
     const toDoList = [
       {
@@ -127,7 +127,7 @@ describe('set a todo item as complete', () => {
       }
     ]
 
-    const result = setToDoComplete(3)
+    const result = setToDoComplete(3, toDoList)
     expect(result).toBeTrue()
     expect(toDoList).toEqual([
       {
@@ -167,7 +167,7 @@ describe('set a todo item as complete', () => {
       }
     ]
 
-    const result = setToDoComplete(4)
+    const result = setToDoComplete(4, toDoList)
 
     expect(result).toBeFalse()
   })
@@ -191,7 +191,7 @@ describe('set a todo item as complete', () => {
       }
     ]
 
-    const result = setToDoComplete()
+    const result = setToDoComplete(null, toDoList)
 
     expect(result).toBeFalse()
   })

@@ -17,11 +17,18 @@ const getToDo = (toDoList) => {
   return false
 }
 
-// const setToDoComplete = (id, toDoList) => {
+const setToDoComplete = (id, toDoList) => {
+  const itemToEdit = toDoList.find((item) => item.id === id)
+  if (typeof itemToEdit === 'object') {
+    itemToEdit.complete = true
+    return true
+  }
 
+  return false
+}
 
-// }
 module.exports = {
   createToDo,
-  getToDo
+  getToDo,
+  setToDoComplete
 }
