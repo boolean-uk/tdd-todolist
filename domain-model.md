@@ -16,7 +16,7 @@ Nouns: item, ID, description, incompleted
 
 ### Table
 
-```
+
 
 | Methods | Inputs | Data | Scenario | Outputs
 | ------ | ------ | ------ | ----- | -----
@@ -24,7 +24,7 @@ Nouns: item, ID, description, incompleted
 | ------ | ------ | ------ | ----- | return false
 | ------ | ------ | ------ | ----- | -----
 
-```
+
 
 ## Get Todos
 
