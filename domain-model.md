@@ -10,8 +10,8 @@ I want to be able to see its ID, description and have it incompleted to start.
 
 ### Keywords
 
-Verbs: create, see
-Nouns: item, ID, description, incompleted
+**1. Verbs:** create, see
+**2. Nouns:** item, ID, description, incompleted
 
 ### Table
 
@@ -30,8 +30,8 @@ they should be in a list.
 
 ### Keywords
 
-Verbs:  see
-Nouns: items, list
+**1. Verbs:** see
+**2. Nouns:** items, list
 
 ### Table
 
@@ -50,8 +50,8 @@ I would like to click an item and see it change to completed.
 
 ### Keywords
 
-Verbs: complete, click, see, change
-Nouns: user, item, completed
+**1. Verbs:** complete, click, see, change
+**2. Nouns:** user, item, completed
 
 ### Table
 
@@ -69,8 +69,8 @@ how.
 
 ### Keywords
 
-Verbs: 
-Nouns: 
+**1. Verbs:**
+**2. Nouns:**
 
 ### Table
 
@@ -90,8 +90,8 @@ how.
 
 ### Keywords
 
-Verbs: 
-Nouns: 
+**1. Verbs:**
+**2. Nouns:**
 
 ### Table
 
@@ -111,8 +111,8 @@ how.
 
 ### Keywords
 
-Verbs: 
-Nouns: 
+**1. Verbs:**
+**2. Nouns:**
 
 ### Table
 
@@ -132,8 +132,8 @@ how.
 
 ### Keywords
 
-Verbs: 
-Nouns: 
+**1. Verbs:**
+**2. Nouns:**
 
 ### Table
 
