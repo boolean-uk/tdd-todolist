@@ -12,12 +12,12 @@ class TodoList {
     if (!description) return false
     const newItem = { id: this.items.length, description, complete: false }
     this.items.push(newItem)
-    return true
+    return newItem
   }
 
   setComplete(id) {
     const itemExists = !!this.items.find((item) => item.id === id)
-    if (!itemExists) return "Todo item not found"
+    if (!itemExists) return 'Todo item not found'
     this.items = this.items.map((item) => {
       if (item.id === id) {
         return {
