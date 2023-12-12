@@ -1,4 +1,11 @@
-const { createToDo, getToDo, setToDoComplete, getToDoIncomplete, getToDoComplete } = require('../src/todolist.js')
+const {
+  createToDo,
+  getToDo,
+  setToDoComplete,
+  getToDoIncomplete,
+  getToDoComplete,
+  searchToDo
+} = require('../src/todolist.js')
 
 describe('Create a new toDo Item', () => {
   it('create new item object with description', () => {
@@ -258,7 +265,7 @@ describe('get incomplete toDoItems', () => {
   })
 })
 
-fdescribe('get complete toDoItems', () => {
+describe('get complete toDoItems', () => {
   it('return complete items', () => {
     const toDoList = [
       {
@@ -334,15 +341,13 @@ describe('search toDoItem by id', () => {
       }
     ]
 
-    const result = searchToDo(1)
+    const result = searchToDo(1, toDoList)
 
-    expect(result).toEqual([
-      {
-        id: 1,
-        description: 'mow the grass',
-        complete: false
-      }
-    ])
+    expect(result).toEqual({
+      id: 1,
+      description: 'mow the grass',
+      complete: false
+    })
   })
 
   it('return "Item not found" if invalid id', () => {
@@ -364,7 +369,7 @@ describe('search toDoItem by id', () => {
       }
     ]
 
-    const result = searchToDo(5)
+    const result = searchToDo(5, toDoList)
 
     expect(result).toEqual('Item not found')
   })
@@ -388,7 +393,7 @@ describe('search toDoItem by id', () => {
       }
     ]
 
-    const result = searchToDo()
+    const result = searchToDo(null, toDoList)
 
     expect(result).toBeFalse()
   })
@@ -414,7 +419,7 @@ describe('remove toDoItem', () => {
       }
     ]
 
-    const result = removeItem(2)
+    const result = removeItem(2, toDoList)
 
     expect(toDoList).toEqual([
       {

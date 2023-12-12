@@ -18,7 +18,7 @@ const getToDo = (toDoList) => {
 }
 
 const setToDoComplete = (id, toDoList) => {
-  const itemToEdit = toDoList.find((item) => item.id === id)
+  const itemToEdit = searchToDo(id, toDoList)
   if (typeof itemToEdit === 'object') {
     itemToEdit.complete = true
     return true
@@ -41,10 +41,21 @@ const getToDoComplete = (toDoList) => {
   return false
 }
 
+function searchToDo(id, toDoList) {
+  if (typeof id !== 'number') return false
+
+  const itemToFind = toDoList.find((item) => item.id === id)
+
+  if (typeof itemToFind === 'object') return itemToFind
+
+  return 'Item not found'
+}
+
 module.exports = {
   createToDo,
   getToDo,
   setToDoComplete,
   getToDoIncomplete,
-  getToDoComplete
+  getToDoComplete,
+  searchToDo
 }
