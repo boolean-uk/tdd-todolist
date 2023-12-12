@@ -49,8 +49,15 @@ describe('getting all items', () => {
     expect(mySecondList.getAll()).toEqual([])
   })
 
-  it('list has now an item in it', () => {
-    const expectedContents = [mySecondList.create('New Item')]
+  it('list has two items in it', () => {
+    const expectedContents = [
+      { id: 1, description: 'do laundry', complete: false },
+      { id: 2, description: 'make the bed', complete: true }
+    ]
+    mySecondList.create('do laundry')
+    mySecondList.create('make the bed')
+    mySecondList.setComplete(2)
+
     expect(mySecondList.getAll()).toEqual(expectedContents)
   })
 })

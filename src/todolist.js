@@ -10,7 +10,7 @@ class TodoList {
 
   create(description) {
     if (!description) return false
-    const newItem = { id: this.items.length, description, complete: false }
+    const newItem = { id: this.items.length + 1, description, complete: false }
     this.items.push(newItem)
     return newItem
   }
