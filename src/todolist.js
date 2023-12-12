@@ -20,16 +20,21 @@ function setCompletionStatusToTrue(id, todo) {
 }
 
 function getIncompleteToDos(todoList) {
-  const listOfIncompleteTodos = todoList.filter(
+  const listOfIncompleteToDos = todoList.filter(
     (item) => item.complete === false
   )
-  if (listOfIncompleteTodos.length < 1) {
+  if (listOfIncompleteToDos.length < 1) {
     return 'all done!'
   }
-  return listOfIncompleteTodos
+  return listOfIncompleteToDos
 }
 
 function getCompleteToDos(todoList) {
+  const listOfCOmpleteToDos = todoList.filter((item) => item.complete === true)
+  if (listOfCOmpleteToDos.length < 1) {
+    return 'no todo completed yet!'
+  }
+  return listOfCOmpleteToDos
 }
 function findToDoByID(id, todoList) {}
 function removeToDo(id, todoList) {}
