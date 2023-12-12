@@ -27,8 +27,16 @@ const setToDoComplete = (id, toDoList) => {
   return false
 }
 
+const getToDoIncomplete = (toDoList) => {
+  const incompleteItems = toDoList.filter((item) => !item.complete)
+
+  if (incompleteItems.length > 0) return incompleteItems
+  return false
+}
+
 module.exports = {
   createToDo,
   getToDo,
-  setToDoComplete
+  setToDoComplete,
+  getToDoIncomplete
 }
