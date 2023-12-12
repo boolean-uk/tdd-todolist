@@ -1,6 +1,6 @@
-const createToDo = (description) => {
+const createTodo = (description) => {
   if (!description) return false
   return { description, complete: false }
 }
 
-export { createToDo }
+module.exports = { createTodo }

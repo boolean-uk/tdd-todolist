@@ -1,14 +1,17 @@
-const { createToDo } = '../src/todolist'
+const { createTodo } = require('../src/todolist')
 
-console.log(createToDo)
 describe('create todos', () => {
-  console.log(createToDo)
+  console.log(createTodo)
   it('description is valid', () => {
     const expectedResult = {
       description: 'Test',
       complete: false
     }
 
-    expect(createToDo('Test')).toBe(expectedResult)
+    expect(createTodo('Test')).toEqual(expectedResult)
+  })
+
+  it("empty description returns false", () => {
+    expect(createTodo('')).toEqual(false)
   })
 })
