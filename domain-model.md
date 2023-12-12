@@ -99,8 +99,8 @@ HAPPY PATH
 
 UNHAPPY PATH
 
-1. 'failed to create todo'
-2. 'no todos added yet - missing input'
+1. 'failed to create todo - missing input'
+2. 'no todos added yet'
 3. a string listing all the complete tasks found in the todo list
 4. a string listing all the incomplete tasks found in the todo list
 5. a unique todo item, the id of which matches the one inputed by the user

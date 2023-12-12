@@ -5,7 +5,9 @@ function createToDo(newTodo) {
   const todo = newTodo
   return todo.text
 }
-function getToDos() {}
+function getToDos(todoList) {
+  return todoList
+}
 function getIncompleteToDos() {}
 function getCompletedTodos() {}
 function findToDoByID(id) {}
