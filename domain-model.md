@@ -47,6 +47,6 @@
 | Methods | Inputs | Data | Scenario | Outputs
 | ------ | ------ | ------ | ----- | -----
 | removeItem( id ) | id(@number) | | valid id input | remove an object by its id 
-|||| 
+||||  invalid id | returns false
 
 
