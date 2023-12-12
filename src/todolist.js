@@ -36,7 +36,9 @@ function getCompleteToDos(todoList) {
   }
   return listOfCOmpleteToDos
 }
-function findToDoById(id, todoList) {}
+function findToDoById(id, todoList) {
+  return todoList.find((item) => item.id === id)
+}
 function removeToDo(id, todoList) {}
 
 module.exports = {
