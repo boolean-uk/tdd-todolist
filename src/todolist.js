@@ -44,7 +44,19 @@ function findToDoById(id, todoList) {
   }
   return foundTodo
 }
-function removeToDo(id, todoList) {}
+function removeToDo(id, todoList) {
+  const todoToRemove = todoList.find((item) => item.id === id)
+  if (!todoToRemove) {
+    return 'no match found, could not remove'
+  }
+
+  // in this case, this is uneccessary seeing as id and index are pretty much guaranteed to be the same - but this is to acknoledge that it may not always be the case
+  const indexOfToDoToRemove = todoList.indexOf(todoToRemove)
+
+  todoList.splice(indexOfToDoToRemove, 1)
+
+  return todoList
+}
 
 module.exports = {
   createToDo,
