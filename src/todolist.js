@@ -47,6 +47,17 @@ class Todos {
       return incompleteTodos
     }
   }
+
+  getCompleteTodos(completed) {
+    const completetodos = this.todoList.filter(
+      (todo) => todo.completed === completed
+    )
+    if (completed !== true) {
+      return 'completed status is not valid'
+    } else {
+      return completetodos
+    }
+  }
 }
 
 const todo = new Todos()
@@ -57,9 +68,10 @@ todo.createTodo('tidy')
 todo.createTodo('hoover')
 todo.createTodo('mop')
 todo.completeTodo(2)
+todo.completeTodo(4)
 // console.log(todo.completeTodo())
 // console.log(todo.getAllTodos())
-console.log(todo.getIncompleteTodos(false))
+console.log(todo.getCompleteTodos())
 // todo.getIncompleteTodos(false)
 
 module.exports = { Todos }

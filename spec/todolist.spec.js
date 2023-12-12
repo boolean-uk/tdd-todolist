@@ -65,4 +65,20 @@ describe('Todos', () => {
       expect(result).toEqual('completed status is not valid')
     })
   })
+
+  describe('Get Complete Todos', () => {
+    it('return all complete todo items', () => {
+      todo.createTodo('Do the laundry')
+      todo.createTodo('Make the bed')
+      todo.completeTodo(1)
+      const completedTodo = [{ id: 1, text: 'Do the laundry', completed: true }]
+      const result = todo.getCompleteTodos(true)
+      expect(result).toEqual(completedTodo)
+    })
+
+    it('getCompleteTodos function can only accept a true boolean parameter', () => {
+      const result = todo.getCompleteTodos()
+      expect(result).toEqual('completed status is not valid')
+    })
+  })
 })
