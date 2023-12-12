@@ -18,20 +18,8 @@ describe('adding items', () => {
   it('adding item to list', () => {
     expect(myList.createTodo("Do homework")).toEqual(true)
   })
-})
-
-describe('create todos', () => {
-  it('description is valid', () => {
-    const expectedResult = {
-      description: 'Test',
-      complete: false
-    }
-
-    expect(myList.createTodo('Test')).toEqual(true)
-  })
 
   it("empty description returns false", () => {
     expect(myList.createTodo('')).toEqual(false)
   })
 })
-
