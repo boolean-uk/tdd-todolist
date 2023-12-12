@@ -5,9 +5,11 @@ const createTodo = (description) => {
 
 class TodoList {
   constructor(title) {
-    this.title = title;
-    this.items = [];
+    this.title = (title || "untitled");
+    this.items = [ ];
   }
 }
+
+
 
 module.exports = { createTodo, TodoList }
