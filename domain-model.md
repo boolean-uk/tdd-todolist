@@ -2,13 +2,10 @@
 
 ## Create Todo
 
-```
-<!-- Who -->As a user,
+As a user,
+I should be able to create a todo item,
+I want to be able to see its ID, description and have it incompleted to start.
 
-<!-- What -->I should be able to create a todo item,
-
-<!-- How -->I want to be able to see its ID, description and have it incompleted to start.
-```
 
 ### Keywords
 
@@ -24,11 +21,8 @@ Nouns: item, ID, description, incompleted
 
 ## Get Todos
 
-<!-- Who -->
-a user
-<!-- What -->
-should be able to see all todo items
-<!-- How -->
+a user,
+should be able to see all todo items,
 they should be in a list.
 
 ### Keywords
@@ -38,23 +32,16 @@ Nouns: items, list
 
 ### Table
 
-```
-
 | Methods | Inputs | Data | Scenario | Outputs
 | ------ | ------ | ------ | ----- | -----
 | getTodos | () | description(@string) | if descriptions available to grab  | return descriptions as a string
 | ------ | ------ | ------ | ----- | return "No todo items"
 
-```
-
 ## Set todo to completed
 
-<!-- Who -->
-As a user
-<!-- What -->
-I should be able to complete a todo item
-<!-- How -->
-I would like to click an item and see it change to completed
+As a user,
+I should be able to complete a todo item,
+I would like to click an item and see it change to completed.
 
 ### Keywords
 
@@ -63,24 +50,15 @@ Nouns: user, item, completed
 
 ### Table
 
-```
-
 | Methods | Inputs | Data | Scenario | Outputs
 | setTodo | ------ | ------ | ----- | -----
-| ------ | ------ | ------ | ----- | -----
-| ------ | ------ | ------ | ----- | -----
-| ------ | ------ | ------ | ----- | -----
+| ------ | ------ | ------ | ----- | ----
 
-```
+## Next Function
 
-## Set todo to completed
-
-<!-- Who -->
-
-<!-- What -->
-
-<!-- How -->
-
+who,
+what,
+how.
 
 ### Keywords
 
@@ -89,24 +67,17 @@ Nouns:
 
 ### Table
 
-```
-
 | Methods | Inputs | Data | Scenario | Outputs
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 
-```
+## Next Function
 
-## Set todo to completed
-
-<!-- Who -->
-
-<!-- What -->
-
-<!-- How -->
-
+who,
+what,
+how.
 
 ### Keywords
 
@@ -115,24 +86,17 @@ Nouns:
 
 ### Table
 
-```
-
 | Methods | Inputs | Data | Scenario | Outputs
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 
-```
+## Next Function
 
-## Set todo to completed
-
-<!-- Who -->
-
-<!-- What -->
-
-<!-- How -->
-
+who,
+what,
+how.
 
 ### Keywords
 
@@ -141,24 +105,17 @@ Nouns:
 
 ### Table
 
-```
-
 | Methods | Inputs | Data | Scenario | Outputs
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 
-```
+## Next Function
 
-## Set todo to completed
-
-<!-- Who -->
-
-<!-- What -->
-
-<!-- How -->
-
+who,
+what,
+how.
 
 ### Keywords
 
@@ -167,12 +124,8 @@ Nouns:
 
 ### Table
 
-```
-
 | Methods | Inputs | Data | Scenario | Outputs
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
 | ------ | ------ | ------ | ----- | -----
-
-```
