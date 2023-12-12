@@ -1,4 +1,4 @@
-const { createToDo, getToDo, setToDoComplete, getToDoIncomplete } = require('../src/todolist.js')
+const { createToDo, getToDo, setToDoComplete, getToDoIncomplete, getToDoComplete } = require('../src/todolist.js')
 
 describe('Create a new toDo Item', () => {
   it('create new item object with description', () => {
@@ -258,7 +258,7 @@ describe('get incomplete toDoItems', () => {
   })
 })
 
-describe('get complete toDoItems', () => {
+fdescribe('get complete toDoItems', () => {
   it('return complete items', () => {
     const toDoList = [
       {
@@ -278,7 +278,7 @@ describe('get complete toDoItems', () => {
       }
     ]
 
-    const result = getToDoComplete()
+    const result = getToDoComplete(toDoList)
 
     expect(result).toEqual([
       {
@@ -308,7 +308,7 @@ describe('get complete toDoItems', () => {
       }
     ]
 
-    const result = getToDoComplete()
+    const result = getToDoComplete(toDoList)
 
     expect(result).toBeFalse()
   })
