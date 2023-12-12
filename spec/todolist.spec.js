@@ -43,21 +43,21 @@ describe('marking items as complete / incomplete', () => {
 })
 
 describe('getting all items', () => {
-  const mySecondList = new TodoList('My List')
-
   it('creating list has an empty array, initially', () => {
-    expect(mySecondList.getAll()).toEqual([])
+    const myList = new TodoList('My List')
+    expect(myList.getAll()).toEqual([])
   })
 
   it('list has two items in it', () => {
+    const myList = new TodoList('My List')
     const expectedContents = [
       { id: 1, description: 'do laundry', complete: false },
       { id: 2, description: 'make the bed', complete: true }
     ]
-    mySecondList.create('do laundry')
-    mySecondList.create('make the bed')
-    mySecondList.setComplete(2)
+    myList.create('do laundry')
+    myList.create('make the bed')
+    myList.setComplete(2)
 
-    expect(mySecondList.getAll()).toEqual(expectedContents)
+    expect(myList.getAll()).toEqual(expectedContents)
   })
 })
