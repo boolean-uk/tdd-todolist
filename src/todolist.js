@@ -11,6 +11,14 @@ function getToDos(todoList) {
   }
   return todoList
 }
+function setCompletionStatusToTrue(id, todo) {
+  if (id !== todo.id) {
+    return 'incorrect id'
+  }
+  const updatedTodo = { ...todo, complete: true }
+  return updatedTodo
+}
+
 function getIncompleteToDos() {}
 function getCompletedTodos() {}
 function findToDoByID(id) {}
@@ -19,6 +27,7 @@ function removeToDo(id) {}
 module.exports = {
   createToDo,
   getToDos,
+  setCompletionStatusToTrue,
   getIncompleteToDos,
   getCompletedTodos,
   findToDoByID,

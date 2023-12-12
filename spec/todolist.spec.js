@@ -1,6 +1,7 @@
 const {
   createToDo,
   getToDos,
+  setCompletionStatusToTrue,
   getIncompleteToDos,
   getCompletedTodos,
   findToDoByID,
@@ -48,5 +49,22 @@ describe('get todo list', () => {
   })
 })
 
+describe('set a todo to complete', () => {
+  it('item found and completion status set to true', () => {
+    const todo = { id: 3, text: 'drink coffe', complete: false }
+    const id = 3
 
-describe('set a todo item to complete', () => {})
+    const result = setCompletionStatusToTrue(id, todo)
+
+    expect(result).toEqual({ id: 3, text: 'drink coffe', complete: true })
+  })
+
+  it('item not found', () => {
+    const todo = { id: 3, text: 'drink coffe', complete: false }
+    const id = 7
+
+    const result = setCompletionStatusToTrue(id, todo)
+
+    expect(result).toEqual('incorrect id')
+  })
+})

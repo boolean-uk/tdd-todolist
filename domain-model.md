@@ -47,10 +47,11 @@ I need to be able to remove a specific todo item by its id.
 
 1. createToDo()
 2. getToDos()
-3. getIncompleteToDos()
-4. getCompletedTodos()
-5. findToDoByID(id)
-6. removeToDo(id)
+3. setCompletionStatusToTrue()
+4. getIncompleteToDos()
+5. getCompletedTodos()
+6. findToDoByID(id)
+7. removeToDo(id)
 
 
 ### inputs
