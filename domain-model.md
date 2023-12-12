@@ -1,7 +1,3 @@
-// Add your domain model below
-
-<!-- 
- -->
 
 # Plan
 
@@ -44,7 +40,7 @@ So that I can find a specific todo,
 I need to be able to search through my todo list by ID, and either see the todo, or a message telling me it does not exist.
 
 As a very organised being,
-So that I can delete irrelevant or incorrect entries to my todo list, 
+So that I can delete irrelevant or incorrect entries to my todo list,
 I need to be able to remove a specific todo item by its id.
 
 ### methods
@@ -68,12 +64,12 @@ I need to be able to remove a specific todo item by its id.
 
 ### data
 
-1. properties: name(@String), id(@String), text(@String), complete(@boolean)
-2. todo(@Object), properties: name(@String), id(@String), text(@String), complete(@boolean)
-3. todo(@Object), properties: name(@String), id(@String), text(@String), complete(@boolean)
-4. todo(@Object), properties: name(@String), id(@String), text(@String), complete(@boolean)
-5. todo(@Object), properties: name(@String), id(@String), text(@String), complete(@boolean)
-6. todo(@Object), properties: name(@String), id(@String), text(@String), complete(@boolean)
+1. properties: id(@Number), text(@String), complete(@boolean)
+2. todo(@Object), properties: id(@Number), text(@String), complete(@boolean)
+3. todo(@Object), properties: id(@Number), text(@String), complete(@boolean)
+4. todo(@Object), properties: id(@Number), text(@String), complete(@boolean)
+5. todo(@Object), properties: id(@Number), text(@String), complete(@boolean)
+6. todo(@Object), properties: id(@Number), text(@String), complete(@boolean)
 
 ### situations
 
