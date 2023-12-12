@@ -4,7 +4,7 @@ const {
   setCompletionStatusToTrue,
   getIncompleteToDos,
   getCompleteToDos,
-  findToDoByID,
+  findToDoById,
   removeToDo
 } = require('../src/todolist.js')
 
@@ -124,5 +124,21 @@ describe('get complete todos only', () => {
     const result = getCompleteToDos(todoList)
 
     expect(result).toEqual('no todo completed yet!')
+  })
+})
+
+describe('find a todo item by its id', () => {
+  it('todo item found', () => {
+    const todo1 = { id: 1, text: 'buy coffee beans', complete: false }
+    const todo2 = { id: 2, text: 'make coffee', complete: false }
+    const todo3 = { id: 3, text: 'drink coffe', complete: false }
+    const todo4 = { id: 4, text: 'type some code', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
+
+    const id = 2
+
+    const result = findToDoById(id, todoList)
+
+    expect(result).toEqual({ id: 2, text: 'make coffee', complete: false })
   })
 })

@@ -36,7 +36,7 @@ function getCompleteToDos(todoList) {
   }
   return listOfCOmpleteToDos
 }
-function findToDoByID(id, todoList) {}
+function findToDoById(id, todoList) {}
 function removeToDo(id, todoList) {}
 
 module.exports = {
@@ -45,6 +45,6 @@ module.exports = {
   setCompletionStatusToTrue,
   getIncompleteToDos,
   getCompleteToDos,
-  findToDoByID,
+  findToDoById,
   removeToDo
 }
