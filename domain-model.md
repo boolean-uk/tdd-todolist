@@ -2,9 +2,12 @@
 
 ## Create Todo
 
-<!-- Who -->As a user
-<!-- What -->I should be able to create a todo item.
-<!-- How -->I want to be able to see its ID, description and have it incompleted to start.
+<!-- Who -->
+As a user
+<!-- What -->
+I should be able to create a todo item.
+<!-- How -->
+I want to be able to see its ID, description and have it incompleted to start.
 
 ### Keywords
 
@@ -17,9 +20,6 @@ Nouns: item, ID, description, incompleted
 | ------ | ------ | ------ | ----- | -----
 | createTodo | (description) | description(@string), ID(@number), completedStatus(@boolean) | if there is a string | return a string with the description
 | ------ | ------ | ------ | ----- | return false
-
-
-
 
 ## Get Todos
 
@@ -43,7 +43,6 @@ Nouns: items, list
 | ------ | ------ | ------ | ----- | -----
 | getTodos | () | description(@string) | if descriptions available to grab  | return descriptions as a string
 | ------ | ------ | ------ | ----- | return "No todo items"
-| ------ | ------ | ------ | ----- | -----
 
 ```
 
