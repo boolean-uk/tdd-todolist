@@ -12,7 +12,7 @@ function createTodo(string) {
   return todo
 }
 
-function getTodos(todos) {
+function getTodos() {
   if (!todos || !todos.length) return 'No todo items'
   const todosList = todos.map((item) => {
     return item.description
@@ -20,7 +20,7 @@ function getTodos(todos) {
   return todosList
 }
 
-console.log(getTodos(todos))
+console.log(getTodos())
 
 module.exports = {
   createTodo,

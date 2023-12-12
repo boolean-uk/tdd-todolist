@@ -40,17 +40,18 @@ describe(' Todo Functions:', () => {
         }
       ]
       // WHEN
-      const result = getTodos(todos)
-      //   THEN
+      const result = getTodos()
+      // THEN
       expect(result).toEqual(['Do laundry'])
     })
     it('if todos dont exist in state', () => {
       // GIVEN
       const todos = []
       // WHEN
-      const result = getTodos(todos)
+      const result = getTodos()
       // THEN
       expect(result).toEqual('No todo items')
     })
   })
+  describe()
 })
