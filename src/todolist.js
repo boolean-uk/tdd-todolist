@@ -1,4 +1,10 @@
-function createToDo() {}
+function createToDo(newTodo) {
+  if (!newTodo.text || newTodo.text.length < 1) {
+    return 'failed to create todo'
+  }
+  const todo = newTodo
+  return todo.text
+}
 function getToDos() {}
 function getIncompleteToDos() {}
 function getCompletedTodos() {}
