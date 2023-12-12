@@ -25,13 +25,18 @@ const createToDo = (input) => {
     complete: false
   }
 
-  console.log(toDoItem)
   if (typeof input === 'string') {
     return toDoItem
   } else return false
 }
 
+const getToDo = () => {
+  console.log(toDoList)
+  if (toDoList) return toDoList
+}
+
 createToDo()
 module.exports = {
-  createToDo
+  createToDo,
+  getToDo
 }
