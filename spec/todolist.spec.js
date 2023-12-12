@@ -30,11 +30,11 @@ describe('marking items as complete / incomplete', () => {
   myList.create("New item")
   myList.create("New item")
 
-  it('toggling item id = 2 once', () => {
-    expect(myList.setComplete(2)).toEqual(true)
+  it('toggling item id = 2', () => {
+    expect(myList.setComplete(2).complete).toEqual(true)
   })
 
   it('toggling an id that does not exist returns false', () => {
-    expect(myList.setComplete(6)).toEqual(false)
+    expect(myList.setComplete(6)).toEqual("Todo item not found")
   })
 })

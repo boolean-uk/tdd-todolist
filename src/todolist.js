@@ -17,7 +17,7 @@ class TodoList {
 
   setComplete(id) {
     const itemExists = !!this.items.find((item) => item.id === id)
-    if (!itemExists) return false
+    if (!itemExists) return "Todo item not found"
     this.items = this.items.map((item) => {
       if (item.id === id) {
         return {
@@ -28,7 +28,7 @@ class TodoList {
         return item
       }
     })
-    return true
+    return this.items.find((item) => item.id === id)
   }
 }
 
