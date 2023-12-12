@@ -90,8 +90,8 @@ how.
 
 ### Keywords
 
-**1. Verbs:**
-**2. Nouns:**
+1. **Verbs:**
+2. **Nouns:**
 
 ### Table
 
