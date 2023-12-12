@@ -1,19 +1,4 @@
-const { createTodo, TodoList } = require('../src/todolist')
-
-describe('create todos', () => {
-  it('description is valid', () => {
-    const expectedResult = {
-      description: 'Test',
-      complete: false
-    }
-
-    expect(createTodo('Test')).toEqual(expectedResult)
-  })
-
-  it("empty description returns false", () => {
-    expect(createTodo('')).toEqual(false)
-  })
-})
+const { TodoList } = require('../src/todolist')
 
 describe('create new list', () => {
   it('creating a new list', () => {
@@ -26,3 +11,27 @@ describe('create new list', () => {
     expect(JSON.stringify(new TodoList(""))).toEqual(JSON.stringify(expectedResult))
   })
 })
+
+const myList = new TodoList("My List")
+
+describe('adding items', () => {
+  it('adding item to list', () => {
+    expect(myList.createTodo("Do homework")).toEqual(true)
+  })
+})
+
+describe('create todos', () => {
+  it('description is valid', () => {
+    const expectedResult = {
+      description: 'Test',
+      complete: false
+    }
+
+    expect(myList.createTodo('Test')).toEqual(true)
+  })
+
+  it("empty description returns false", () => {
+    expect(myList.createTodo('')).toEqual(false)
+  })
+})
+
