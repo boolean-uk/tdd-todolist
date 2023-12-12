@@ -2,12 +2,13 @@
 
 ## Create Todo
 
-<!-- Who -->
-As a user
-<!-- What -->
-I should be able to create a todo item.
-<!-- How -->
-I want to be able to see its ID, description and have it incompleted to start.
+```
+<!-- Who -->As a user,
+
+<!-- What -->I should be able to create a todo item,
+
+<!-- How -->I want to be able to see its ID, description and have it incompleted to start.
+```
 
 ### Keywords
 
