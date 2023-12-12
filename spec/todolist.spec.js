@@ -81,4 +81,19 @@ describe('Todos', () => {
       expect(result).toEqual('completed status is not valid')
     })
   })
+
+  describe('Search For Todo By Id', () => {
+    it('return todo items when id of item matches searched for id', () => {
+      todo.createTodo('Do the laundry')
+      todo.createTodo('Make the bed')
+      const foundTodo = { id: 1, text: 'Do the laundry', completed: false }
+      const result = todo.searchTodoById(1)
+      expect(result).toEqual(foundTodo)
+    })
+
+    it('unable to locate todo item with this id, id does not exist', () => {
+      const result = todo.searchTodoById()
+      expect(result).toEqual('id does not exist')
+    })
+  })
 })

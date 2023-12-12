@@ -58,6 +58,15 @@ class Todos {
       return completetodos
     }
   }
+
+  searchTodoById(id) {
+    const foundTodo = this.todoList.find((todo) => todo.id === id)
+    if (!foundTodo) {
+      return 'id does not exist'
+    } else {
+      return foundTodo
+    }
+  }
 }
 
 const todo = new Todos()
@@ -67,11 +76,12 @@ todo.createTodo('clean')
 todo.createTodo('tidy')
 todo.createTodo('hoover')
 todo.createTodo('mop')
-todo.completeTodo(2)
-todo.completeTodo(4)
+// todo.completeTodo(2)
+// todo.completeTodo(4)
 // console.log(todo.completeTodo())
 // console.log(todo.getAllTodos())
-console.log(todo.getCompleteTodos())
+// console.log(todo.getCompleteTodos())
 // todo.getIncompleteTodos(false)
+console.log(todo.searchTodoById(null))
 
 module.exports = { Todos }
