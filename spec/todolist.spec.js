@@ -92,8 +92,8 @@ describe('get incomplete todos only', () => {
     const todo4 = { id: 4, text: 'type some code', complete: true }
     const todoList = [todo1, todo2, todo3, todo4]
 
-		const result = getCompletedTodos(todoList)
+    const result = getIncompleteToDos(todoList)
 
-		expect(result).toEqual('all done!')
+    expect(result).toEqual('all done!')
   })
 })

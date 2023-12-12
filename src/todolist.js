@@ -20,7 +20,15 @@ function setCompletionStatusToTrue(id, todo) {
 }
 
 function getIncompleteToDos(todoList) {
+  const listOfIncompleteTodos = todoList.filter(
+    (item) => item.complete === false
+  )
+  if (listOfIncompleteTodos.length < 1) {
+    return 'all done!'
+  }
+  return listOfIncompleteTodos
 }
+
 function getCompletedTodos(todoList) {
 }
 function findToDoByID(id, todoList) {}
