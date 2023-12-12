@@ -12,14 +12,25 @@ describe('create new list', () => {
   })
 })
 
-const myList = new TodoList("My List")
 
 describe('adding items', () => {
+  const myList = new TodoList("My List")
   it('adding item to list', () => {
     expect(myList.createTodo("Do homework")).toEqual(true)
   })
 
   it("empty description returns false", () => {
     expect(myList.createTodo('')).toEqual(false)
+  })
+})
+
+describe('marking items as complete / incomplete', () => {
+  const myList = new TodoList("My List")
+  myList.createTodo("New item")
+  myList.createTodo("New item")
+  myList.createTodo("New item")
+
+  it('marking item id = 2 as complete', () => {
+    expect(myList.toggleComplete(2)).toEqual(true)
   })
 })
