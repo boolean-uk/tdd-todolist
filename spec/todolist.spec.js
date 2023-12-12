@@ -1,5 +1,7 @@
-describe(' Todo Functions', () => {
-  describe('Create Todo', () => {
+const { createTodo } = require('../src/todolist.js')
+
+describe(' Todo Functions:', () => {
+  describe('Create Todo:', () => {
     it('if there is a valid string', () => {
       // GIVEN
       const str = 'Do laundry'
@@ -9,6 +11,7 @@ describe(' Todo Functions', () => {
         description: 'Do laundry',
         completed: false
       }
+
       const result = createTodo(str)
       // THEN
       expect(result).toEqual(item1)
