@@ -25,6 +25,10 @@ li * {
   margin: 1rem;
 }
 
+.strikethrough {
+  text-decoration: line-through;
+}
+
 form * {
   padding: 0.25rem;
 }

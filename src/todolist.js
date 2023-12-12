@@ -32,28 +32,52 @@ class TodoList {
   }
 }
 
-const myList = new TodoList("My List")
+const myList = new TodoList('My List')
 
-myList.create("Test entry")
+myList.create('Test entry')
+myList.create("Test entry 2 but it's done")
+myList.setComplete(2)
+
 const handleSubmit = (event) => {
-  console.log("hello")
+  console.log('hello')
+}
+
+const init = () => {
+  const button = document.getElementById('add')
+  const input = document.querySelector('input')
+
+  const reaction = () => {
+    console.log(input.value)
+    console.log('click!')
+  }
+
+  button.addEventListener('click', reaction())
 }
 
 const loadList = () => {
-  const ul = document.querySelector("ul#todos")
+  const ul = document.querySelector('ul#todos')
   const todos = myList.getAll()
 
   todos.forEach((todo) => {
-    const checkbox = document.createElement("input")
-    checkbox.setAttribute("type", "checkbox")
+    const checkbox = document.createElement('input')
+    checkbox.setAttribute('type', 'checkbox')
+    if (todo.complete) {
+      checkbox.checked = true
+    }
 
-    const li = document.createElement("li")
+    const li = document.createElement('li')
     li.innerText = todo.description
     li.appendChild(checkbox)
+
+    if (todo.complete) {
+      li.setAttribute("class", "strikethrough")
+    }
+
     ul.appendChild(li)
   })
 }
 
+init()
 loadList()
 
 module.exports = { TodoList }
