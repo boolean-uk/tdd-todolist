@@ -19,10 +19,12 @@ function setCompletionStatusToTrue(id, todo) {
   return updatedTodo
 }
 
-function getIncompleteToDos() {}
-function getCompletedTodos() {}
-function findToDoByID(id) {}
-function removeToDo(id) {}
+function getIncompleteToDos(todoList) {
+}
+function getCompletedTodos(todoList) {
+}
+function findToDoByID(id, todoList) {}
+function removeToDo(id, todoList) {}
 
 module.exports = {
   createToDo,

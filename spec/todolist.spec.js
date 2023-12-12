@@ -68,3 +68,32 @@ describe('set a todo to complete', () => {
     expect(result).toEqual('incorrect id')
   })
 })
+
+describe('get incomplete todos only', () => {
+  it('all todos returned are incomplete', () => {
+    const todo1 = { id: 1, text: 'buy coffee beans', complete: true }
+    const todo2 = { id: 2, text: 'make coffee', complete: false }
+    const todo3 = { id: 3, text: 'drink coffe', complete: true }
+    const todo4 = { id: 4, text: 'type some code', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
+
+    const result = getIncompleteToDos(todoList)
+
+    expect(result).toEqual([
+      { id: 2, text: 'make coffee', complete: false },
+      { id: 4, text: 'type some code', complete: false }
+    ])
+  })
+
+  it('no incomplete todos found!', () => {
+    const todo1 = { id: 1, text: 'buy coffee beans', complete: true }
+    const todo2 = { id: 2, text: 'make coffee', complete: true }
+    const todo3 = { id: 3, text: 'drink coffe', complete: true }
+    const todo4 = { id: 4, text: 'type some code', complete: true }
+    const todoList = [todo1, todo2, todo3, todo4]
+
+		const result = getCompletedTodos(todoList)
+
+		expect(result).toEqual('all done!')
+  })
+})

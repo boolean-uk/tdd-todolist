@@ -79,9 +79,9 @@ I need to be able to remove a specific todo item by its id.
 2. todos exist in the list
    there are no todos in the list
 3. all the todos we get are incomplete
-   not all the todos we get are incomplete
-4. not all the todos we get are incomplete
-   all the todos we get are incomplete
+   no incomplete todos found
+4. all the todos we get are complete
+   no complete todos found
 5. the todo with a matching id exist
    no such todo exists
 6. the todo with a matching id is found and removed
