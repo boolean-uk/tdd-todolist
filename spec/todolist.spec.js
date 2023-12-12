@@ -4,7 +4,8 @@ const {
   setToDoComplete,
   getToDoIncomplete,
   getToDoComplete,
-  searchToDo
+  searchToDo,
+  removeItem
 } = require('../src/todolist.js')
 
 describe('Create a new toDo Item', () => {
@@ -455,7 +456,7 @@ describe('remove toDoItem', () => {
       }
     ]
 
-    const result = removeItem(7)
+    const result = removeItem(7, toDoList)
 
     expect(result).toBeFalse()
   })
@@ -479,7 +480,7 @@ describe('remove toDoItem', () => {
       }
     ]
 
-    const result = removeItem()
+    const result = removeItem(null, toDoList)
 
     expect(result).toBeFalse()
   })

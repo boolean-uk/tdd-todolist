@@ -41,7 +41,7 @@ const getToDoComplete = (toDoList) => {
   return false
 }
 
-function searchToDo(id, toDoList) {
+const searchToDo = (id, toDoList) => {
   if (typeof id !== 'number') return false
 
   const itemToFind = toDoList.find((item) => item.id === id)
@@ -51,11 +51,21 @@ function searchToDo(id, toDoList) {
   return 'Item not found'
 }
 
+const removeItem = (id, toDoList) => {
+  const indexToDelete = toDoList.findIndex((item) => item.id === id)
+
+  if (indexToDelete === -1) return false
+  toDoList.splice(indexToDelete, 1)
+
+  return true
+}
+
 module.exports = {
   createToDo,
   getToDo,
   setToDoComplete,
   getToDoIncomplete,
   getToDoComplete,
-  searchToDo
+  searchToDo,
+  removeItem
 }
