@@ -2,11 +2,11 @@
 
 ## Create Todo
 
-``
+```
 As a user,
 I should be able to create a todo item,
 I want to be able to see its ID, description and have it incompleted to start.
-``
+```
 
 ### Keywords
 
@@ -22,9 +22,11 @@ Nouns: item, ID, description, incompleted
 
 ## Get Todos
 
+```
 a user,
 should be able to see all todo items,
 they should be in a list.
+```
 
 ### Keywords
 
@@ -40,9 +42,11 @@ Nouns: items, list
 
 ## Set todo to completed
 
+```
 As a user,
 I should be able to complete a todo item,
 I would like to click an item and see it change to completed.
+```
 
 ### Keywords
 
@@ -57,9 +61,11 @@ Nouns: user, item, completed
 
 ## Next Function
 
+```
 who,
 what,
 how.
+```
 
 ### Keywords
 
@@ -76,9 +82,11 @@ Nouns:
 
 ## Next Function
 
+```
 who,
 what,
 how.
+```
 
 ### Keywords
 
@@ -95,9 +103,11 @@ Nouns:
 
 ## Next Function
 
+```
 who,
 what,
 how.
+```
 
 ### Keywords
 
@@ -114,9 +124,11 @@ Nouns:
 
 ## Next Function
 
+```
 who,
 what,
 how.
+```
 
 ### Keywords
 
