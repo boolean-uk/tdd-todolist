@@ -33,4 +33,19 @@ describe('Todos', () => {
       expect(todo.getAllTodos()).toEqual([])
     })
   })
+
+  describe('Set Todo As Complete', () => {
+    it('return todo item as completed', () => {
+      todo.createTodo('Do the laundry')
+      expect(todo.completeTodo(1)).toEqual({
+        id: 1,
+        text: 'Do the laundry',
+        completed: true
+      })
+    })
+
+    it('there is no valid id submitted', () => {
+      expect(todo.completeTodo()).toEqual('id is not valid')
+    })
+  })
 })

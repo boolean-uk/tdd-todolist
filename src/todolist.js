@@ -4,11 +4,11 @@ class Todos {
   }
 
   getAllTodos() {
-    // if (this.todoList.length === 0) {
-    //   return []
-    // } else {
+    if (this.todoList.length === 0) {
+      return []
+    } else {
       return this.todoList
-    // }
+    }
   }
 
   createTodo(text) {
@@ -24,11 +24,25 @@ class Todos {
       return newToDo
     }
   }
+
+  completeTodo(id) {
+    const todoToComplete = this.todoList.filter((todo) => todo.id === id)
+    if (!id) {
+      return 'id is not valid'
+    } else {
+      todoToComplete[0].completed = true
+      return todoToComplete[0]
+    }
+  }
 }
 
-// const todo = new Todos()
+const todo = new Todos()
 // console.log(todo.getAllTodos())
 // console.log(todo.createTodo('clean'))
+todo.createTodo('clean')
+todo.completeTodo(1)
+console.log(todo.completeTodo(1))
 // console.log(todo.getAllTodos())
+// console.log(todo.completeTodo())
 
 module.exports = { Todos }
