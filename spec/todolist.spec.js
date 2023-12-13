@@ -59,3 +59,36 @@ describe('Get All Todos', () => {
     expect(res).toEqual('Todo list is empty')
   })
 })
+
+describe('Set Todo Complete', () => {
+  it('should return true', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+
+    const res1 = todoList.setTodoComplete(2)
+    const res2 = todoList.setTodoComplete(1)
+
+    const allTodo = todoList.getAllTodo()
+
+    expect(res1).toBeTrue()
+    expect(res2).toBeTrue()
+    expect(allTodo[0].status).toEqual('complete')
+    expect(allTodo[1].status).toEqual('complete')
+    expect(allTodo[2].status).toEqual('incomplete')
+  })
+
+  it('should return error message because id of todo not exist', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+
+    const res = todoList.setTodoComplete(5)
+
+    expect(res).toEqual('Todo not found')
+  })
+})

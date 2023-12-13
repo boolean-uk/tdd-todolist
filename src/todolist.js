@@ -3,9 +3,9 @@ class TodoList {
     this.todoList = []
   }
 
-  createTodo(description) {
+  createTodo(description, todoId) {
     if (description.length > 0) {
-      const todoItem = new TodoItem(description)
+      const todoItem = new TodoItem(description, todoId)
       this.todoList.push(todoItem)
 
       return todoItem
@@ -20,7 +20,17 @@ class TodoList {
     return 'Todo list is empty'
   }
 
-  setTodoComplete() {}
+  setTodoComplete(todoId) {
+    const findItem = this.todoList.find((item) => item.id === todoId) || null
+
+    if (findItem) {
+      findItem.status = 'complete'
+
+      return true
+    }
+
+    return 'Todo not found'
+  }
 
   getIncompleteTodo() {}
 
@@ -32,8 +42,8 @@ class TodoList {
 }
 
 class TodoItem {
-  constructor(description) {
-    this.id = Date.now()
+  constructor(description, todoId) {
+    this.id = todoId || Date.now()
     this.description = description
     this.status = 'incomplete'
   }
