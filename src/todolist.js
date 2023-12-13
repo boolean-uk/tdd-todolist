@@ -52,7 +52,14 @@ class TodoList {
     return 'You have no one completed todo'
   }
 
-  searchTodo() {}
+  searchTodo(todoId) {
+    const searchedTodo =
+      this.todoList.find((item) => item.id === todoId) || null
+
+    if (searchedTodo) return searchedTodo
+
+    return `Todo doesn't exist`
+  }
 
   removeTodo() {}
 }

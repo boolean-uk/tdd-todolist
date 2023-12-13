@@ -163,3 +163,38 @@ describe('Get Complete Todo List', () => {
     expect(res).toEqual('You have no one completed todo')
   })
 })
+
+// Search Todo
+describe('Search Todo', () => {
+  it('has exist id of todo and has to show that todo', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+    todoList.createTodo('Todo 4', 4)
+    todoList.createTodo('Todo 5', 5)
+    todoList.createTodo('Todo 6', 6)
+
+    const res = todoList.searchTodo(5)
+
+    expect(res.id).toEqual(5)
+    expect(res.description).toEqual('Todo 5')
+    expect(res.status).toEqual('incomplete')
+  })
+
+  it(`hasn't exist id of todo and has to show the error message`, () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+    todoList.createTodo('Todo 4', 4)
+    todoList.createTodo('Todo 5', 5)
+    todoList.createTodo('Todo 6', 6)
+
+    const res = todoList.searchTodo(25)
+
+    expect(res).toEqual(`Todo doesn't exist`)
+  })
+})
