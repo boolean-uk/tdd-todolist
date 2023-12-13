@@ -17,7 +17,7 @@ class TodoList {
         this.todoList.push(newItem)
     }
 
-    
+
 
     getAll() {
         return this.todoList
@@ -40,7 +40,10 @@ class TodoList {
     deleteTodo(todoToDelete) {
         const indexToDelete = this.todoList.findIndex((todo) => todo.id === todoToDelete)
         if(indexToDelete !== -1) {
+            console.log(indexToDelete)
             this.todoList.splice(indexToDelete, 1)
+        } else {
+            return 'item to delete cant be fund'
         }
     }
 
@@ -54,9 +57,10 @@ class TodoList {
         } else {
             return 'Todo you searched is not found!'
         }
-
     }
 }
 
 
 module.exports = TodoList
+
+
