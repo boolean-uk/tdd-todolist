@@ -32,7 +32,15 @@ class TodoList {
     return 'Todo not found'
   }
 
-  getIncompleteTodo() {}
+  getIncompleteTodo() {
+    const incompleteList = this.todoList.filter(
+      (item) => item.status === 'incomplete'
+    )
+
+    if (incompleteList.length > 0) return incompleteList
+
+    return 'All todo was completed'
+  }
 
   getCompletedTodo() {}
 

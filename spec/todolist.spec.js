@@ -1,5 +1,6 @@
 const { TodoList, TodoItem } = require('../src/todolist')
 
+// Create Todo Item
 describe('Create Todo Item', () => {
   it('with incomplete status', () => {
     const description = 'Go to shop and buy some milk'
@@ -11,7 +12,8 @@ describe('Create Todo Item', () => {
   })
 })
 
-describe('Create Todo', () => {
+// Create Todo List
+describe('Create Todo List', () => {
   it('should return object of created todo', () => {
     // Setup
     const todoList = new TodoList()
@@ -36,7 +38,8 @@ describe('Create Todo', () => {
   })
 })
 
-describe('Get All Todos', () => {
+// Get All Todo
+describe('Get All Todo', () => {
   it('has to show list with 2 created todos', () => {
     const todoList = new TodoList()
 
@@ -60,6 +63,7 @@ describe('Get All Todos', () => {
   })
 })
 
+// Set Todo Complete
 describe('Set Todo Complete', () => {
   it('should return true', () => {
     const todoList = new TodoList()
@@ -90,5 +94,41 @@ describe('Set Todo Complete', () => {
     const res = todoList.setTodoComplete(5)
 
     expect(res).toEqual('Todo not found')
+  })
+})
+
+// Get Incomplete Todo List
+describe('Get Incomplete Todo List', () => {
+  it('has incomplete todo and has to show them', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+
+    todoList.setTodoComplete(2)
+    todoList.setTodoComplete(3)
+
+    const res = todoList.getIncompleteTodo()
+
+    expect(res[0].id).toEqual(1)
+    expect(res[0].description).toEqual('Todo 1')
+    expect(res[0].status).toEqual('incomplete')
+  })
+
+  it(`hasn't incomplete todo and has to show error message`, () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+
+    todoList.setTodoComplete(1)
+    todoList.setTodoComplete(2)
+    todoList.setTodoComplete(3)
+
+    const res = todoList.getIncompleteTodo()
+
+    expect(res).toEqual('All todo was completed')
   })
 })
