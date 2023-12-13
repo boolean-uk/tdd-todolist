@@ -18,11 +18,24 @@ h1 {
 }
 
 ul {
+  padding: 0 1em;
+  list-style-position: inside;
+}
+
+ul#todos {
   list-style: none;
+  padding: 0;
 }
 
 li * {
   margin: 1rem;
+}
+
+.warning {
+  padding: 1rem;
+  background-color: rgb(255, 0, 0, 0.1);
+  border: 2px red dotted;
+  border-radius: 1rem;
 }
 
 .strikethrough {
