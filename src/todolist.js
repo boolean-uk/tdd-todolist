@@ -68,6 +68,7 @@ class TodoList {
         return item
       }
     })
+    loadList()
     return this.items.find((item) => item.id === id)
   }
 }
@@ -75,7 +76,7 @@ class TodoList {
 const myList = new TodoList('My List')
 
 myList.create('Test entry')
-myList.create("Test entry 2 but it's done")
+myList.create('Test entry 2 but this is done')
 myList.setComplete(2)
 
 init()
