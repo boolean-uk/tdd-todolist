@@ -32,6 +32,4 @@ class TodoList {
   removeTodo() {}
 }
 
-module.exports = {
-  TodoList
-}
+module.exports = TodoList

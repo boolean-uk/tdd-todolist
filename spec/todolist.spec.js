@@ -1,4 +1,4 @@
-const { TodoList } = require('../src/todolist')
+const TodoList = require('../src/todolist')
 
 describe('Create Todo', () => {
   it('should return object of created todo', () => {
