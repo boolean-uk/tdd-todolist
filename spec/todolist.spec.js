@@ -35,3 +35,27 @@ describe('Create Todo', () => {
     expect(res).toEqual(`Enter your todo's description for create new todo`)
   })
 })
+
+describe('Get All Todos', () => {
+  it('has to show list with 2 created todos', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1')
+    todoList.createTodo('Todo 2')
+
+    const res = todoList.getAllTodo()
+
+    expect(res[0].description).toEqual('Todo 1')
+    expect(res[0].status).toEqual('incomplete')
+    expect(res[1].description).toEqual('Todo 2')
+    expect(res[1].status).toEqual('incomplete')
+  })
+
+  it('has to show empty list', () => {
+    const todoList = new TodoList()
+
+    const res = todoList.getAllTodo()
+
+    expect(res).toEqual('Todo list is empty')
+  })
+})

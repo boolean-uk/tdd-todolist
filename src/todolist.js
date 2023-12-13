@@ -9,12 +9,16 @@ class TodoList {
       this.todoList.push(todoItem)
 
       return todoItem
-    } else {
-      return `Enter your todo's description for create new todo`
     }
+
+    return `Enter your todo's description for create new todo`
   }
 
-  getAllTodo() {}
+  getAllTodo() {
+    if (this.todoList.length > 0) return this.todoList
+
+    return 'Todo list is empty'
+  }
 
   setTodoComplete() {}
 
