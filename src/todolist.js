@@ -42,7 +42,15 @@ class TodoList {
     return 'All todo was completed'
   }
 
-  getCompletedTodo() {}
+  getCompletedTodo() {
+    const completeList = this.todoList.filter(
+      (item) => item.status === 'complete'
+    )
+
+    if (completeList.length > 0) return completeList
+
+    return 'You have no one completed todo'
+  }
 
   searchTodo() {}
 

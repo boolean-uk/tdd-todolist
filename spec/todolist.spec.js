@@ -132,3 +132,34 @@ describe('Get Incomplete Todo List', () => {
     expect(res).toEqual('All todo was completed')
   })
 })
+
+// Get Complete Todo List
+describe('Get Complete Todo List', () => {
+  it('has complete todo and has to show them', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+
+    todoList.setTodoComplete(2)
+
+    const res = todoList.getCompletedTodo()
+
+    expect(res[0].id).toEqual(2)
+    expect(res[0].description).toEqual('Todo 2')
+    expect(res[0].status).toEqual('complete')
+  })
+
+  it(`hasn't complete todo and has to show error message`, () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+
+    const res = todoList.getCompletedTodo()
+
+    expect(res).toEqual('You have no one completed todo')
+  })
+})
