@@ -5,12 +5,7 @@ class TodoList {
 
   createTodo(description) {
     if (description.length > 0) {
-      const todoItem = {
-        ID: String(this.todoList.length + 1),
-        description,
-        status: 'incomplete'
-      }
-
+      const todoItem = new TodoItem(description)
       this.todoList.push(todoItem)
 
       return todoItem
@@ -32,4 +27,12 @@ class TodoList {
   removeTodo() {}
 }
 
-module.exports = TodoList
+class TodoItem {
+  constructor(description) {
+    this.id = Date.now()
+    this.description = description
+    this.status = 'incomplete'
+  }
+}
+
+module.exports = { TodoList, TodoItem }
