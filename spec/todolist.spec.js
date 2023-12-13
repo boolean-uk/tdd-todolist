@@ -56,7 +56,7 @@ describe('todolist', () => {
 
             todolist.deleteTodo(todoToDelete)
             const getAllTodo = todolist.getAll()
-            console.log(getAllTodo)
+           
             expect(getAllTodo.length).toBe(2)
         })
 
@@ -74,7 +74,7 @@ describe('todolist', () => {
 
 
             const getParticularTodo = todolist.getSingleTodo(1)
-            console.log('todo to delete', getParticularTodo)
+           
             expect(getParticularTodo).toEqual(expectedTodo)
         })
 
