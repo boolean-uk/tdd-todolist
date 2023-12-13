@@ -1,53 +1,44 @@
-// Add your domain model below
+Class: ToDoList
 
-In the given To-Do List System, we have a collection of tasks represented as to-do items. Each to-do item is an object with the following properties:
+Properties:
 
-id: a unique identifier (number) for the to-do item.
-description: a brief description (string) of the task.
-status: the status (string) of the task, either 'incomplete' or 'complete'.
-Functions:
+toDoArray: An array containing todo items with properties id, description, and completed.
+Methods:
 
-addTodo(id, description, status):
+createToDo(description: string)
 
-Inputs:
-id (number): a unique identifier for the to-do item.
-description (string): a brief description of the task.
-status (string): the initial status of the task, either 'incomplete' or 'complete'.
-Action: Creates a new to-do item with the provided id, description, and status. Adds the created to-do item to the To-Do List.
-listAllTodos(todoList):
+Description: Creates a new todo item with the given description and adds it to the array.
+Return: No return value.
+getAllItems()
 
-Input:
-todoList (array): the collection of to-do items.
-Output:
-If the to-do list is empty, returns the message "No todos available."
-If there are to-do items, returns the array of to-do items.
-markComplete(id, todoList):
+Description: Retrieves all todo items in the array.
+Return: Returns the array of todo items.
+setCompletedById(id: number)
 
-Inputs:
-id (number): the unique identifier of the to-do item.
-todoList (array): the collection of to-do items.
-Action: Finds the to-do item in the list with the matching id and sets its status to 'complete'.
-getIncompleteTodos(todoList):
+Description: Sets a todo item as completed based on its id.
+Return: Returns true if successful, false if the todo item is not found.
+getIncomplete()
 
-Input:
-todoList (array): the collection of to-do items.
-Output: Returns an array containing only the to-do items with a status of 'incomplete'.
-getCompleteTodos(todoList):
+Description: Retrieves all incomplete todo items.
+Return: Returns an array of incomplete todo items.
+getComplete()
 
-Input:
-todoList (array): the collection of to-do items.
-Output: Returns an array containing only the to-do items with a status of 'complete'.
-findTodoById(id, todoList):
+Description: Retrieves all completed todo items.
+Return: Returns an array of completed todo items.
+searchById(id: number)
 
-Inputs:
-id (number): the unique identifier of the to-do item.
-todoList (array): the collection of to-do items.
-Output:
-If no to-do item matches the id, returns the message "No ToDo exists matching this ID."
-If a matching to-do item is found, returns the to-do item.
-removeTodoById(id, todoList):
+Description: Searches for a todo item by its id.
+Return: Returns the todo item if found, or an error message if not found.
+removeTodoById(id: number)
 
-Inputs:
-id (number): the unique identifier of the to-do item.
-todoList (array): the collection of to-do items.
-Action: Finds the to-do item in the list with the matching id and removes it from the To-Do List.
+Description: Removes a todo item by its id.
+Return: Returns true if successful (item removed), false if the todo item is not found.
+Example Usage:
+
+Create a ToDoList instance.
+Add new todo items using createToDo.
+Retrieve all todo items with getAllItems.
+Mark a todo item as completed with setCompletedById.
+Get incomplete and complete todo items with getIncomplete and getComplete.
+Search for a todo item by id with searchById.
+Remove a todo item by id with removeTodoById.

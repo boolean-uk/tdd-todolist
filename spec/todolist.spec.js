@@ -1,119 +1,121 @@
-const {
-  addTodo,
-  listAllTodos,
-  markComplete,
-  getIncompleteTodos,
-  getCompleteTodos,
-  findTodoById,
-  removeTodoById
-} = require('../src/todolist')
+const ToDoList = require(`../src/todolist.js`)
 
-describe('Todo list functionality', () => {
-  it('should create a new todo with an id, description, and incomplete status', () => {
-    const expectedTodo = {
-      id: 1,
-      description: 'Buy groceries',
-      status: 'incomplete'
-    }
-    const description = 'Buy groceries'
-    const status = 'incomplete'
-    const newTodo = addTodo(1, description, status)
-    expect(newTodo).toEqual(expectedTodo)
+describe('ToDoList class', () => {
+  let todoList
+  let expectedArray
+
+  beforeEach(() => {
+    todoList = new ToDoList()
+    expectedArray = []
   })
 
-  it('should list all todos in the todoList array', () => {
-    const todoList = [
-      { id: 1, description: 'Laundry', status: 'incomplete' },
-      { id: 2, description: 'Clean the house', status: 'incomplete' },
-      { id: 3, description: 'Finish work project', status: 'complete' },
-      { id: 4, description: 'Exercise', status: 'complete' }
-    ]
-    const allTodos = listAllTodos(todoList)
-    expect(allTodos).toEqual(todoList)
+  it('should add a todo', () => {
+    todoList.createToDo('do the laundry')
+
+    expectedArray.push({ id: 0, text: 'do the laundry', complete: false })
+    expect(todoList.itemsArray).toEqual(expectedArray)
   })
 
-  it('should return a message when trying to list all todos from an empty todo list', () => {
-    const emptyTodoList = []
-    const getTodos = listAllTodos(emptyTodoList)
-    expect(getTodos).toEqual('No todos available')
+  it('should return the full list of items', () => {
+    // setup
+    todoList.createToDo('do the laundry')
+    todoList.createToDo('make my bed')
+    todoList.createToDo('Feed the dog')
+    expectedArray.push({ id: 0, text: 'do the laundry', complete: false })
+    expectedArray.push({ id: 1, text: 'make my bed', complete: false })
+    expectedArray.push({ id: 2, text: 'Feed the dog', complete: false })
+    // execute
+    const result = todoList.getAllItems()
+    // verify
+    expect(result.length).toEqual(3)
+    expect(result).toEqual(expectedArray)
   })
 
-  it('should mark a todo as complete by id', () => {
-    const todoList = [
-      { id: 1, description: 'Laundry', status: 'incomplete' },
-      { id: 2, description: 'Clean the house', status: 'incomplete' },
-      { id: 3, description: 'Finish work project', status: 'complete' },
-      { id: 4, description: 'Exercise', status: 'complete' }
-    ]
-    const id = 2
-    const expectedResult = {
-      id: 2,
-      description: 'Clean the house',
-      status: 'complete'
-    }
-    const changedStatus = markComplete(id, todoList)
-    expect(changedStatus).toEqual(expectedResult)
+  // testing changing to complete
+  it('should flag a todo as completed', () => {
+    // setup
+    todoList.createToDo('do the laundry')
+    // execute
+    todoList.setAsCompleted(0)
+    // verify
+    expect(todoList.getAllItems()).toEqual([
+      { id: 0, text: 'do the laundry', complete: true }
+    ])
   })
 
-  it('should get incomplete todos', () => {
-    const todoList = [
-      { id: 1, description: 'Laundry', status: 'incomplete' },
-      { id: 2, description: 'Clean the house', status: 'incomplete' },
-      { id: 3, description: 'Finish work project', status: 'complete' },
-      { id: 4, description: 'Exercise', status: 'complete' }
-    ]
-    const expectedResult = [
-      { id: 1, description: 'Laundry', status: 'incomplete' },
-      { id: 2, description: 'Clean the house', status: 'incomplete' }
-    ]
-    const incompleteTodos = getIncompleteTodos(todoList)
-    expect(incompleteTodos).toEqual(expectedResult)
+  // testing getting all incompletes
+  it('should return only incomplete', () => {
+    // setup
+    todoList.createToDo('do the laundry')
+    todoList.createToDo('make my bed')
+    todoList.createToDo('Feed the dog')
+    todoList.createToDo('Clean the table')
+    todoList.setAsCompleted(0)
+    todoList.setAsCompleted(2)
+    expectedArray.push({ id: 1, text: 'make my bed', complete: false })
+    expectedArray.push({ id: 3, text: 'Clean the table', complete: false })
+    // execute
+    const result = todoList.getIncomplete()
+    // verify
+    expect(result).toEqual(expectedArray)
   })
 
-  it('should get complete todos', () => {
-    const todoList = [
-      { id: 1, description: 'Laundry', status: 'incomplete' },
-      { id: 2, description: 'Clean the house', status: 'incomplete' },
-      { id: 3, description: 'Finish work project', status: 'complete' },
-      { id: 4, description: 'Exercise', status: 'complete' }
-    ]
-    const expectedResult = [
-      { id: 3, description: 'Finish work project', status: 'complete' },
-      { id: 4, description: 'Exercise', status: 'complete' }
-    ]
-    const completeTodos = getCompleteTodos(todoList)
-    expect(completeTodos).toEqual(expectedResult)
+  // testing getting all completes
+  it('should return only complete', () => {
+    // setup
+    todoList.createToDo('do the laundry')
+    todoList.createToDo('make my bed')
+    todoList.createToDo('Feed the dog')
+    todoList.createToDo('Clean the table')
+    todoList.setAsCompleted(0)
+    todoList.setAsCompleted(2)
+    expectedArray.push({ id: 0, text: 'do the laundry', complete: true })
+    expectedArray.push({ id: 2, text: 'Feed the dog', complete: true })
+    // execute
+    const result = todoList.getComplete()
+    // verify
+    expect(result).toEqual(expectedArray)
   })
 
-  it('should find a todo by id', () => {
-    const todoList = [
-      { id: 1, description: 'Laundry', status: 'incomplete' },
-      { id: 2, description: 'Clean the house', status: 'incomplete' },
-      { id: 3, description: 'Finish work project', status: 'complete' },
-      { id: 4, description: 'Exercise', status: 'complete' }
-    ]
-    const expectedResult = {
-      id: 3,
-      description: 'Finish work project',
-      status: 'complete'
-    }
-    const foundTodo = findTodoById(3, todoList)
-    expect(foundTodo).toEqual(expectedResult)
+  // testing getting an item by its ID
+  it('should return the correct task', () => {
+    // setup
+    todoList.createToDo('do the laundry')
+    todoList.createToDo('make my bed')
+    todoList.createToDo('Feed the dog')
+    todoList.setAsCompleted(0)
+    const expectedResult = { id: 1, text: 'make my bed', complete: false }
+    // execute
+    const result = todoList.getByID(1)
+    // verify
+    expect(result).toEqual(expectedResult)
   })
 
-  it('should remove a todo by id', () => {
-    const todoList = [
-      { id: 1, description: 'Laundry', status: 'incomplete' },
-      { id: 2, description: 'Clean the house', status: 'incomplete' },
-      { id: 3, description: 'Finish work project', status: 'complete' },
-      { id: 4, description: 'Exercise', status: 'complete' }
-    ]
-    const expectedResult = [
-      { id: 1, description: 'Laundry', status: 'incomplete' },
-      { id: 2, description: 'Clean the house', status: 'incomplete' },
-      { id: 3, description: 'Finish work project', status: 'complete' }
-    ]
-    const removedTodo = removeTodoById(4, todoList)
-    expect(removedTodo).toEqual(expectedResult)
+  it('should return an error message', () => {
+    // setup
+    todoList.createToDo('do the laundry')
+    todoList.createToDo('make my bed')
+    todoList.createToDo('Feed the dog')
+    todoList.setAsCompleted(0)
+    const expectedResult = '404 task not found'
+    // execute
+    const result = todoList.getByID(3)
+    // verify
+    expect(result).toEqual(expectedResult)
+  })
+
+  // testing removal via ID
+  it('should remove the task', () => {
+    // setup
+    todoList.createToDo('do the laundry')
+    todoList.createToDo('make my bed')
+    todoList.createToDo('Feed the dog')
+    todoList.setAsCompleted(0)
+    expectedArray.push({ id: 0, text: 'do the laundry', complete: true })
+    expectedArray.push({ id: 2, text: 'Feed the dog', complete: false })
+
+    todoList.removeByID(1)
+
+    expect(todoList.getAllItems()).toEqual(expectedArray)
   })
 })

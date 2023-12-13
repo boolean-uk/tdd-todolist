@@ -1,50 +1,48 @@
-const todos = []
-
-function addTodo(id, description, status) {
-  const todo = {
-    id: id,
-    description: description,
-    status: status
+class ToDoList {
+  constructor(text) {
+    this.lastUsedId = 0
+    this.itemsArray = []
   }
-  todos.push(todo)
-  return todo
-}
 
-function listAllTodos() {
-  return todos.length === 0 ? 'No todos available' : todos
-}
-
-function markComplete(id) {
-  const todo = todos.find((item) => item.id === id)
-  if (todo) {
-    todo.status = 'complete'
+  createToDo(text) {
+    const newItem = { id: this.lastUsedId, text: text, complete: false }
+    this.itemsArray.push(newItem)
+    this.lastUsedId++
   }
-  return todo
+
+  getAllItems() {
+    return this.itemsArray
+  }
+
+  setAsCompleted(todoID) {
+    this.itemsArray[todoID].complete = true
+  }
+
+  getIncomplete() {
+    const incompleteArray = []
+    this.itemsArray.forEach((item) => {
+      if (item.complete === false) incompleteArray.push(item)
+    })
+    return incompleteArray
+  }
+
+  getComplete() {
+    const completeArray = []
+    this.itemsArray.forEach((item) => {
+      if (item.complete === true) completeArray.push(item)
+    })
+    return completeArray
+  }
+
+  getByID(id) {
+    if (this.itemsArray[id] === undefined) return '404 task not found'
+    else return this.itemsArray[id]
+  }
+
+  removeByID(id) {
+    if (this.itemsArray[id] === undefined) return '404 task not found'
+    else this.itemsArray.splice(id, 1)
+  }
 }
 
-function getIncompleteTodos() {
-  return todos.filter((item) => item.status === 'incomplete')
-}
-
-function getCompleteTodos() {
-  return todos.filter((item) => item.status === 'complete')
-}
-
-function findTodoById(id) {
-  return todos.find((item) => item.id === id)
-}
-
-function removeTodoById(id) {
-  const updatedTodos = todos.filter((item) => item.id !== id)
-  return updatedTodos
-}
-
-module.exports = {
-  addTodo,
-  listAllTodos,
-  markComplete,
-  getIncompleteTodos,
-  getCompleteTodos,
-  findTodoById,
-  removeTodoById
-}
+module.exports = ToDoList
