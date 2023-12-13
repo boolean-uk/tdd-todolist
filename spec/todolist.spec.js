@@ -198,3 +198,34 @@ describe('Search Todo', () => {
     expect(res).toEqual(`Todo doesn't exist`)
   })
 })
+
+// Remove Todo
+describe('Remove Todo', () => {
+  it('has passed exist id', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+
+    const removeFunction = todoList.removeTodo(2)
+
+    const res = todoList.getAllTodo()
+
+    expect(removeFunction).toBeTrue()
+    expect(res[0].id).toEqual(1)
+    expect(res[1].id).toEqual(3)
+  })
+
+  it(`hasn't passed exist id`, () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('Todo 1', 1)
+    todoList.createTodo('Todo 2', 2)
+    todoList.createTodo('Todo 3', 3)
+
+    const res = todoList.removeTodo(5)
+
+    expect(res).toEqual('Todo not found')
+  })
+})

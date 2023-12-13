@@ -61,7 +61,17 @@ class TodoList {
     return `Todo doesn't exist`
   }
 
-  removeTodo() {}
+  removeTodo(todoId) {
+    const findItem = this.todoList.find((item) => item.id === todoId) || null
+
+    if (findItem) {
+      this.todoList = this.todoList.filter((item) => item.id !== todoId)
+
+      return true
+    }
+
+    return 'Todo not found'
+  }
 }
 
 class TodoItem {
