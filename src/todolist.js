@@ -1,28 +1,30 @@
-const todos = []
-let counter = 0
+let idCounter = 1
 
-function createTodo(string) {
-  if (!string) return false
-  const id = counter++
-  const todo = {
-    id,
-    description: string,
-    completed: false
+const increaseId = (num) => {
+  idCounter = num
+}
+
+class ToDoList {
+  constructor() {
+    this.list = []
   }
-  return todo
+
+  addItem(item) {
+    this.list.push(item)
+  }
 }
 
-function getTodos() {
-  if (!todos || !todos.length) return 'No todo items'
-  const todosList = todos.map((item) => {
-    return item.description
-  })
-  return todosList
+class ToDoItem {
+  constructor(description) {
+    this.id = idCounter
+    this.description = description
+    this.completed = false
+    increaseId(idCounter + 1)
+  }
 }
-
-console.log(getTodos())
 
 module.exports = {
-  createTodo,
-  getTodos
+  ToDoList,
+  ToDoItem,
+  increaseId
 }

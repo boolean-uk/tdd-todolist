@@ -1,57 +1,29 @@
-const { createTodo, getTodos } = require('../src/todolist.js')
+const { ToDoList, ToDoItem, increaseId } = require('../src/todolist.js')
 
 describe(' Todo Functions:', () => {
-  describe('Create Todo:', () => {
-    it('if there is a valid string', () => {
-      // GIVEN
-      const str = 'Do laundry'
-      // WHEN
-      let counter = 0
-      const id = counter++
-      const item1 = {
-        id,
-        description: 'Do laundry',
-        completed: false
-      }
-
-      const result = createTodo(str)
-      // THEN
-      expect(result).toEqual(item1)
-    })
-
-    it('if there is not a valid string', () => {
-      // GIVEN
-      const str = ''
-      // WHEN
-      const result = createTodo(str)
-      // THEN
-      expect(result).toEqual(false)
+  describe('To Do Item', () => {
+    increaseId(1)
+    it('/ if there is a valid string, creates a new item, starts off as complete', () => {
+      const newItem = new ToDoItem('Do the laundry')
+      expect(newItem.description).toEqual('Do the laundry')
     })
   })
 
-  describe('Get Todos', () => {
-    it('if todos exist in state', () => {
-      // GIVEN
-      const todos = [
-        {
-          id: 1,
-          description: 'Do laundry',
-          completed: false
-        }
-      ]
-      // WHEN
-      const result = getTodos()
-      // THEN
-      expect(result).toEqual(['Do laundry'])
-    })
-    it('if todos dont exist in state', () => {
-      // GIVEN
-      const todos = []
-      // WHEN
-      const result = getTodos()
-      // THEN
-      expect(result).toEqual('No todo items')
+  describe('To Do List', () => {
+    increaseId(1)
+    const toDoList = new ToDoList()
+    it('/ can have item added', () => {
+      toDoList.list = []
+      const item1 = new ToDoItem('Do laundry')
+      const item2 = new ToDoItem('Pet the cat')
+
+      toDoList.addItem(item1)
+      toDoList.addItem(item2)
+      console.log(toDoList)
+
+      expect(toDoList.list.length).toEqual(2)
+      expect(toDoList.list[0].id).toEqual(1)
+      expect(toDoList.list[1].id).toEqual(2)
     })
   })
-  describe()
 })
