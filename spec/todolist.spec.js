@@ -3,9 +3,13 @@ const { ToDoList, ToDoItem, increaseId } = require('../src/todolist.js')
 describe(' Todo Functions:', () => {
   describe('To Do Item', () => {
     increaseId(1)
-    it('/ if there is a valid string, creates a new item, starts off as complete', () => {
+    it('/ creates a new item, starts off as complete', () => {
       const newItem = new ToDoItem('Do the laundry')
       expect(newItem.description).toEqual('Do the laundry')
+    })
+    it('/ if param is left empty ', () => {
+      const newItem = new ToDoItem('')
+      expect(newItem).toEqual('Please enter a todo!')
     })
   })
 
