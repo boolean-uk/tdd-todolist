@@ -16,12 +16,15 @@ class ToDoList {
 
 class ToDoItem {
   constructor(description) {
+    if (!description) return 'Please enter a todo!'
     this.id = idCounter
     this.description = description
     this.completed = false
     increaseId(idCounter + 1)
   }
 }
+const newItem = new ToDoItem('')
+console.log(newItem)
 
 module.exports = {
   ToDoList,
