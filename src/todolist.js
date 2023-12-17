@@ -12,6 +12,10 @@ class ToDoList {
   addItem(item) {
     this.list.push(item)
   }
+
+  getTodos() {
+    return this.list.map((item) => item.description)
+  }
 }
 
 class ToDoItem {

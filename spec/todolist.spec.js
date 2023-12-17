@@ -39,7 +39,7 @@ describe('Todo Functions:', () => {
       toDoList.addItem(item1)
       toDoList.addItem(item2)
 
-      const result = getTodos()
+      const result = toDoList.getTodos()
       expect(result).toEqual(['Do laundry', 'Pet the cat'])
     })
   })
