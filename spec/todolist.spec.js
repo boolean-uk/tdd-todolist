@@ -9,8 +9,7 @@ describe(' Todo Functions:', () => {
     })
     it('/ if param is left empty ', () => {
       increaseId(1)
-      const newItem = new ToDoItem('')
-      expect(newItem).toEqual('Please enter a todo!')
+      expect(() => new ToDoItem('')).toThrowError('Please enter a todo!')
     })
   })
 

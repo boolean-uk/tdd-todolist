@@ -16,15 +16,18 @@ class ToDoList {
 
 class ToDoItem {
   constructor(description) {
-    if (!description) return 'Please enter a todo!'
+    if (!description || description === '') {
+      throw new Error('Please enter a todo!')
+    }
     this.id = idCounter
     this.description = description
     this.completed = false
     increaseId(idCounter + 1)
   }
 }
-const newItem = new ToDoItem('')
-console.log(newItem)
+
+// const newItem = new ToDoItem('')
+// console.log(newItem)
 
 module.exports = {
   ToDoList,
