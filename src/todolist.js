@@ -28,6 +28,11 @@ class ToDoList {
     if (newList.length === 0) return false
     return newList.map((item) => item.description)
   }
+
+  getCompleted() {
+    const newList = this.list.filter((item) => item.completed === true)
+    return newList.map((item) => item.description)
+  }
 }
 
 class ToDoItem {
