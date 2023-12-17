@@ -37,6 +37,7 @@ class ToDoList {
 
   findTodo(id) {
     const foundItem = this.list.find((item) => item.id === id)
+    if (!foundItem) return 'This todo does not exist'
     return foundItem.description
   }
 }
