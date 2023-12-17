@@ -56,5 +56,18 @@ describe('Todo Functions:', () => {
       toDoList.setTodo(1)
       expect(toDoList.list[0].completed).toEqual(true)
     })
+    it('/ set tofo completed status to false', () => {
+      const toDoList = new ToDoList()
+      increaseId(1)
+      toDoList.list = [
+        {
+          id: 1,
+          description: 'Go walking',
+          completed: true
+        }
+      ]
+      toDoList.setTodo(1)
+      expect(toDoList.list[0].completed).toEqual(false)
+    })
   })
 })
