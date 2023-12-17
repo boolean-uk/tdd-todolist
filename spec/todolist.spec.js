@@ -126,5 +126,9 @@ describe('Todo Functions:', () => {
       const result = todoList.getIncompleted()
       expect(result).toEqual(false)
     })
+    it('/ get completed todo items. Should return list of descriptions of todo items.', () => {
+      const result = todoList.getCompleted()
+      expect(result).toEqual(['Go biking', 'Go climbing'])
+    })
   })
 })
