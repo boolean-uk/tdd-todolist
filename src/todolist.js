@@ -34,6 +34,11 @@ class ToDoList {
     if (newList.length === 0) return false
     return newList.map((item) => item.description)
   }
+
+  findTodo(id) {
+    const foundItem = this.list.find((item) => item.id === id)
+    return foundItem.description
+  }
 }
 
 class ToDoItem {
