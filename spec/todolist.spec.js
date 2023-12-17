@@ -157,4 +157,35 @@ describe('Todo Functions:', () => {
       expect(result).toEqual(false)
     })
   })
+  describe('/ find todo lsit items', () => {
+    const todoList = new ToDoList()
+    beforeEach(() => {
+      todoList.list = [
+        {
+          id: 1,
+          description: 'Change bed sheets',
+          completed: false
+        },
+        {
+          id: 2,
+          description: 'Sweep kitchen',
+          completed: true
+        },
+        {
+          id: 3,
+          description: 'Do a grocery shop',
+          completed: false
+        },
+        {
+          id: 4,
+          description: 'Help neighbour with move',
+          completed: true
+        }
+      ]
+    })
+    it('/ finding specific todos based off of ID"s should return specific ids description', () => {
+      const result = todoList.findTodo(2)
+      expect(result).toEqual('Sweep kitchen')
+    })
+  })
 })
