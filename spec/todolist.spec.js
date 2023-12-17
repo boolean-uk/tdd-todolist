@@ -49,11 +49,12 @@ describe('Todo Functions:', () => {
     })
     it('/ set todo completed status to true', () => {
       const toDoList = new ToDoList()
+      increaseId(1)
       toDoList.list = []
       const newItem = new ToDoItem('Go walking')
       toDoList.addItem(newItem)
-      const result = toDoList.setTodo(1)
-      expect(result).toEqual(newItem.completed === true)
+      toDoList.setTodo(1)
+      expect(toDoList.list[0].completed).toEqual(true)
     })
   })
 })

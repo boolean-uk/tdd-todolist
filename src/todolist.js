@@ -17,6 +17,11 @@ class ToDoList {
     if (this.list.length === 0) return 'No todo items'
     return this.list.map((item) => item.description)
   }
+
+  setTodo(id) {
+    const foundItem = this.list.find((item) => item.id === id)
+    foundItem.completed = !foundItem.completed
+  }
 }
 
 class ToDoItem {
