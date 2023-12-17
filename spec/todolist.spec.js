@@ -42,5 +42,10 @@ describe('Todo Functions:', () => {
       const result = toDoList.getTodos()
       expect(result).toEqual(['Do laundry', 'Pet the cat'])
     })
+    it('/ getTodos list should return "No todo items" if ToDoList is empty', () => {
+      const toDoList = new ToDoList()
+      const result = toDoList.getTodos()
+      expect(result).toEqual('No todo items')
+    })
   })
 })
