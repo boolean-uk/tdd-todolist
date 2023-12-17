@@ -100,5 +100,9 @@ describe('Todo Functions:', () => {
       const result = todoList.getIncompleted()
       expect(result).toEqual(['Go walking', 'Go swimming'])
     })
+    it('/ get incompleted returns false if there are no incompleted items"', () => {
+      const result = todoList.getIncompleted()
+      expect(result).toEqual(false)
+    })
   })
 })
