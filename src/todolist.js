@@ -40,6 +40,11 @@ class ToDoList {
     if (!foundItem) return 'This todo does not exist'
     return foundItem.description
   }
+
+  removeTodo(id) {
+    const newList = this.list.filter((item) => item.id !== id)
+    this.list = newList
+  }
 }
 
 class ToDoItem {
