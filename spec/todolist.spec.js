@@ -192,4 +192,52 @@ describe('Todo Functions:', () => {
       expect(result).toEqual('This todo does not exist')
     })
   })
+  describe('/ Remove todo', () => {
+    const todoList = new ToDoList()
+    beforeEach(() => {
+      todoList.list = [
+        {
+          id: 1,
+          description: 'Change bed sheets',
+          completed: true
+        },
+        {
+          id: 2,
+          description: 'Sweep kitchen',
+          completed: true
+        },
+        {
+          id: 3,
+          description: 'Do a grocery shop',
+          completed: false
+        },
+        {
+          id: 4,
+          description: 'Help neighbour with move',
+          completed: true
+        }
+      ]
+    })
+    it('/ if id does match one in todo list, return list without said item', () => {
+      todoList.removeTodo(3)
+      const result = [
+        {
+          id: 1,
+          description: 'Change bed sheets',
+          completed: true
+        },
+        {
+          id: 2,
+          description: 'Sweep kitchen',
+          completed: true
+        },
+        {
+          id: 4,
+          description: 'Help neighbour with move',
+          completed: true
+        }
+      ]
+      expect(todoList.list).toEqual(result)
+    })
+  })
 })
