@@ -47,5 +47,13 @@ describe('Todo Functions:', () => {
       const result = toDoList.getTodos()
       expect(result).toEqual('No todo items')
     })
+    it('/ set todo completed status to true', () => {
+      const toDoList = new ToDoList()
+      toDoList.list = []
+      const newItem = new ToDoItem('Go walking')
+      toDoList.addItem(newItem)
+      const result = toDoList.setTodo(1)
+      expect(result).toEqual(newItem.completed === true)
+    })
   })
 })
