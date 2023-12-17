@@ -70,4 +70,35 @@ describe('Todo Functions:', () => {
       expect(toDoList.list[0].completed).toEqual(false)
     })
   })
+  describe('/ Getting incompleted and completed todo items', () => {
+    const todoList = new ToDoList()
+    beforeEach(() => {
+      todoList.list = [
+        {
+          id: 1,
+          description: 'Go walking',
+          completed: false
+        },
+        {
+          id: 2,
+          description: 'Go biking',
+          completed: true
+        },
+        {
+          id: 3,
+          description: 'Go swimming',
+          completed: false
+        },
+        {
+          id: 4,
+          description: 'Go climbing',
+          completed: true
+        }
+      ]
+    })
+    it('/ should return a list of incompleted items descriptions', () => {
+      const result = todoList.getIncompleted()
+      expect(result).toEqual(['Go swimming', 'Go walking'])
+    })
+  })
 })
