@@ -14,6 +14,7 @@ class ToDoList {
   }
 
   getTodos() {
+    if (this.list.length === 0) return 'No todo items'
     return this.list.map((item) => item.description)
   }
 }
