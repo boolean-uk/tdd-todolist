@@ -239,5 +239,9 @@ describe('Todo Functions:', () => {
       ]
       expect(todoList.list).toEqual(result)
     })
+    it('/ if no ID exists', () => {
+      const result = todoList.removeTodo(5)
+      expect(result).toEqual(false)
+    })
   })
 })
