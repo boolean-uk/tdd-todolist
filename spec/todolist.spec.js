@@ -157,7 +157,7 @@ describe('Todo Functions:', () => {
       expect(result).toEqual(false)
     })
   })
-  describe('/ find todo lsit items', () => {
+  describe('/ find todo list items', () => {
     const todoList = new ToDoList()
     beforeEach(() => {
       todoList.list = [
@@ -183,9 +183,13 @@ describe('Todo Functions:', () => {
         }
       ]
     })
-    it('/ finding specific todos based off of ID"s should return specific ids description', () => {
+    it('/ if ID exists return description', () => {
       const result = todoList.findTodo(2)
       expect(result).toEqual('Sweep kitchen')
+    })
+    it('/ if ID does not exist, return "This todo does not exist"', () => {
+      const result = todoList.findTodo(5)
+      expect(result).toEqual('This todo does not exist')
     })
   })
 })
