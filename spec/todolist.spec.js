@@ -98,7 +98,7 @@ describe('Todo Functions:', () => {
     })
     it('/ should return a list of incompleted items descriptions', () => {
       const result = todoList.getIncompleted()
-      expect(result).toEqual(['Go swimming', 'Go walking'])
+      expect(result).toEqual(['Go walking', 'Go swimming'])
     })
   })
 })

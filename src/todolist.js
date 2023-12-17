@@ -22,6 +22,11 @@ class ToDoList {
     const foundItem = this.list.find((item) => item.id === id)
     foundItem.completed = !foundItem.completed
   }
+
+  getIncompleted() {
+    const newList = this.list.filter((item) => item.completed === false)
+    return newList.map((item) => item.description)
+  }
 }
 
 class ToDoItem {
