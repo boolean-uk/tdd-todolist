@@ -60,9 +60,6 @@ class ToDoItem {
   }
 }
 
-// const newItem = new ToDoItem('')
-// console.log(newItem)
-
 module.exports = {
   ToDoList,
   ToDoItem,
