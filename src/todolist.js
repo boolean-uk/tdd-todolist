@@ -42,6 +42,7 @@ class ToDoList {
   }
 
   removeTodo(id) {
+    if (!this.list.find((item) => item.id === id)) return false
     const newList = this.list.filter((item) => item.id !== id)
     this.list = newList
   }
