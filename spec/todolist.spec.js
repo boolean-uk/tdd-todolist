@@ -130,5 +130,31 @@ describe('Todo Functions:', () => {
       const result = todoList.getCompleted()
       expect(result).toEqual(['Go biking', 'Go climbing'])
     })
+    it('/ get completed returns false if no completed items exist.', () => {
+      todoList.list = [
+        {
+          id: 1,
+          description: 'Go walking',
+          completed: false
+        },
+        {
+          id: 2,
+          description: 'Go biking',
+          completed: false
+        },
+        {
+          id: 3,
+          description: 'Go swimming',
+          completed: false
+        },
+        {
+          id: 4,
+          description: 'Go climbing',
+          completed: false
+        }
+      ]
+      const result = todoList.getCompleted()
+      expect(result).toEqual(false)
+    })
   })
 })
