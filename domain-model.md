@@ -17,8 +17,8 @@ I want to be able to see its ID, description and have it incompleted to start.
 
 | Methods | Inputs | Data | Scenario | Outputs
 | ------ | ------ | ------ | ----- | -----
-| createTodo | (description) | description(@string), ID(@number), completedStatus(@boolean) | if there is a string | return a string with the description
-| ------ | ------ | ------ | ----- | return false
+| ToDoItem | CLASS | description(@string), ID(@number), completedStatus(@boolean) | if there is a string | return a string with the description
+| ------ | ------ | ------ | if there is not string | return 'Please enter a todo!'
 
 ## Get Todos
 
