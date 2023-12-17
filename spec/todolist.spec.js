@@ -101,6 +101,28 @@ describe('Todo Functions:', () => {
       expect(result).toEqual(['Go walking', 'Go swimming'])
     })
     it('/ get incompleted returns false if there are no incompleted items"', () => {
+      todoList.list = [
+        {
+          id: 1,
+          description: 'Go walking',
+          completed: true
+        },
+        {
+          id: 2,
+          description: 'Go biking',
+          completed: true
+        },
+        {
+          id: 3,
+          description: 'Go swimming',
+          completed: true
+        },
+        {
+          id: 4,
+          description: 'Go climbing',
+          completed: true
+        }
+      ]
       const result = todoList.getIncompleted()
       expect(result).toEqual(false)
     })

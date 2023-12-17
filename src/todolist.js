@@ -25,6 +25,7 @@ class ToDoList {
 
   getIncompleted() {
     const newList = this.list.filter((item) => item.completed === false)
+    if (newList.length === 0) return false
     return newList.map((item) => item.description)
   }
 }
