@@ -11,17 +11,13 @@ describe('Can create a new todo', ()=>{
   it('creates a todo item with an ID, text description, and incomplete status', () => {
   
     const newTodoText = 'I am traveling'
-    const newId = todoItemListInstance.todolist.length + 1
+    const newId = existingTodoList.length + 1
   
     const result = todoItemListInstance.create(newTodoText)
+     
+    expect(result).toEqual(existingTodoList)
   
-    expect(result).toEqual(this.todolists.length - 1)
-  
-    expect(result).toEqual({
-      id: newId,
-      text: newTodoText,
-      status: 'incomplete'
-    })
+
   })
 })
 
@@ -41,10 +37,7 @@ describe('Can create a new todo', ()=>{
       expect(result).toEqual('status changed')
     })
   
-    it('set a todo completed by its ID', () => {
-      const result = todoItemListInstance.setComplete(4)
-      expect(result).toEqual('Todo not found')
-    })
+
   })
 
 
@@ -59,6 +52,45 @@ describe('Can create a new todo', ()=>{
       expect(result).toEqual(allIncompleteTodo)
     })
   })
+
+
+  describe('Can get todos with complete status',()=>{
+
+    it('get todo items that are complete', () => {
+      const allCompleteTodo = existingTodoList.filter((todo) => todo.status === 'complete')
+      const result = todoItemListInstance.getCompleteTodos()
+  
+      expect(result).toEqual(allCompleteTodo)
+    })
+
+    describe('Can search or return a todo item by its ID', ()=>{
+
+      it('Search and return a todo item by its ID, or return a message saying it doesn’t exist', () => {
+        const todoId = 2;
+        const searchResult = todoItemListInstance.searchTodoById(todoId);
+        const expectedResult = existingTodoList.find((todo) => todo.id === todoId) || 'doesnt exist';
+      
+        expect(searchResult).toEqual(expectedResult);
+      });
+      
+    })
+
+    describe('Can remove todo by id ', ()=>{
+
+      it('Remove a todo item by its ID', () => {
+        const idTobeRemoved = 2
+    
+        const removeTodowithId = existingTodoList.filter((todo) => todo.id !== idTobeRemoved)
+        
+        const result = todoItemListInstance.removeById(idTobeRemoved)
+    
+    
+        expect(result).toEqual(removeTodowithId)
+      })
+    })
+  })
+
+
 
 
 

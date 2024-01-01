@@ -27,7 +27,7 @@ class Todolist {
         ? this.todolists[this.todolists.length - 1].id + 1
         : 1
 
-    this.todolists.push({
+     this.todolists.push({
       id: newId,
       text: newTodo,
       status: 'incomplete'
@@ -35,6 +35,8 @@ class Todolist {
 
     return this.todolists
   }
+
+
 
   getAllTodo() {
     return this.todolists.length > 0 ? true : false;
@@ -54,7 +56,21 @@ class Todolist {
   getIncompleteTodos() {
     return this.todolists.filter((todo) => todo.status === 'incomplete')
   }
+
+  getCompleteTodos() {
+    return this.todolists.filter((todo) => todo.status === 'complete')
+  }
+
+  searchTodoById(todoId){
+    return this.todolists.find((todo)=> todo.id === todoId)
+  }
+
+  removeById(id){
+    return this.todolists.filter((todo)=> todo.id !== id)
+  }
 }
+
+
 
 
 
