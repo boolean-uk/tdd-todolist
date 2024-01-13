@@ -24,4 +24,13 @@ describe('TodoList', () => {
     expect(allTodos).toContainEqual(todo1)
     expect(allTodos).toContainEqual(todo2)
   })
+  it('should set a todo as completed by its ID', () => {
+    const todoList = new TodoList()
+    const todo = todoList.create('Complete task')
+
+    todoList.setCompletedById(todo.id)
+
+    const updatedTodo = todoList.getAll()[0]
+    expect(updatedTodo.completed).toBe(true)
+  })
 })

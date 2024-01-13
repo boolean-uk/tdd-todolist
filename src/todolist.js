@@ -1,3 +1,11 @@
+class Todo {
+  constructor(id, text) {
+    this.id = id
+    this.text = text
+    this.completed = false
+  }
+}
+
 class TodoList {
   constructor() {
     this.todos = []
@@ -10,16 +18,15 @@ class TodoList {
     return todo
   }
 
+  setCompletedById(id) {
+    const todo = this.todos.find((t) => t.id === id)
+    if (todo) {
+      todo.completed = true
+    }
+  }
+
   getAll() {
     return this.todos
-  }
-}
-
-class Todo {
-  constructor(id, text) {
-    this.id = id
-    this.text = text
-    this.completed = false
   }
 }
 
