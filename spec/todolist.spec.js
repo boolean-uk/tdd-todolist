@@ -52,12 +52,27 @@ describe('TodoList', () => {
     const todoList = new TodoList()
     const todo1 = todoList.create('Incomplete task 1')
     const todo2 = todoList.create('Complete task 2')
-    todoList.setCompletedById(todo2.id)
+    todoList.setCompletedById(todo2.id) // Marking todo2 as completed
 
     const completeTodos = todoList.getComplete()
 
     expect(completeTodos).toHaveLength(1)
     expect(completeTodos).toContainEqual(todo2)
     expect(completeTodos).not.toContainEqual(todo1)
+  })
+
+  it('should search and return a todo item by its ID', () => {
+    const todoList = new TodoList()
+    const todo = todoList.create('Searchable task')
+    const searchedTodo = todoList.getById(todo.id)
+
+    expect(searchedTodo).toBe(todo)
+  })
+
+  it('should return a message if the todo item does not exist', () => {
+    const todoList = new TodoList()
+    const searchedTodo = todoList.getById(100)
+
+    expect(searchedTodo).toBe('Todo not found')
   })
 })

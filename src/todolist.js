@@ -25,6 +25,11 @@ class TodoList {
     }
   }
 
+  getById(id) {
+    const todo = this.todos.find((t) => t.id === id)
+    return todo || 'Todo not found'
+  }
+
   getAll() {
     return this.todos
   }
