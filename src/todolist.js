@@ -25,6 +25,13 @@ class TodoList {
     }
   }
 
+  removeById(id) {
+    const index = this.todos.findIndex((t) => t.id === id)
+    if (index !== -1) {
+      this.todos.splice(index, 1)
+    }
+  }
+
   getById(id) {
     const todo = this.todos.find((t) => t.id === id)
     return todo || 'Todo not found'

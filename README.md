@@ -34,7 +34,7 @@ You should be able to run this in your JS console (using your node REPL, or brow
 - [x] Get only todo items that are incomplete
 - [x] Get only todo items that are complete
 - [x] Search and return a todo item by its ID, or return a message saying it doesn’t exist
-- [] Remove a todo item by its ID
+- [x] Remove a todo item by its ID
 
 
 #### Example interactions (class version)

@@ -75,4 +75,14 @@ describe('TodoList', () => {
 
     expect(searchedTodo).toBe('Todo not found')
   })
+
+  it('should remove a todo item by its ID', () => {
+    const todoList = new TodoList()
+    const todo = todoList.create('Remove me')
+
+    todoList.removeById(todo.id)
+
+    const remainingTodos = todoList.getAll()
+    expect(remainingTodos).toHaveLength(0)
+  })
 })
