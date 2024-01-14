@@ -24,6 +24,7 @@ describe('TodoList', () => {
     expect(allTodos).toContainEqual(todo1)
     expect(allTodos).toContainEqual(todo2)
   })
+
   it('should set a todo as completed by its ID', () => {
     const todoList = new TodoList()
     const todo = todoList.create('Complete task')
@@ -32,5 +33,18 @@ describe('TodoList', () => {
 
     const updatedTodo = todoList.getAll()[0]
     expect(updatedTodo.completed).toBe(true)
+  })
+
+  it('should get only incomplete todo items', () => {
+    const todoList = new TodoList()
+    const todo1 = todoList.create('Incomplete task 1')
+    const todo2 = todoList.create('Complete task 2')
+    todoList.setCompletedById(todo2.id) // Marking todo2 as completed
+
+    const incompleteTodos = todoList.getIncomplete()
+
+    expect(incompleteTodos).toHaveLength(1)
+    expect(incompleteTodos).toContainEqual(todo1)
+    expect(incompleteTodos).not.toContainEqual(todo2)
   })
 })

@@ -28,6 +28,10 @@ class TodoList {
   getAll() {
     return this.todos
   }
+
+  getIncomplete() {
+    return this.todos.filter((todo) => !todo.completed)
+  }
 }
 
 module.exports = {
