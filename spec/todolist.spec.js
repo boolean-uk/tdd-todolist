@@ -47,4 +47,17 @@ describe('TodoList', () => {
     expect(incompleteTodos).toContainEqual(todo1)
     expect(incompleteTodos).not.toContainEqual(todo2)
   })
+
+  it('should get only complete todo items', () => {
+    const todoList = new TodoList()
+    const todo1 = todoList.create('Incomplete task 1')
+    const todo2 = todoList.create('Complete task 2')
+    todoList.setCompletedById(todo2.id)
+
+    const completeTodos = todoList.getComplete()
+
+    expect(completeTodos).toHaveLength(1)
+    expect(completeTodos).toContainEqual(todo2)
+    expect(completeTodos).not.toContainEqual(todo1)
+  })
 })

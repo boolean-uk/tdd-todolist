@@ -32,6 +32,10 @@ class TodoList {
   getIncomplete() {
     return this.todos.filter((todo) => !todo.completed)
   }
+
+  getComplete() {
+    return this.todos.filter((todo) => todo.completed)
+  }
 }
 
 module.exports = {
