@@ -1,88 +1,201 @@
-const { Todo, TodoList } = require('../src/todolist.js')
+const {
+  createToDo,
+  getToDos,
+  setComplete,
+  getIncompleteToDos,
+  getCompleteToDos,
+  findToDoById,
+  removeToDo
+} = require('../src/todolist.js')
 
-describe('TodoList', () => {
-  it('should create a todo item with ID, text description, and start off incomplete', () => {
-    const todoList = new TodoList()
-    const todoText = 'Complete TDD test'
-
-    const todo = todoList.create(todoText)
-
-    expect(todo).toBeInstanceOf(Todo)
-    expect(todo.id).toBe(1)
-    expect(todo.text).toBe(todoText)
-    expect(todo.completed).toBe(false)
+describe('create new todo', () => {
+  it('the todo item is created successfully', () => {
+    const newToDo = { id: 1, text: 'do the laundry', complete: false }
+    const result = createToDo(newToDo)
+    expect(result).toEqual('do the laundry')
   })
 
-  it('should get all todo items', () => {
-    const todoList = new TodoList()
-    const todo1 = todoList.create('Complete TDD test')
-    const todo2 = todoList.create('Implement get all todos')
+  it('the todo item was not created - missing input!', () => {
+    const newToDo = { id: 1, text: '', complete: false }
+    const result = createToDo(newToDo)
+    expect(result).toEqual('failed to create todo')
+  })
+})
 
-    const allTodos = todoList.getAll()
+describe('get todo list', () => {
+  it('the todo list is shown as a string listing all its items', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: false }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: false }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
 
-    expect(allTodos).toHaveLength(2)
-    expect(allTodos).toContainEqual(todo1)
-    expect(allTodos).toContainEqual(todo2)
+    const result = getToDos(todoList)
+
+    const expected = [
+      { id: 1, text: 'clean the kitchen', complete: false },
+      { id: 2, text: 'water the plants', complete: false },
+      { id: 3, text: 'write a poem', complete: false },
+      { id: 4, text: 'read a book', complete: false }
+    ]
+
+    expect(result).toEqual(expected)
   })
 
-  it('should set a todo as completed by its ID', () => {
-    const todoList = new TodoList()
-    const todo = todoList.create('Complete task')
+  it('the todo list is empty', () => {
+    const todoList = []
+    const result = getToDos(todoList)
+    expect(result).toEqual('no todos added yet')
+  })
+})
 
-    todoList.setCompletedById(todo.id)
+describe('find and set a todo to complete', () => {
+  it('item found and completion status set to true', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: false }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: false }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
+    const id = 3
 
-    const updatedTodo = todoList.getAll()[0]
-    expect(updatedTodo.completed).toBe(true)
+    const result = setComplete(id, todoList)
+
+    expect(result).toEqual({ id: 3, text: 'write a poem', complete: true })
   })
 
-  it('should get only incomplete todo items', () => {
-    const todoList = new TodoList()
-    const todo1 = todoList.create('Incomplete task 1')
-    const todo2 = todoList.create('Complete task 2')
-    todoList.setCompletedById(todo2.id) // Marking todo2 as completed
+  it('item not found', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: false }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: false }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
 
-    const incompleteTodos = todoList.getIncomplete()
+    const id = 7
 
-    expect(incompleteTodos).toHaveLength(1)
-    expect(incompleteTodos).toContainEqual(todo1)
-    expect(incompleteTodos).not.toContainEqual(todo2)
+    const result = setComplete(id, todoList)
+
+    expect(result).toEqual('incorrect id - todo item does not exist')
+  })
+})
+
+describe('get incomplete todos only', () => {
+  it('all todos returned are incomplete', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: true }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: true }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
+
+    const result = getIncompleteToDos(todoList)
+
+    expect(result).toEqual([
+      { id: 2, text: 'water the plants', complete: false },
+      { id: 4, text: 'read a book', complete: false }
+    ])
   })
 
-  it('should get only complete todo items', () => {
-    const todoList = new TodoList()
-    const todo1 = todoList.create('Incomplete task 1')
-    const todo2 = todoList.create('Complete task 2')
-    todoList.setCompletedById(todo2.id) // Marking todo2 as completed
+  it('no incomplete todos found!', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: true }
+    const todo2 = { id: 2, text: 'water the plants', complete: true }
+    const todo3 = { id: 3, text: 'write a poem', complete: true }
+    const todo4 = { id: 4, text: 'read a book', complete: true }
+    const todoList = [todo1, todo2, todo3, todo4]
 
-    const completeTodos = todoList.getComplete()
+    const result = getIncompleteToDos(todoList)
 
-    expect(completeTodos).toHaveLength(1)
-    expect(completeTodos).toContainEqual(todo2)
-    expect(completeTodos).not.toContainEqual(todo1)
+    expect(result).toEqual('all done!')
+  })
+})
+
+describe('get complete todos only', () => {
+  it('all todos returned are complete', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: true }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: true }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
+
+    const result = getCompleteToDos(todoList)
+
+    expect(result).toEqual([
+      { id: 1, text: 'clean the kitchen', complete: true },
+      { id: 3, text: 'write a poem', complete: true }
+    ])
   })
 
-  it('should search and return a todo item by its ID', () => {
-    const todoList = new TodoList()
-    const todo = todoList.create('Searchable task')
-    const searchedTodo = todoList.getById(todo.id)
+  it('no complete todos found!', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: false }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: false }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
 
-    expect(searchedTodo).toBe(todo)
+    const result = getCompleteToDos(todoList)
+
+    expect(result).toEqual('no todo completed yet!')
+  })
+})
+
+describe('find a todo item by its id', () => {
+  it('todo item found', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: false }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: false }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
+
+    const id = 2
+
+    const result = findToDoById(id, todoList)
+
+    expect(result).toEqual({ id: 2, text: 'water the plants', complete: false })
   })
 
-  it('should return a message if the todo item does not exist', () => {
-    const todoList = new TodoList()
-    const searchedTodo = todoList.getById(100)
+  it('no such todo item', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: false }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: false }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
 
-    expect(searchedTodo).toBe('Todo not found')
+    const id = 7
+
+    const result = findToDoById(id, todoList)
+
+    expect(result).toEqual('no match found')
+  })
+})
+
+describe('delete a todo item', () => {
+  it('todo found and removed', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: false }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: false }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
+
+    const id = 2
+
+    const result = removeToDo(id, todoList)
+
+    expect(result).toEqual([
+      { id: 1, text: 'clean the kitchen', complete: false },
+      { id: 3, text: 'write a poem', complete: false },
+      { id: 4, text: 'read a book', complete: false }
+    ])
   })
 
-  it('should remove a todo item by its ID', () => {
-    const todoList = new TodoList()
-    const todo = todoList.create('Remove me')
+  it('no such todo item found', () => {
+    const todo1 = { id: 1, text: 'clean the kitchen', complete: false }
+    const todo2 = { id: 2, text: 'water the plants', complete: false }
+    const todo3 = { id: 3, text: 'write a poem', complete: false }
+    const todo4 = { id: 4, text: 'read a book', complete: false }
+    const todoList = [todo1, todo2, todo3, todo4]
 
-    todoList.removeById(todo.id)
+    const id = 9
 
-    const remainingTodos = todoList.getAll()
-    expect(remainingTodos).toHaveLength(0)
+    const result = removeToDo(id, todoList)
+
+    expect(result).toEqual('no match found, could not remove')
   })
 })

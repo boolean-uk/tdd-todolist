@@ -1,56 +1,74 @@
-class Todo {
-  constructor(id, text) {
-    this.id = id
-    this.text = text
-    this.completed = false
+function createToDo(newTodo) {
+  if (!newTodo.text || newTodo.text.length < 1) {
+    return 'failed to create todo'
   }
+  const todo = newTodo
+  return todo.text
+}
+function getToDos(todoList) {
+  if (!todoList || todoList.length < 1) {
+    return 'no todos added yet'
+  }
+  return todoList
+}
+function setComplete(id, todoList) {
+  const toDoToUpdate = todoList.find((item) => item.id === id)
+
+  if (!toDoToUpdate) {
+    return 'incorrect id - todo item does not exist'
+  }
+
+  const updatedTodo = { ...toDoToUpdate, complete: true }
+
+  // or we might want to update the actual list:
+  // const updatedTodoList = [...todoList, { ...toDoToUpdate, complete: true }]
+
+  return updatedTodo
 }
 
-class TodoList {
-  constructor() {
-    this.todos = []
-    this.currentId = 1
+function getIncompleteToDos(todoList) {
+  const listOfIncompleteToDos = todoList.filter(
+    (item) => item.complete === false
+  )
+  if (listOfIncompleteToDos.length < 1) {
+    return 'all done!'
   }
+  return listOfIncompleteToDos
+}
 
-  create(text) {
-    const todo = new Todo(this.currentId++, text)
-    this.todos.push(todo)
-    return todo
+function getCompleteToDos(todoList) {
+  const listOfCOmpleteToDos = todoList.filter((item) => item.complete === true)
+  if (listOfCOmpleteToDos.length < 1) {
+    return 'no todo completed yet!'
   }
+  return listOfCOmpleteToDos
+}
+function findToDoById(id, todoList) {
+  const foundTodo = todoList.find((item) => item.id === id)
 
-  setCompletedById(id) {
-    const todo = this.todos.find((t) => t.id === id)
-    if (todo) {
-      todo.completed = true
-    }
+  if (!foundTodo) {
+    return 'no match found'
   }
+  return foundTodo
+}
+function removeToDo(id, todoList) {
+  const todoToRemove = todoList.find((item) => item.id === id)
+  if (!todoToRemove) {
+    return 'no match found, could not remove'
+  }
+  const indexOfToDoToRemove = todoList.indexOf(todoToRemove)
 
-  removeById(id) {
-    const index = this.todos.findIndex((t) => t.id === id)
-    if (index !== -1) {
-      this.todos.splice(index, 1)
-    }
-  }
+  todoList.splice(indexOfToDoToRemove, 1)
 
-  getById(id) {
-    const todo = this.todos.find((t) => t.id === id)
-    return todo || 'Todo not found'
-  }
-
-  getAll() {
-    return this.todos
-  }
-
-  getIncomplete() {
-    return this.todos.filter((todo) => !todo.completed)
-  }
-
-  getComplete() {
-    return this.todos.filter((todo) => todo.completed)
-  }
+  return todoList
 }
 
 module.exports = {
-  Todo,
-  TodoList
+  createToDo,
+  getToDos,
+  setComplete,
+  getIncompleteToDos,
+  getCompleteToDos,
+  findToDoById,
+  removeToDo
 }
