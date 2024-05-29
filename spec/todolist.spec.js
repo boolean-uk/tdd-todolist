@@ -31,10 +31,10 @@ describe('To Do List', () => {
     toDoList.create('Learn to code')
     toDoList.create('Learn to code better')
 
-    expect (toDoList.setComplete(2)).toEqual({
-        id: 2,
-        text: 'Learn to code better',
-        complete: true
+    expect(toDoList.setComplete(2)).toEqual({
+      id: 2,
+      text: 'Learn to code better',
+      complete: true
     })
   })
 
@@ -44,6 +44,22 @@ describe('To Do List', () => {
     toDoList.create('Learn to code')
     toDoList.create('Learn to code better')
 
-    expect (toDoList.setComplete(3)).toEqual('Item not found')
+    expect(toDoList.setComplete(3)).toEqual('Item not found')
+  })
+
+  it('Should return all complete items', () => {
+    const toDoList = new ToDoList()
+
+    toDoList.create('Learn to code')
+    toDoList.create('Learn to code better')
+    toDoList.create('Learn to code betterer')
+
+    toDoList.setComplete(1)
+    toDoList.setComplete(2)
+
+    expect(toDoList.getAllComplete()).toEqual([
+    { id: 1, text: 'Learn to code', complete: false },
+    { id: 2, text: 'Learn to code better', complete: false }
+    ])
   })
 })
