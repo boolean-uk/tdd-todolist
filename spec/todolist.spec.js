@@ -14,7 +14,7 @@ describe('todolist', () => {
     expect(toDoList.toDos[0].text).toBe('Do This')
   })
 
-  it("display a list of all toDos", () => {
+  it("return a list of all toDos", () => {
     const toDoList = new ToDoList()
     toDoList.createToDo('Do This')
     toDoList.createToDo('Do That')
@@ -25,5 +25,13 @@ describe('todolist', () => {
     expect(allToDos[0].text).toBe('Do This')
     expect(allToDos[1].text).toBe('Do That')
     expect(allToDos[2].text).toBe('Do Something')
+  })
+
+  it("succesfully flip the status of toDos", () => {
+    const toDoList = new ToDoList()
+    const newToDo = toDoList.createToDo("Complete me")
+
+    toDoList.setToDo(newToDo.id)
+    
   })
 })
