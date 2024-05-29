@@ -58,8 +58,8 @@ describe('To Do List', () => {
     toDoList.setComplete(2)
 
     expect(toDoList.getAllComplete()).toEqual([
-    { id: 1, text: 'Learn to code', complete: false },
-    { id: 2, text: 'Learn to code better', complete: false }
+    { id: 1, text: 'Learn to code', complete: true },
+    { id: 2, text: 'Learn to code better', complete: true }
     ])
   })
 })
