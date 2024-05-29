@@ -95,7 +95,24 @@ describe('todosList', () => {
     expect(todosList.remove(2)).toBeTrue()
     expect(todosList.getCompleted()).toEqual([todo1])
   })
-  // it('should take list of completed todos ', () => {
 
-  // })
+  it('should take list of completed todos ', () => {
+    const todosList = new TodosList()
+    expect(todosList.getInCompleted()).toEqual([])
+    const todo1 = new Todo(1, 'Finish the Exercise', true)
+    todosList.add(todo1)
+    expect(todosList.getInCompleted()).toEqual([])
+
+    const todo2 = new Todo(
+      2,
+      'commits a lot Or You will have a chat will Nathan',
+      true
+    )
+    const todo3 = new Todo(3, 'Finish the Exercise', false)
+    todosList.add(todo2)
+    todosList.add(todo3)
+    expect(todosList.getInCompleted()).toEqual([todo3])
+    expect(todosList.remove(3)).toBeTrue()
+    expect(todosList.getInCompleted()).toEqual([])
+  })
 })

@@ -48,6 +48,15 @@ class TodosList {
     }
     return completedTodos
   }
+
+  getInCompleted() {
+    const inCompletedTodos = []
+    if (this.todosList.length === 0) return []
+    this.todosList.map((todo, index) => {
+      if (todo.status === false) inCompletedTodos.push(todo)
+    })
+    return inCompletedTodos
+  }
 }
 
 export { TodosList, Todo }
