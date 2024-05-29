@@ -77,4 +77,18 @@ describe('To Do List', () => {
       { id: 3, text: 'Learn to code betterer', complete: false }
     ])
   })
+
+  it('Should return an item by ID', () => {
+    const toDoList = new ToDoList()
+
+    toDoList.create('Learn to code')
+    toDoList.create('Learn to code better')
+    toDoList.create('Learn to code betterer')
+
+    expect(toDoList.find(2)).toEqual({
+      id: 2,
+      text: 'Learn to code better',
+      complete: false
+    })
+  })
 })

@@ -34,6 +34,10 @@ class ToDoList {
     const incompleteToDos = this.toDos.filter((toDo) => !toDo.complete)
     return incompleteToDos
   }
+
+  find(id) {
+    return this.toDos.find((todo) => todo.id === id)
+  }
 }
 
 export { ToDoList }
