@@ -1,4 +1,4 @@
-const Item = require('../src/todolist.js')
+const { Item } = require('../src/todolist.js')
 
 describe('item', () => {
   it('should have an id, description and be incomplete', () => {
