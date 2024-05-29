@@ -24,4 +24,17 @@ describe('To Do List', () => {
       { id: 2, text: 'Learn to code better', complete: false }
     ])
   })
+
+  it('To do list should be able to set a todo as complete from its ID', () => {
+    const toDoList = new ToDoList()
+
+    toDoList.create('Learn to code')
+    toDoList.create('Learn to code better')
+
+    expect (toDoList.setComplete(1)).toEqual({
+        id: 2,
+        text: 'Learn to code better',
+        complete: true
+    })
+  })
 })
