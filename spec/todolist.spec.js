@@ -1,9 +1,13 @@
 const TodoList = require('../src/todolist.js')
 
-describe('todo', () => {
-  it('should have a title', () => {
-    const todo = new TodoList('study')
+describe('todo list', () => {
+  it('should create a todo item', () => {
+    const todo = new TodoList()
 
-    expect(todo.title).toBe('study')
+    expect(todo.create('work out')).toEqual({
+      id: todo.id,
+      title: 'work out',
+      status: todo.status
+    })
   })
 })
