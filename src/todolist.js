@@ -20,6 +20,15 @@ class TodoList {
   getAll() {
     return this.todos
   }
+
+  setComplete(id) {
+    const todoId = this.todos.find((todo) => todo.id === id)
+
+    if (todoId.status === 'incomplete') {
+      todoId.status = 'completed'
+      return todoId
+    }
+  }
 }
 
 module.exports = TodoList
