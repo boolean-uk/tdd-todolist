@@ -8,8 +8,9 @@ describe('To Do List', () => {
     expect(Object.keys(item)).toEqual(['id', 'todo', 'complete'])
   })
 
-  it('To do manager should have a get all todo items function', () => {
+  it('To do manager should have an add item function', () => {
+    const tdm = new ToDoManager()
 
-    expect(ToDoManager.getAllTodos).toBeFunction()
+    expect(tdm.addItem).toBeFunction()
   })
 })
