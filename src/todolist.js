@@ -12,6 +12,10 @@ class ToDoList {
     this.toDos.push(newToDo)
     return newToDo
   }
+
+  getAllToDos() {
+    return this.toDos
+  }
 }
 
 export { ToDoList }
