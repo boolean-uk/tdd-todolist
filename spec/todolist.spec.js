@@ -5,9 +5,20 @@ describe('todo list', () => {
     const todo = new TodoList()
 
     expect(todo.create('work out')).toEqual({
-      id: todo.id,
+      id: 1,
       title: 'work out',
-      status: todo.status
+      status: 'incomplete'
     })
+  })
+
+  it('should get all todos', () => {
+    const todo = new TodoList()
+    todo.create('work out')
+    todo.create('play games')
+
+    expect(todo.getAll()).toEqual([
+      { id: 1, title: 'work out', status: 'incomplete' },
+      { id: 2, title: 'play games', status: 'incomplete' }
+    ])
   })
 })

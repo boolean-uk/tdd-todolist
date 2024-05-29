@@ -1,21 +1,24 @@
 class TodoList {
-  constructor(id = 1, status = false) {
-    this.id = id
-    this.status = status ? 'completed' : 'incompleted'
+  constructor() {
+    this.todos = []
   }
 
   create(title) {
-    const allTodos = []
+    const newId = this.todos.length + 1
 
     const newTodo = {
-      id: this.id + allTodos.length,
+      id: newId,
       title: title,
-      status: this.status
+      status: 'incomplete'
     }
 
-    allTodos.push(newTodo)
+    this.todos.push(newTodo)
 
     return newTodo
+  }
+
+  getAll() {
+    return this.todos
   }
 }
 
