@@ -1,4 +1,4 @@
-import { Todos, Todo } from "../src/todolist.js"
+import { TodosList, Todo } from "../src/todolist.js"
 
 describe('todo', () => {
   it('should have an id and text and status', () => {
@@ -6,9 +6,9 @@ describe('todo', () => {
   })
 })
 
-describe('todos', () => {
+describe('todosList', () => {
   it('should have a list of Todos', () => {
-    const todosList = new Todos()
+    const todosList = new TodosList()
   })
 })
 

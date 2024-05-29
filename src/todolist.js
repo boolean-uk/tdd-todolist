@@ -5,10 +5,10 @@ class Todo {
     this.status = status
   }
 }
-class Todos {
+class TodosList {
   constructor() {
-    this.todos = []
+    this.todosList = []
   }
 }
 
-export { Todos, Todo }
+export { TodosList, Todo }
