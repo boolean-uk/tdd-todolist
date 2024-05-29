@@ -32,6 +32,14 @@ class ToDoList {
 
     return completeToDos
   }
+
+  getIncompleteToDos() {
+    const incompleteToDos = this.toDos.filter((element) => {
+      return !element.complete
+    })
+
+    return incompleteToDos
+  }
 }
 
 export default ToDoList
