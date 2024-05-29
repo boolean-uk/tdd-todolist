@@ -6,11 +6,7 @@ class ToDoList {
   }
 
   createToDo(text) {
-    const toDo = {
-      id: crypto.randomUUID(),
-      text,
-      complete: false
-    }
+    const toDo = new Item(text)
 
     this.toDos.push(toDo)
     return toDo
@@ -56,6 +52,14 @@ class ToDoList {
     this.toDos = this.toDos.filter((element) => {
       return !element.id === id
     })
+  }
+}
+
+class Item {
+  constructor(text) {
+    this.id = crypto.randomUUID()
+    this.text = text
+    this.complete = false
   }
 }
 
