@@ -7,10 +7,12 @@ class ToDoItem {
   }
 }
 
-class ToDoList {
+class ToDosList {
     constructor() {
-        
+        this.toDos = []
     }
+
+
 }
 
-export { ToDoItem }
+export { ToDoItem, ToDosList }
