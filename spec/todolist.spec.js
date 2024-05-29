@@ -52,7 +52,6 @@ describe('todolist', () => {
     toDoList.setToDo(toDo1.id)
 
     expect(toDoList.getCompleteToDos()[0].id).toBe(toDo1.id)
-
   })
 
   it('returns a list of all incomplete toDos', () => {
@@ -68,5 +67,16 @@ describe('todolist', () => {
 
     expect(toDoList.getIncompleteToDos()[0].id).toBe(toDo2.id)
     expect(toDoList.getIncompleteToDos()[1].id).toBe(toDo3.id)
+  })
+
+  it('returns only the toDo with the specified id', () => {
+    const toDoList = new ToDoList()
+
+    const toDo1 = toDoList.createToDo('Do This')
+    const toDo2 = toDoList.createToDo('Do That')
+    toDoList.createToDo('Do Something')
+
+    expect(toDoList.searchToDos(toDo1.id).id).toBe(toDo1.id)
+    expect(toDoList.searchToDos(toDo2.id).text).toBe(toDo2.text)
   })
 })
