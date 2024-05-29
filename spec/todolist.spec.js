@@ -57,4 +57,15 @@ describe('todo list', () => {
       { id: 3, title: 'do homework', status: 'completed' }
     ])
   })
+
+  it('should search a todo item', () => {
+    const todo = new TodoList()
+    todo.create('skydiving')
+    todo.create('learn how to cook')
+    todo.setComplete(1)
+
+    expect(todo.search(1)).toEqual([
+      { id: 1, title: 'skydiving', status: 'completed' }
+    ])
+  })
 })
