@@ -1,7 +1,7 @@
 class ToDoItem {
-  constructor(id, todo, complete) {
+  constructor(id, toDo, complete) {
     this.id = id
-    this.todo = todo
+    this.toDo = toDo
     this.complete = complete
   }
 }
