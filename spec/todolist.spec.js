@@ -37,4 +37,13 @@ describe('To Do List', () => {
         complete: true
     })
   })
+
+  it('If user attempts to set a non-existant todo as complete, it should return "Item not found"', () => {
+    const toDoList = new ToDoList()
+
+    toDoList.create('Learn to code')
+    toDoList.create('Learn to code better')
+
+    expect (toDoList.setComplete(3)).toEqual('Item not found')
+  })
 })
