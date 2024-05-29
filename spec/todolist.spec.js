@@ -49,4 +49,18 @@ describe('todosList', () => {
     todosList.add(todo1)
     expect(todosList.search(1)).toBeTrue()
   })
+
+  it('it should remove a todo by id', () => {
+    const todosList = new TodosList()
+    expect(todosList.todosList.length).toBe(0)
+
+    expect(todosList.remove(0)).toBeFalse()
+
+    const todo1 = new Todo(1, 'Finish the Exercise', false)
+    todosList.add(todo1)
+    expect(todosList.todosList.length).toBe(1)
+    expect(todosList.todosList[0]).toEqual(todo1)
+    expect(todosList.remove(1)).toBeTrue()
+    expect(todosList.todosList.length).toBe(0)
+  })
 })
