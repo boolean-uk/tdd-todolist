@@ -62,4 +62,19 @@ describe('To Do List', () => {
     { id: 2, text: 'Learn to code better', complete: true }
     ])
   })
+
+  it('Should return all incomplete items', () => {
+    const toDoList = new ToDoList()
+
+    toDoList.create('Learn to code')
+    toDoList.create('Learn to code better')
+    toDoList.create('Learn to code betterer')
+
+    toDoList.setComplete(1)
+
+    expect(toDoList.getAllComplete()).toEqual([
+        { id: 2, text: 'Learn to code better', complete: false },
+        { id: 3, text: 'Learn to code betterer', complete: false }
+        ])
+  })
 })
