@@ -32,4 +32,17 @@ describe('todo list', () => {
       status: 'completed'
     })
   })
+
+  it('should get incomplete todos', () => {
+    const todo = new TodoList()
+    todo.create('eat')
+    todo.create('watch tv')
+    todo.setComplete(2)
+
+    expect(todo.getIncomplete()).toEqual({
+      id: 1,
+      title: 'eat',
+      status: 'incomplete'
+    })
+  })
 })
