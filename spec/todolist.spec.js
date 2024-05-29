@@ -12,7 +12,11 @@ describe('todoItem', () => {
 describe('todoList', () => {
   it('should show all todos', () => {
     const todoList = new TodoList()
-
     expect(todoList.todos.length).toBe(0)
+
+    const addTodo = new TodoItem(Number, ' ', Boolean)
+    const list = todoList.add(addTodo)
+    expect(todoList.todos.length).toBe(1)
+    expect(list.length).toBe(1)
   })
 })
