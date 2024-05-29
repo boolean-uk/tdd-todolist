@@ -23,7 +23,24 @@ class TodoList {
 
   setComplete(id) {
     const found = this.todos.find((todo) => todo.id === id)
-    found.isCompleted = 'complete'
+    if (found) {
+      found.isCompleted = 'complete'
+    } else {
+      console.log('Todo item not found')
+      return false
+    }
+
+    console.log(this.todos)
+  }
+
+  findTodo(id) {
+    this.found = this.todos.find((todo) => todo.id === id)
+    console.log(this.found)
+
+    if (!this.found) {
+      console.log('Todo item not found')
+      return false
+    }
   }
 }
 

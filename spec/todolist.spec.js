@@ -40,6 +40,9 @@ describe('todo list', () => {
 
     todoList.setComplete(2)
     expect(todoList.todos[1].isCompleted).toBe('complete')
+
+    todoList.setComplete(3)
+    expect(todoList.setComplete()).toBe(false)
   })
 
   it('should find todo and return it', () => {
@@ -50,5 +53,8 @@ describe('todo list', () => {
 
     todoList.findTodo(2)
     expect(todoList.found.id).toBe(2)
+
+    todoList.findTodo(3)
+    expect(todoList.findTodo()).toBe(false)
   })
 })
