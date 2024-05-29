@@ -15,5 +15,12 @@ describe('todo list', () => {
     const todoList = new TodoList()
 
     expect(todoList.todos.length).toBe(0)
+
+    const itemToAdd = new Item('a test')
+    const result = todoList.createTodo(itemToAdd)
+
+    expect(todoList.todos.length).toBe(1)
+    expect(result.length).toBe(1)
+    expect(result[0]).toEqual(itemToAdd)
   })
 })
