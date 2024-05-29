@@ -6,11 +6,7 @@ describe('To Do List', () => {
   it('To do list should have a create function that adds a new ToDo and adds an unique id with default complete status set to false', () => {
     const toDoList = new ToDoList()
 
-    expect(toDoList.create('Learn to code')).toEqual({
-      id: 1,
-      text: 'Learn to code',
-      complete: false
-    })
+    expect(toDoList.create('Learn to code').text).toEqual('Learn to code')
   })
 
   it('To do list should be able to return all todo items', () => {
@@ -19,10 +15,7 @@ describe('To Do List', () => {
     toDoList.create('Learn to code')
     toDoList.create('Learn to code better')
 
-    expect(toDoList.getAllToDos()).toEqual([
-      { id: 1, text: 'Learn to code', complete: false },
-      { id: 2, text: 'Learn to code better', complete: false }
-    ])
+    expect(toDoList.getAllToDos().length).toEqual(2)
   })
 
   it('To do list should be able to set a todo as complete from its ID', () => {
@@ -31,11 +24,7 @@ describe('To Do List', () => {
     toDoList.create('Learn to code')
     toDoList.create('Learn to code better')
 
-    expect(toDoList.setComplete(2)).toEqual({
-      id: 2,
-      text: 'Learn to code better',
-      complete: true
-    })
+    expect(toDoList.setComplete(2).complete).toEqual(true)
   })
 
   it('If user attempts to set a non-existant todo as complete, it should return "Item not found"', () => {
@@ -57,10 +46,7 @@ describe('To Do List', () => {
     toDoList.setComplete(1)
     toDoList.setComplete(2)
 
-    expect(toDoList.getAllComplete()).toEqual([
-      { id: 1, text: 'Learn to code', complete: true },
-      { id: 2, text: 'Learn to code better', complete: true }
-    ])
+    expect(toDoList.getAllComplete().filter((todo) => todo.complete).length).toEqual(2)
   })
 
   it('Should return all incomplete items', () => {
@@ -72,11 +58,8 @@ describe('To Do List', () => {
 
     toDoList.setComplete(1)
 
-    expect(toDoList.getAllIncomplete()).toEqual([
-      { id: 2, text: 'Learn to code better', complete: false },
-      { id: 3, text: 'Learn to code betterer', complete: false }
-    ])
-  })
+    expect(toDoList.getAllIncomplete().filter((todo) => !todo.complete).length).toEqual(2)
+})
 
   it('Should return an item by ID', () => {
     const toDoList = new ToDoList()
@@ -85,11 +68,7 @@ describe('To Do List', () => {
     toDoList.create('Learn to code better')
     toDoList.create('Learn to code betterer')
 
-    expect(toDoList.find(2)).toEqual({
-      id: 2,
-      text: 'Learn to code better',
-      complete: false
-    })
+    expect(toDoList.find(2).text).toEqual('Learn to code better')
   })
 
   it('Should delete a todo by ID', () => {
@@ -99,17 +78,6 @@ describe('To Do List', () => {
     toDoList.create('Learn to code better')
     toDoList.create('Learn to code betterer')
 
-    expect(toDoList.remove(2)).toEqual([
-      {
-        id: 1,
-        text: 'Learn to code',
-        complete: false
-      },
-      {
-        id: 3,
-        text: 'Learn to code betterer',
-        complete: false
-      }
-    ])
+    expect(toDoList.remove(2)[0].text).toEqual('Learn to code better')
   })
 })

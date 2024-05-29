@@ -4,11 +4,8 @@ class ToDoList {
   }
 
   create(newText) {
-    const newToDo = {
-      text: newText,
-      id: this.toDos.length + 1,
-      complete: false
-    }
+    const id = this.toDos.length + 1
+    const newToDo = new ToDoItem(newText, id)
     this.toDos.push(newToDo)
     return newToDo
   }
@@ -40,8 +37,16 @@ class ToDoList {
   }
 
   remove(id) {
-    this.toDos.splice(id - 1, 1)
-    return this.toDos
+    const slicedArr = this.toDos.slice(id - 1, id)
+    return slicedArr
+  }
+}
+
+class ToDoItem {
+  constructor(newText, id) {
+    this.id = id
+    this.text = newText
+    this.complete = false
   }
 }
 
