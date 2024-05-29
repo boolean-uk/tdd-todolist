@@ -24,6 +24,10 @@ class ToDoList {
     const selectedtoDo = this.toDos.find((element) => element.id === id)
     selectedtoDo.complete = !selectedtoDo.complete
   }
+
+  getCompleteToDos() {
+
+  }
 }
 
 export default ToDoList
