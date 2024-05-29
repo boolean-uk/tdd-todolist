@@ -1,10 +1,16 @@
 class ToDoItem {
-    static currentId = 0
-  constructor(task) {
+  static currentId = 0
+  constructor(taskDescr) {
     this.id = ToDoItem.currentId++
-    this.task = task
+    this.taskDescr = taskDescr
     this.isComplete = false
   }
+}
+
+class ToDoList {
+    constructor() {
+        
+    }
 }
 
 export { ToDoItem }
