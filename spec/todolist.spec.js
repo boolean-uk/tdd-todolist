@@ -8,7 +8,8 @@ describe('todo', () => {
     expect(todo1.text).toBe('Finish the Exercise')
     expect(todo1.status).toBe(false)
 
-    const todo2 = new Todo(2,
+    const todo2 = new Todo(
+      2,
       'commits a lot Or You will have a chat will Nathan',
       true
     )
@@ -22,6 +23,8 @@ describe('todo', () => {
 describe('todosList', () => {
   it('should have a list of Todos', () => {
     const todosList = new TodosList()
+
+    expect(todosList.todosList.length).toBe(0)
   })
 })
 
