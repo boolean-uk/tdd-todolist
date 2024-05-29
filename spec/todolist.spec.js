@@ -70,4 +70,20 @@ describe('todo list', () => {
     todoList.removeTodo(3)
     expect(todoList.removeTodo()).toBe(false)
   })
+
+  it('should filter todolist for complete/incomplete todos', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
+
+    todoList.setComplete(2)
+    expect(todoList.todos[1].isCompleted).toBe('complete')
+
+    todoList.filter('incomplete')
+    expect(todoList.filtered.length).toBe(1)
+
+    todoList.filter('complete')
+    expect(todoList.filtered.length).toBe(1)
+  })
 })
