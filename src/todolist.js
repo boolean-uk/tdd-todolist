@@ -1,7 +1,7 @@
-class ToDoManager {
+class ToDoList {
   constructor() {
     this.toDos = []
   }
 }
 
-export { ToDoManager }
+export { ToDoList }
