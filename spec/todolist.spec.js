@@ -41,4 +41,14 @@ describe('todo list', () => {
     todoList.setComplete(2)
     expect(todoList.todos[1].isCompleted).toBe('complete')
   })
+
+  it('should find todo and return it', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
+
+    todoList.findTodo(2)
+    expect(todoList.found.id).toBe(2)
+  })
 })
