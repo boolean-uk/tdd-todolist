@@ -6,11 +6,11 @@ class TodoItem {
   }
 
   setComplete(status) {
-    this.todo.status = 'incomplete'
+    this.status = 'incomplete'
     if (!status) {
-      this.todo.status = 'complete'
+      this.status = 'complete'
     }
-    return this.todo
+    return this.status
   }
 }
 
@@ -22,6 +22,10 @@ class TodoList {
   add(todo) {
     this.todos.push(todo)
     return this.todos
+  }
+
+  find(status) {
+    return this.todos.find((todo) => todo.status === status)
   }
 }
 
