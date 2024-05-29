@@ -22,8 +22,8 @@ describe('todolist', () => {
 
     const allToDos = toDoList.getAllToDos()
 
-    expect(allToDos[0]).toBe('Do This')
-    expect(allToDos[1]).toBe('Do That')
-    expect(allToDos[2]).toBe('Do Something')
+    expect(allToDos[0].text).toBe('Do This')
+    expect(allToDos[1].text).toBe('Do That')
+    expect(allToDos[2].text).toBe('Do Something')
   })
 })
