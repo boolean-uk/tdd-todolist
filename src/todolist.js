@@ -44,7 +44,18 @@ class ToDoList {
 
   searchToDos(id) {
     const searchedtoDo = this.toDos.find((element) => element.id === id)
+
+    if (!searchedtoDo) {
+      throw Error('There is no todo with this ID')
+    }
+
     return searchedtoDo
+  }
+
+  deleteToDo(id) {
+    this.toDos = this.toDos.filter((element) => {
+      return !element.id === id
+    })
   }
 }
 

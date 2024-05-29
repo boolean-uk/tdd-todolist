@@ -89,6 +89,8 @@ describe('todolist', () => {
 
     toDoList.deleteToDo(toDo1.id)
 
-    expect(toDoList.searchToDos(toDo1.id).id).toBe(undefined)
+    expect(() => {
+      return toDoList.searchToDos(toDo1.id)
+    }).toThrowError('There is no todo with this ID')
   })
 })
