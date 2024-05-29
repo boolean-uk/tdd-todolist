@@ -91,4 +91,18 @@ describe('To Do List', () => {
       complete: false
     })
   })
+
+  it('Should delete a todo by ID', () => {
+    const toDoList = new ToDoList()
+
+    toDoList.create('Learn to code')
+    toDoList.create('Learn to code better')
+    toDoList.create('Learn to code betterer')
+
+    expect(toDoList.remove(2)).toEqual({
+      id: 2,
+      text: 'Learn to code better',
+      complete: false
+    })
+  })
 })
