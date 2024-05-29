@@ -27,6 +27,10 @@ class TodoList {
   find(status) {
     return this.todos.find((todo) => todo.status === status)
   }
+
+  search(id) {
+    return this.todos.find((todo) => todo.id === id)
+  }
 }
 
 export { TodoItem, TodoList }
