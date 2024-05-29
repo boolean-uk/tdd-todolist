@@ -20,6 +20,11 @@ class TodoList {
     console.log(this.todos)
     return this.todos
   }
+
+  setComplete(id) {
+    const found = this.todos.find((todo) => todo.id === id)
+    found.isCompleted = 'complete'
+  }
 }
 
 module.exports = {
