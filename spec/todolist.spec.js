@@ -39,10 +39,8 @@ describe('todo list', () => {
     todo.create('watch tv')
     todo.setComplete(2)
 
-    expect(todo.getIncomplete()).toEqual({
-      id: 1,
-      title: 'eat',
-      status: 'incomplete'
-    })
+    expect(todo.getIncomplete()).toEqual([
+      { id: 1, title: 'eat', status: 'incomplete' }
+    ])
   })
 })

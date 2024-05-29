@@ -29,6 +29,14 @@ class TodoList {
       return todoId
     }
   }
+
+  getIncomplete() {
+    const incompleteTodos = this.todos.filter(
+      (todo) => todo.status === 'incomplete'
+    )
+
+    return incompleteTodos
+  }
 }
 
 module.exports = TodoList
