@@ -21,7 +21,8 @@ class ToDoList {
   }
 
   setToDo(id) {
-    
+    const selectedtoDo = this.toDos.find((element) => element.id === id)
+    selectedtoDo.complete = !selectedtoDo.complete
   }
 }
 
