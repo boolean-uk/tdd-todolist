@@ -11,11 +11,14 @@ describe('To Do List', () => {
   it('To do manager should have an add item function', () => {
     const tdm = new ToDoManager()
 
-    expect(tdm.addItem).toBeFunction()
+    expect(tdm.addToDo).toBeFunction()
   })
 
   it('To do manager should have an add item function that adds items to the list', () => {
     const tdm = new ToDoManager()
+    const item = new ToDoItem(1, 'Learn to code', false)
+
+    tdm.addToDo(item)
 
     expect(tdm.toDos.length).toBeGreaterThan(0)
   })

@@ -11,7 +11,9 @@ class ToDoManager {
     this.toDos = []
   }
 
-  addItem() {}
+  addToDo(item) {
+    this.toDos.push(item)
+  }
 }
 
 export { ToDoItem, ToDoManager }
