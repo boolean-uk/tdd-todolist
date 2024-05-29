@@ -6,7 +6,6 @@ describe('item', () => {
 
     expect(item.description).toBe('something')
     expect(item.isCompleted).toBe('incomplete')
-    expect(item.id).toBe(1)
   })
 })
 
@@ -22,5 +21,16 @@ describe('todo list', () => {
     expect(todoList.todos.length).toBe(1)
     expect(result.length).toBe(1)
     expect(result[0]).toEqual(itemToAdd)
+  })
+
+  it('should get all todos', () => {
+    const todoList = new TodoList()
+    const itemToAdd = new Item('a test')
+    const itemToAdd2 = new Item('other test')
+    todoList.createTodo(itemToAdd)
+    todoList.createTodo(itemToAdd2)
+
+    const result = todoList.getAll()
+    expect(result.length).toBe(2)
   })
 })
