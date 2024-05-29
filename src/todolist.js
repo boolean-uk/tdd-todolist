@@ -23,6 +23,7 @@ class ToDoList {
   setToDo(id) {
     const selectedtoDo = this.toDos.find((element) => element.id === id)
     selectedtoDo.complete = !selectedtoDo.complete
+    return selectedtoDo
   }
 
   getCompleteToDos() {
@@ -39,6 +40,11 @@ class ToDoList {
     })
 
     return incompleteToDos
+  }
+
+  searchToDos(id) {
+    const searchedtoDo = this.toDos.find((element) => element.id === id)
+    return searchedtoDo
   }
 }
 
