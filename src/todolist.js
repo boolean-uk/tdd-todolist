@@ -1,6 +1,7 @@
 class ToDoItem {
-  constructor(id, task) {
-    this.id = id
+    static currentId = 0
+  constructor(task) {
+    this.id = ToDoItem.currentId++
     this.task = task
     this.isComplete = false
   }
