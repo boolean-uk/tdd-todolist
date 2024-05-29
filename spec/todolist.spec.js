@@ -57,4 +57,17 @@ describe('todo list', () => {
     todoList.findTodo(3)
     expect(todoList.findTodo()).toBe(false)
   })
+
+  it('should find todo and remove it', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
+
+    todoList.removeTodo(2)
+    expect(todoList.todos.length).toBe(1)
+
+    todoList.findTodo(3)
+    expect(todoList.todos.length).toBe(2)
+  })
 })
