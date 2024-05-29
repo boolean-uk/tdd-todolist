@@ -29,6 +29,11 @@ class ToDoList {
     const completeToDos = this.toDos.filter((toDo) => toDo.complete)
     return completeToDos
   }
+
+  getAllIncomplete() {
+    const incompleteToDos = this.toDos.filter((toDo) => !toDo.complete)
+    return incompleteToDos
+  }
 }
 
 export { ToDoList }
