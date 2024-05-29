@@ -79,4 +79,16 @@ describe('todolist', () => {
     expect(toDoList.searchToDos(toDo1.id).id).toBe(toDo1.id)
     expect(toDoList.searchToDos(toDo2.id).text).toBe(toDo2.text)
   })
+
+  it('succesfully deletes todos', () => {
+    const toDoList = new ToDoList()
+
+    const toDo1 = toDoList.createToDo('Do This')
+
+    expect(toDoList.searchToDos(toDo1.id).id).toBe(toDo1.id)
+
+    toDoList.deleteToDo(toDo1.id)
+
+    expect(toDoList.searchToDos(toDo1.id).id).toBe(undefined)
+  })
 })
