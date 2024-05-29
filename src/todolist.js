@@ -38,6 +38,11 @@ class ToDoList {
   find(id) {
     return this.toDos.find((todo) => todo.id === id)
   }
+
+  remove(id) {
+    this.toDos.splice(id - 1, 1)
+    return this.toDos
+  }
 }
 
 export { ToDoList }

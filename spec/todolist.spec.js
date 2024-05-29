@@ -99,10 +99,17 @@ describe('To Do List', () => {
     toDoList.create('Learn to code better')
     toDoList.create('Learn to code betterer')
 
-    expect(toDoList.remove(2)).toEqual({
-      id: 2,
-      text: 'Learn to code better',
-      complete: false
-    })
+    expect(toDoList.remove(2)).toEqual([
+      {
+        id: 1,
+        text: 'Learn to code',
+        complete: false
+      },
+      {
+        id: 3,
+        text: 'Learn to code betterer',
+        complete: false
+      }
+    ])
   })
 })
