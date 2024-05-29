@@ -58,8 +58,8 @@ describe('To Do List', () => {
     toDoList.setComplete(2)
 
     expect(toDoList.getAllComplete()).toEqual([
-    { id: 1, text: 'Learn to code', complete: true },
-    { id: 2, text: 'Learn to code better', complete: true }
+      { id: 1, text: 'Learn to code', complete: true },
+      { id: 2, text: 'Learn to code better', complete: true }
     ])
   })
 
@@ -72,9 +72,9 @@ describe('To Do List', () => {
 
     toDoList.setComplete(1)
 
-    expect(toDoList.getAllComplete()).toEqual([
-        { id: 2, text: 'Learn to code better', complete: false },
-        { id: 3, text: 'Learn to code betterer', complete: false }
-        ])
+    expect(toDoList.getAllIncomplete()).toEqual([
+      { id: 2, text: 'Learn to code better', complete: false },
+      { id: 3, text: 'Learn to code betterer', complete: false }
+    ])
   })
 })
