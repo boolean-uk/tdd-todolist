@@ -16,6 +16,11 @@ class ToDoList {
   getAllToDos() {
     return this.toDos
   }
+
+  setComplete(id) {
+    this.toDos[id - 1].complete = true
+    return this.toDos[id - 1]
+  }
 }
 
 export { ToDoList }

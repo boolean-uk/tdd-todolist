@@ -31,7 +31,7 @@ describe('To Do List', () => {
     toDoList.create('Learn to code')
     toDoList.create('Learn to code better')
 
-    expect (toDoList.setComplete(1)).toEqual({
+    expect (toDoList.setComplete(2)).toEqual({
         id: 2,
         text: 'Learn to code better',
         complete: true
