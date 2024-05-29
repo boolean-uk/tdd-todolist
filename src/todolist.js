@@ -6,4 +6,10 @@ class TodoItem {
   }
 }
 
-export { TodoItem }
+class TodoList {
+  constructor() {
+    this.todos = []
+  }
+}
+
+export { TodoItem, TodoList }
