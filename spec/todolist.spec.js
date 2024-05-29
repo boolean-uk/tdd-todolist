@@ -76,12 +76,13 @@ describe('todo list', () => {
 
     todoList.createTodo('test')
     todoList.createTodo('another test')
+    todoList.createTodo('another another test')
 
     todoList.setComplete(2)
     expect(todoList.todos[1].isCompleted).toBe('complete')
 
     todoList.filter('incomplete')
-    expect(todoList.filtered.length).toBe(1)
+    expect(todoList.filtered.length).toBe(2)
 
     todoList.filter('complete')
     expect(todoList.filtered.length).toBe(1)

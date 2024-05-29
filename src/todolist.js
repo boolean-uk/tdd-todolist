@@ -54,6 +54,11 @@ class TodoList {
     }
     console.log(this.todos)
   }
+
+  filter(input) {
+    this.filtered = this.todos.filter((todo) => todo.isCompleted === input)
+    console.log(this.filtered)
+  }
 }
 
 module.exports = {
