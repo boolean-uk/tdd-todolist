@@ -43,4 +43,18 @@ describe('todo list', () => {
       { id: 1, title: 'eat', status: 'incomplete' }
     ])
   })
+
+  it('should get completed todos', () => {
+    const todo = new TodoList()
+    todo.create('play football')
+    todo.create('watch youtube')
+    todo.create('do homework')
+    todo.setComplete(1)
+    todo.setComplete(3)
+
+    expect(todo.getComplete()).toEqual([
+      { id: 1, title: 'play football', status: 'completed' },
+      { id: 3, title: 'do homework', status: 'completed' }
+    ])
+  })
 })
