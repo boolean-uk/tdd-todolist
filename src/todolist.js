@@ -42,6 +42,18 @@ class TodoList {
       return false
     }
   }
+
+  removeTodo(id) {
+    const foundIndex = this.todos.findIndex((todo) => todo.id === id)
+
+    if (foundIndex > 0) {
+      this.todos.splice(foundIndex, 1)
+    } else {
+      console.log('Todo item not found')
+      return false
+    }
+    console.log(this.todos)
+  }
 }
 
 module.exports = {

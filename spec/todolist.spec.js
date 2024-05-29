@@ -67,7 +67,7 @@ describe('todo list', () => {
     todoList.removeTodo(2)
     expect(todoList.todos.length).toBe(1)
 
-    todoList.findTodo(3)
-    expect(todoList.todos.length).toBe(2)
+    todoList.removeTodo(3)
+    expect(todoList.removeTodo()).toBe(false)
   })
 })
