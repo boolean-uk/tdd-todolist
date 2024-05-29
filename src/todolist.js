@@ -26,7 +26,11 @@ class ToDoList {
   }
 
   getCompleteToDos() {
+    const completeToDos = this.toDos.filter((element) => {
+      return element.complete
+    })
 
+    return completeToDos
   }
 }
 
