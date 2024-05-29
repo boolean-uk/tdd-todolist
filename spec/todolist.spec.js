@@ -78,6 +78,6 @@ describe('To Do List', () => {
     toDoList.create('Learn to code better')
     toDoList.create('Learn to code betterer')
 
-    expect(toDoList.remove(2)[0].text).toEqual('Learn to code better')
+    expect(toDoList.remove(2).filter((todo) => todo.text !== 'Learn to code better').length).toEqual(2)
   })
 })

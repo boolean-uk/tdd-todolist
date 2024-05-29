@@ -37,8 +37,8 @@ class ToDoList {
   }
 
   remove(id) {
-    const slicedArr = this.toDos.slice(id - 1, id)
-    return slicedArr
+    this.toDos.splice(id - 1, 1)
+    return this.toDos
   }
 }
 
@@ -49,5 +49,6 @@ class ToDoItem {
     this.complete = false
   }
 }
+
 
 export { ToDoList }
