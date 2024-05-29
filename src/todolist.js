@@ -15,7 +15,11 @@ class TodoList {
 
   createTodo(item) {
     this.todos.push(item)
+    return this.todos
+  }
 
+  getAll() {
+    console.log(this.todos)
     return this.todos
   }
 }

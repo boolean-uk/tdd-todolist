@@ -22,10 +22,12 @@ describe('todo list', () => {
     expect(result.length).toBe(1)
     expect(result[0]).toEqual(itemToAdd)
   })
+})
 
+describe('todo list testing', () => {
   it('should get all todos', () => {
     const todoList = new TodoList()
-    const itemToAdd = new Item('a test')
+    const itemToAdd = new Item('a testing')
     const itemToAdd2 = new Item('other test')
     todoList.createTodo(itemToAdd)
     todoList.createTodo(itemToAdd2)
