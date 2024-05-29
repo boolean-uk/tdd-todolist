@@ -19,7 +19,11 @@ describe('todolist', () => {
     toDoList.createToDo('Do This')
     toDoList.createToDo('Do That')
     toDoList.createToDo('Do Something')
-    
-    toDoList.getAllToDos()
+
+    const allToDos = toDoList.getAllToDos()
+
+    expect(allToDos[0]).toBe('Do This')
+    expect(allToDos[1]).toBe('Do That')
+    expect(allToDos[2]).toBe('Do Something')
   })
 })
