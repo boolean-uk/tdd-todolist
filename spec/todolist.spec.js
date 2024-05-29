@@ -64,15 +64,30 @@ describe('todo list', () => {
     todo.create('learn how to cook')
     todo.setComplete(1)
 
-    expect(todo.search(1)).toEqual([
-      { id: 1, title: 'skydiving', status: 'completed' }
-    ])
+    expect(todo.search(1)).toEqual({
+      id: 1,
+      title: 'skydiving',
+      status: 'completed'
+    })
+
+    expect(todo.search(3)).toBe('The todo searched does not exists')
   })
 
   it('should remove a todo item', () => {
     const todo = new TodoList()
     todo.create('read a book')
+    todo.create('ride a bike')
+    todo.create('make pasta')
+    todo.setComplete(2)
 
-    expect(todo.remove(1)).toEqual([])
+    expect(todo.remove(2)).toEqual({
+      id: 2,
+      title: 'ride a bike',
+      status: 'completed'
+    })
+    expect(todo.getAll()).toEqual([
+      { id: 1, title: 'read a book', status: 'incomplete' },
+      { id: 3, title: 'make pasta', status: 'incomplete' }
+    ])
   })
 })

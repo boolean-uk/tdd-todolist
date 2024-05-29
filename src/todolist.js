@@ -22,34 +22,37 @@ class TodoList {
   }
 
   setComplete(id) {
-    const todoId = this.todos.find((todo) => todo.id === id)
+    const todo = this.todos.find((todo) => todo.id === id)
 
-    if (todoId.status === 'incomplete') {
-      todoId.status = 'completed'
-      return todoId
+    if (todo && todo.status === 'incomplete') {
+      todo.status = 'completed'
+      return todo
     }
   }
 
   getIncomplete() {
-    const incompleteTodos = this.todos.filter(
-      (todo) => todo.status === 'incomplete'
-    )
-
-    return incompleteTodos
+    return this.todos.filter((todo) => todo.status === 'incomplete')
   }
 
   getComplete() {
-    const completedTodos = this.todos.filter(
-      (todo) => todo.status === 'completed'
-    )
-
-    return completedTodos
+    return this.todos.filter((todo) => todo.status === 'completed')
   }
 
   search(id) {
-    const searchedTodo = this.todos.filter((todo) => todo.id === id)
+    const todo = this.todos.find((todo) => todo.id === id)
 
-    return searchedTodo
+    if (todo) {
+      return todo
+    }
+    return 'The todo searched does not exists'
+  }
+
+  remove(id) {
+    const index = this.todos.findIndex((todo) => todo.id === id)
+
+    if (index !== -1) {
+      return this.todos.splice(index, 1)[0]
+    }
   }
 }
 
