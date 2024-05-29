@@ -68,4 +68,11 @@ describe('todo list', () => {
       { id: 1, title: 'skydiving', status: 'completed' }
     ])
   })
+
+  it('should remove a todo item', () => {
+    const todo = new TodoList()
+    todo.create('read a book')
+
+    expect(todo.remove(1)).toEqual([])
+  })
 })
