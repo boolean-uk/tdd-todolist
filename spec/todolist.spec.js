@@ -13,4 +13,13 @@ describe('todolist', () => {
 
     expect(toDoList.toDos[0].text).toBe('Do This')
   })
+
+  it("display a list of all toDos", () => {
+    const toDoList = new ToDoList()
+    toDoList.createToDo('Do This')
+    toDoList.createToDo('Do That')
+    toDoList.createToDo('Do Something')
+    
+    toDoList.getAllToDos()
+  })
 })
