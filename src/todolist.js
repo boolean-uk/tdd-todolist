@@ -17,7 +17,7 @@ class ToDoList {
   }
 
   getAllToDos() {
-    
+    return this.toDos
   }
 }
 
