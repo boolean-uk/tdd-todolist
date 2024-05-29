@@ -20,15 +20,17 @@ class TodosList {
   }
 
   remove(id) {
-    const rmvTodo = this.todosList.find((todo) => {
+    let currentIndex = 0
+    const rmvTodo = this.todosList.find((todo, index) => {
       if (todo.id === id) {
+        currentIndex = index
         return true
       } else return false
     })
     if (!rmvTodo) {
       return false
     } else {
-      this.todosList.splice(id - 1, 1)
+      this.todosList.splice(currentIndex, 1)
       return true
     }
   }

@@ -62,5 +62,19 @@ describe('todosList', () => {
     expect(todosList.todosList[0]).toEqual(todo1)
     expect(todosList.remove(1)).toBeTrue()
     expect(todosList.todosList.length).toBe(0)
+
+    const todo2 = new Todo(
+      2,
+      'commits a lot Or You will have a chat will Nathan',
+      true
+    )
+    const todo3 = new Todo(3, 'Finish the Exercise', false)
+    todosList.add(todo2)
+    todosList.add(todo3)
+    expect(todosList.todosList.length).toBe(2)
+    expect(todosList.todosList[0]).toEqual(todo2)
+    expect(todosList.todosList[1]).toEqual(todo3)
+    expect(todosList.remove(3)).toBeTrue()
+    expect(todosList.todosList.length).toBe(1)
   })
 })
