@@ -29,7 +29,11 @@ class TodoList {
   }
 
   search(id) {
-    return this.todos.find((todo) => todo.id === id)
+    const getId = this.todos.find((todo) => todo.id === id)
+    if (getId === undefined) {
+      return 'Todo item not found'
+    }
+    return getId
   }
 }
 
