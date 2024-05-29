@@ -6,4 +6,8 @@ class ToDoItem {
   }
 }
 
-export { ToDoItem }
+class ToDoManager {
+
+}
+
+export { ToDoItem, ToDoManager }

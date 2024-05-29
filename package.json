@@ -22,5 +22,8 @@
     "jasmine": "^5.1.0",
     "nodemon": "^2.0.13",
     "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "jasmine-expect": "^5.0.0"
   }
 }
