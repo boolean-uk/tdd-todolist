@@ -32,6 +32,11 @@ describe('todolist', () => {
     const newToDo = toDoList.createToDo("Complete me")
 
     toDoList.setToDo(newToDo.id)
-    
+
+    expect(toDoList.toDos[0].complete).toBe(true)
+
+    toDoList.setToDo(newToDo.id)
+
+    expect(toDoList.toDos[0].complete).toBe(false)
   })
 })

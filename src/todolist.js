@@ -19,6 +19,10 @@ class ToDoList {
   getAllToDos() {
     return this.toDos
   }
+
+  setToDo(id) {
+    
+  }
 }
 
 export default ToDoList
