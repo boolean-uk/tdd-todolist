@@ -9,3 +9,11 @@ describe('item', () => {
     expect(item.id).toBe(1)
   })
 })
+
+describe('todo list', () => {
+  it('should add items to todo list', () => {
+    const todoList = new TodoList()
+
+    expect(todoList.todos.length).toBe(0)
+  })
+})
