@@ -2,10 +2,11 @@ const { Item, TodoList } = require('../src/todolist.js')
 
 describe('item', () => {
   it('should have an id, description and be incomplete', () => {
-    const item = new Item('something')
+    const item = new Item(0, 'something')
 
     expect(item.description).toBe('something')
     expect(item.isCompleted).toBe('incomplete')
+    expect(item.id).toBe(1)
   })
 })
 
@@ -15,24 +16,29 @@ describe('todo list', () => {
 
     expect(todoList.todos.length).toBe(0)
 
-    const itemToAdd = new Item('a test')
-    const result = todoList.createTodo(itemToAdd)
+    const result = todoList.createTodo('something')
 
     expect(todoList.todos.length).toBe(1)
     expect(result.length).toBe(1)
-    expect(result[0]).toEqual(itemToAdd)
   })
-})
 
-describe('todo list testing', () => {
   it('should get all todos', () => {
     const todoList = new TodoList()
-    const itemToAdd = new Item('a testing')
-    const itemToAdd2 = new Item('other test')
-    todoList.createTodo(itemToAdd)
-    todoList.createTodo(itemToAdd2)
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
 
     const result = todoList.getAll()
     expect(result.length).toBe(2)
+  })
+
+  it('should set todo to completed', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
+
+    todoList.setComplete(2)
+    expect(todoList.todos[1].isCompleted).toBe('complete')
   })
 })

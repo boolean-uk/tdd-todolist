@@ -1,10 +1,8 @@
-let nextid = 1
-
 class Item {
-  constructor(description) {
+  constructor(id, description) {
     this.description = description
     this.isCompleted = 'incomplete'
-    this.id = nextid++
+    this.id = id + 1
   }
 }
 
@@ -13,8 +11,8 @@ class TodoList {
     this.todos = []
   }
 
-  createTodo(item) {
-    this.todos.push(item)
+  createTodo(description) {
+    this.todos.push(new Item(this.todos.length, description))
     return this.todos
   }
 
