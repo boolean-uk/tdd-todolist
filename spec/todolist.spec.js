@@ -1,4 +1,4 @@
-import { TodosList, Todo } from "../src/todolist.js"
+import { TodosList, Todo } from '../src/todolist.js'
 
 describe('todo', () => {
   it('should have an id and text and status', () => {
@@ -21,13 +21,32 @@ describe('todo', () => {
 })
 
 describe('todosList', () => {
-  it('should have a list of Todos', () => {
+  it('should create a todo', () => {
+    const todo1 = new Todo(1, 'Finish the Exercise', false)
+    expect(todo1.id).toBe(1)
+    expect(todo1.text).toBe('Finish the Exercise')
+    expect(todo1.status).toBe(false)
+  })
+
+  it('should get a list of Todos', () => {
     const todosList = new TodosList()
 
     expect(todosList.todosList.length).toBe(0)
 
-    const newTodo = new Todo(1, 'Finish the Exercise', false)
-    const allTodosList = todosList.add(newTodo)
+    const todo1 = new Todo(1, 'Finish the Exercise', false)
+    const getTodosList = todosList.add(todo1)
+
+    expect(todosList.todosList.length).toBe(1)
+    expect(getTodosList.length).toBe(1)
+    expect(todosList.todosList[0]).toEqual(todo1)
+  })
+
+  it('should search for todo by id', () => {
+    const todosList = new TodosList()
+    expect(todosList.search(0)).toBeFalse()
+
+    const todo1 = new Todo(1, 'Finish the Exercise', false)
+    todosList.add(todo1)
+    expect(todosList.search(1)).toBeTrue()
   })
 })
-

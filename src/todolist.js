@@ -14,6 +14,10 @@ class TodosList {
     this.todosList.push(todo)
     return this.todosList
   }
+
+  search(id) {
+    return Boolean(this.todosList.find((todo) => todo.id === id))
+  }
 }
 
 export { TodosList, Todo }
