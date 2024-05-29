@@ -25,6 +25,9 @@ describe('todosList', () => {
     const todosList = new TodosList()
 
     expect(todosList.todosList.length).toBe(0)
+
+    const newTodo = new Todo(1, 'Finish the Exercise', false)
+    const allTodosList = todosList.add(newTodo)
   })
 })
 

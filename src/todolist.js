@@ -9,6 +9,11 @@ class TodosList {
   constructor() {
     this.todosList = []
   }
+
+  add(todo) {
+    this.todosList.push(todo)
+    return this.todosList
+  }
 }
 
 export { TodosList, Todo }
