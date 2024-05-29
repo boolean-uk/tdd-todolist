@@ -12,6 +12,12 @@ class TodoList {
   constructor() {
     this.todos = []
   }
+
+  createTodo(item) {
+    this.todos.push(item)
+
+    return this.todos
+  }
 }
 
 module.exports = {
