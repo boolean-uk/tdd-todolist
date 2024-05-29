@@ -45,6 +45,12 @@ class TodoList {
 
     return completedTodos
   }
+
+  search(id) {
+    const searchedTodo = this.todos.filter((todo) => todo.id === id)
+
+    return searchedTodo
+  }
 }
 
 module.exports = TodoList
