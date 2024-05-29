@@ -6,5 +6,6 @@ describe('item', () => {
 
     expect(item.description).toBe('something')
     expect(item.isCompleted).toBe('incomplete')
+    expect(item.id).toBe(1)
   })
 })
