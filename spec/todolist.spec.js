@@ -8,7 +8,10 @@ describe('todo', () => {
     expect(todo1.text).toBe('Finish the Exercise')
     expect(todo1.status).toBe(false)
 
-    const todo2 = new Todo(2, 'Finish the Exercise', false)
+    const todo2 = new Todo(2,
+      'commits a lot Or You will have a chat will Nathan',
+      true
+    )
 
     expect(todo2.id).toBe(2)
     expect(todo2.text).toBe('commits a lot Or You will have a chat will Nathan')
