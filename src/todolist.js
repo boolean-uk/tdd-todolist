@@ -1,8 +1,9 @@
-import { ToDoItem } from '../src/todolist.js'
+class ToDoItem {
+  constructor(id, todo, complete){
+    this.id = id
+    this.todo = todo
+    this.complete = complete
+  }
+}
 
-describe('To Do List', () => {
-  it('To do item should have ID, text, and be set to incomplete', () => {
-    const item = new ToDoItem(1, 'Learn to code', false)
-    expect(Object.keys(item)).toBe(['id', 'toDo', 'complete'])
-  })
-})
+export { ToDoItem }
