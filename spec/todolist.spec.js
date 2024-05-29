@@ -14,7 +14,7 @@ describe('todolist', () => {
     expect(toDoList.toDos[0].text).toBe('Do This')
   })
 
-  it("return a list of all toDos", () => {
+  it('return a list of all toDos', () => {
     const toDoList = new ToDoList()
     toDoList.createToDo('Do This')
     toDoList.createToDo('Do That')
@@ -27,9 +27,9 @@ describe('todolist', () => {
     expect(allToDos[2].text).toBe('Do Something')
   })
 
-  it("succesfully flip the status of toDos", () => {
+  it('succesfully flip the status of toDos', () => {
     const toDoList = new ToDoList()
-    const newToDo = toDoList.createToDo("Complete me")
+    const newToDo = toDoList.createToDo('Complete me')
 
     toDoList.setToDo(newToDo.id)
 
@@ -39,4 +39,19 @@ describe('todolist', () => {
 
     expect(toDoList.toDos[0].complete).toBe(false)
   })
+
+  id('return a list of all complete toDos') {
+    const toDoList = new ToDoList()
+    
+    const toDo1 = toDoList.createToDo('Do This')
+    const toDo2 =toDoList.createToDo('Do That')
+    const toDo3 =toDoList.createToDo('Do Something')
+
+    expect(toDoList.getCompleteToDos()).toBe([])
+
+    toDoList.setToDo(toDo1.id)
+
+    expect(toDoList.getCompleteToDos()[0].id).toBe(toDo1.id)
+
+  }
 })
