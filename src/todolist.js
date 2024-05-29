@@ -8,6 +8,13 @@ class Item {
   }
 }
 
+class TodoList {
+  constructor() {
+    this.todos = []
+  }
+}
+
 module.exports = {
-  Item
+  Item,
+  TodoList
 }
