@@ -15,6 +15,10 @@ class ToDoList {
     this.toDos.push(toDo)
     return toDo
   }
+
+  getAllToDos() {
+    
+  }
 }
 
 export default ToDoList
