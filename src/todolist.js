@@ -34,6 +34,20 @@ class TodosList {
       return true
     }
   }
+
+  getCompleted() {
+    const completedTodos = []
+    if (this.todosList.length === 0) {
+      return []
+    } else {
+      this.todosList.map((todo, index) => {
+        if (todo.status === true) {
+          completedTodos.push(todo)
+        }
+      })
+    }
+    return completedTodos
+  }
 }
 
 export { TodosList, Todo }
