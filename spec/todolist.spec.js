@@ -33,11 +33,11 @@ describe('todolist', () => {
 
     toDoList.setToDo(newToDo.id)
 
-    expect(toDoList.toDos[0].complete).toBe(true)
+    expect(toDoList.toDos[0].status).toBe("complete")
 
     toDoList.setToDo(newToDo.id)
 
-    expect(toDoList.toDos[0].complete).toBe(false)
+    expect(toDoList.toDos[0].status).toBe("incomplete")
   })
 
   it('returns a list of all complete toDos', () => {

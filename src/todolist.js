@@ -18,13 +18,13 @@ class ToDoList {
 
   setToDo(id) {
     const selectedtoDo = this.toDos.find((element) => element.id === id)
-    selectedtoDo.complete = !selectedtoDo.complete
+    selectedtoDo.status = selectedtoDo.status === "incomplete" ? "complete" : "incomplete"
     return selectedtoDo
   }
 
   getCompleteToDos() {
     const completeToDos = this.toDos.filter((element) => {
-      return element.complete
+      return element.status === "complete"
     })
 
     return completeToDos
@@ -32,7 +32,7 @@ class ToDoList {
 
   getIncompleteToDos() {
     const incompleteToDos = this.toDos.filter((element) => {
-      return !element.complete
+      return element.status === "incomplete"
     })
 
     return incompleteToDos
@@ -59,7 +59,7 @@ class Item {
   constructor(text) {
     this.id = crypto.randomUUID()
     this.text = text
-    this.complete = false
+    this.status = "incomplete"
   }
 }
 
