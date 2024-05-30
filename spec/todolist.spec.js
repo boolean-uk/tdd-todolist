@@ -52,14 +52,31 @@ describe('To Dos list', () => {
     toDosList.addToDo('test the code')
     toDosList.addToDo('re-test the code')
     toDosList.addToDo('test the code again')
-    
+
     toDosList.setCompleted(1)
-      expect(toDosList.toDos[0].isComplete).toBe(true)
-      toDosList.setCompleted(1)
-      expect(toDosList.toDos[0].isComplete).toBe(true)
-      expect(toDosList.setCompleted(1)).toBe(false)
-      toDosList.setCompleted(11)
-      expect(toDosList.setCompleted(11)).toBe(false)
-    
+    expect(toDosList.toDos[0].isComplete).toBe(true)
+
+    toDosList.setCompleted(1)
+    expect(toDosList.toDos[0].isComplete).toBe(true)
+    expect(toDosList.setCompleted(1)).toBe(false)
+
+    toDosList.setCompleted(11)
+    expect(toDosList.setCompleted(11)).toBe(false)
+  })
+
+  it('should return all completed todos', () => {
+    const toDosList = new ToDosList()
+    toDosList.addToDo('test the code')
+    toDosList.addToDo('re-test the code')
+    toDosList.addToDo('test the code again')
+
+    toDosList.setCompleted(1)
+    toDosList.setCompleted(2)
+
+    console.log(toDosList)
+
+    const comp = toDosList.getCompleted()
+    console.log('inT', comp)
+    expect(comp.length).toBe(2)
   })
 })
