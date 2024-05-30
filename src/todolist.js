@@ -18,7 +18,16 @@ class ToDosList {
 
     getAllTodos() {
       return this.toDos
-  }
+    }
+    
+    setCompleted(id) {
+        const task = this.toDos.find((td) => td.id = id)
+        if (task && task.isComplete === false) {
+            task.isComplete = true
+        } else {
+            console.log('To Do item not found or To Do is already completed');
+        }
+    }
 }
 
 // const test1  = new ToDosList
