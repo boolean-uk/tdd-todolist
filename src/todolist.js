@@ -49,7 +49,6 @@ class ToDosList {
       return false
     }
   }
-
   removeTodo(id) {
     const index = this.toDos.findIndex((td) => td.id === id)
     if (index !== -1) {
@@ -62,19 +61,19 @@ class ToDosList {
   }
 }
 
-const test1 = new ToDosList()
-function testing() {
-  test1.addToDo('test1')
-  test1.addToDo('test2')
-  test1.addToDo('test3')
+// const test1 = new ToDosList()
+// function testing() {
+//   test1.addToDo('test1')
+//   test1.addToDo('test2')
+//   test1.addToDo('test3')
 
-  test1.setCompleted(1)
-  test1.searchTodos(1)
-  console.log('t1', test1.searchTodos(1))
-  test1.removeTodo(1)
-  return test1
-}
+//   test1.setCompleted(1)
+//   test1.searchTodos(1)
+//   console.log('t1', test1.searchTodos(1))
 
-console.log('o', testing())
+//   return test1
+// }
+
+// console.log('o', testing())
 
 export { ToDoItem, ToDosList }
