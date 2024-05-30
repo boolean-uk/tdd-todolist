@@ -86,9 +86,28 @@ describe('To Dos list', () => {
     toDosList.setCompleted(1)
     toDosList.setCompleted(2)
 
-    console.log(toDosList)
-
     const incomp = toDosList.getIncomplete()
     expect(incomp.length).toBe(1)
   })
+
+    it('should return the todo with the provided id or a message if there is no to do with the provided id', () => {
+      const toDosList = new ToDosList()
+      toDosList.addToDo('test the code')
+      toDosList.addToDo('re-test the code')
+      toDosList.addToDo('test the code again')
+            
+      expect(toDosList.searchTodos(1).id).toBe(1)
+      expect(toDosList.searchTodos(3).taskDescr).toBe('test the code again')
+      expect(toDosList.searchTodos(11)).toBe(false)
+    })
+  
+    it('should remove the todo with the provided id or a message if there is no to do with the provided id', () => {
+      const toDosList = new ToDosList()
+      toDosList.addToDo('test the code')
+      toDosList.addToDo('re-test the code')
+      toDosList.addToDo('test the code again')
+            
+      expect(toDosList.removeTodo(1).length).toBe(2)
+      expect(toDosList.removeTodo(11)).toBe(false)
+    })
 })
