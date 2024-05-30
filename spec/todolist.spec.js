@@ -1,11 +1,10 @@
-// import ToDoList from '../src/todolist.js'
+import ToDoList from "../src/todolist.js"
 
-describe("ToDo", () => {
+describe("ToDoList", () => {
+    const toDoList = new ToDoList()
+
     it("be able to create a to do task", () => {
-        const toDoList = new ToDoList()
-
         toDoList.createToDo("a task to complete")
-
-        expect(todoList.getToDoList().toBe([{id: 1, task: "a task to complete", complete: false}]))
+        expect(toDoList.getToDoList()).toEqual([{id: 1, task: "a task to complete", complete: false}])
     })
 })
