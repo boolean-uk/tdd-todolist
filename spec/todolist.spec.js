@@ -20,5 +20,14 @@ describe("ToDoList", () => {
         expect(toDoList.getToDoList()).toEqual([])
     })
 
-    
+    it("set an id to complete if it exists", () => {
+        toDoList.createToDo("a task to complete")
+        toDoList.setComplete(1)
+        expect(toDoList.getToDoList()).toEqual([{id: 1, task: "a task to complete", complete: true}])
+    })
+
+    it("setting a task id to complete if it doesn't exist should give a notification", () => {
+        expect(toDoList.setComplete(100)).toEqual("to do id doesn't exist")
+    })
+
 })
