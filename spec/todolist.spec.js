@@ -47,4 +47,11 @@ describe('ToDoList', () => {
   it('should return a message when a task is not found.', () => {
     expect(taskList.searchTask(10000000)).toEqual('Task not found.')
   })
+
+  it('should delte a task by id.', () => {
+    const taskLength = taskList.tasks.length
+    const firstTask = taskList.tasks[0]
+    taskList.deleteTask(firstTask.id)
+    expect(taskList.tasks.length).toEqual(taskLength - 1)
+  })
 })

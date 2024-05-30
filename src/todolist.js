@@ -39,6 +39,12 @@ class ToDoList {
       return 'Task not found.'
     }
   }
+
+  deleteTask(id) {
+    this.tasks = this.tasks.filter((item) => {
+      return item.id !== id
+    })
+  }
 }
 
 module.exports = ToDoList
