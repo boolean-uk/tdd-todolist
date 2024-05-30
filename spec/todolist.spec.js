@@ -13,6 +13,7 @@ describe('TodoList', () => {
     expect(todoItem).toBeInstanceOf(TodoItem)
     expect(todoItem.id).toBe(1)
     expect(todoItem.title).toBe('complete todo list')
+    expect(todoItem.status).toBe('incomplete')
   })
   it('should create new todos with incrementing IDs', () => {
     const todo1 = todoList.createTodo('complete bobs bagels exercise')

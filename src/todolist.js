@@ -16,7 +16,7 @@ class TodoList {
 
 
   createTodo(title) {
-    const todo = new TodoItem(this.id, title)
+    const todo = new TodoItem(this.id, title, 'incomplete')
     this.id++
     this.todos.push(todo)
 
@@ -25,6 +25,12 @@ class TodoList {
 
   getAll() {
     return this.todos
+  }
+
+  setComplete(id) {
+    const todo = this.todos.find(todo => todo.id === id)
+    todo.status = 'complete'
+    return todo
   }
   
 }
