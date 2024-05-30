@@ -56,6 +56,21 @@ class ToDoList {
         }
         return incompletedTasks
     }
+    search(id) {
+        const task = this.todos.find((todo) => {return todo.id === id})
+        if (task === undefined) {
+            return "Task id doesn't exist"
+        }
+
+        return task
+    }
+    remove(id) {
+        const task = this.todos.find((todo) => {return todo.id === id})
+        if (task === undefined) {
+            return "No task with this id"
+        }
+        this.todos.splice(task, 1)
+    }
 }
 
 // const test = new ToDoList ()
