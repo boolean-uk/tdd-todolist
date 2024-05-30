@@ -21,7 +21,7 @@ class ToDosList {
   }
 
   setCompleted(id) {
-    const task = this.toDos.find((td) => (td.id === id))
+    const task = this.toDos.find((td) => td.id === id)
     if (task && task.isComplete === false) {
       task.isComplete = true
     } else {
@@ -34,6 +34,7 @@ class ToDosList {
     const completedToDos = this.toDos.filter((td) => td.isComplete === true)
     return completedToDos
   }
+
   getIncomplete() {
     const incompleteToDos = this.toDos.filter((td) => td.isComplete === false)
     return incompleteToDos
