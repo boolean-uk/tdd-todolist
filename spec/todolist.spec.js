@@ -52,4 +52,23 @@ describe("ToDoList", () => {
         expect(toDoList.incomplete()).toEqual("All tasks complete")
     })
 
+    it("searching for an existing todo by id", () => {
+        toDoList.createToDo("a task to complete")
+        expect(toDoList.search(1).toEqual({id: 1, task: "a task to complete", complete: true}))
+    })
+
+    it("searching for a todo by id which doesn't exist", () => {
+        expect(toDoList.search(1).toEqual("Task id doesn't exist"))
+    })
+
+    it("remove a task by id", () => {
+        toDoList.createToDo("a task to complete")
+        toDoList.remove(1)
+        expect(toDoList.getToDoList()).toEqual([])
+    })
+
+    it("trying to remove a task by invalid id", () => {
+        expect(toDoList.remove().toEqual("No task with this id"))
+    })
+
 })
