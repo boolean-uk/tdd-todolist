@@ -12,7 +12,7 @@ class ToDosList {
   }
 
   addToDo(taskDescr) {
-    this.toDos.push(new ToDoItem(this.toDos.length + 1, taskDescr))
+    this.toDos.push(new ToDoItem(this.toDos.length+1, taskDescr))
     return this.toDos
   }
 
@@ -24,11 +24,11 @@ class ToDosList {
 //     test1.addToDo('test1')
 //     test1.addToDo('test2')
 //     test1.addToDo('test3')
-//     console.log(test1);
-//     // return test1
+//     console.log('t1',test1);
+//     return test1
 
 // }
-// console.log(testing());
+// console.log('o',testing());
 
 // const test2 = new ToDosList()
 // test2.addToDo('test2')

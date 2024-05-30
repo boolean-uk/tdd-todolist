@@ -20,13 +20,13 @@ describe('To Dos list', () => {
         expect(toDos.toDos.length).toBe(0)
     })
     
-//     it('Should be an array with 1 length after adding a ToDoItem', () => {
-//         const toDos1 = new ToDosList()
-//         expect(toDos1.toDos.length).toBe(0)
+    it('Should be an array with 1 length after adding a ToDoItem', () => {
+        const toDos1 = new ToDosList()
+        expect(toDos1.toDos.length).toBe(0)
 
-//         const toDo = toDos1.addToDo('test the code')
-//         expect(toDos1.toDos.length).toBe(1)        
-//         expect(toDo.id).toBe(0)
-//         // expect(toDo.taskDescr).toBe('test the code')
-//     })
+        const toDo = toDos1.addToDo('test the code')
+        expect(toDos1.toDos.length).toBe(1)        
+        expect(toDos1.toDos[0].id).toBe(1)
+        expect(toDos1.toDos[0].taskDescr).toBe('test the code')
+    })
 })
