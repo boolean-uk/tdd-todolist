@@ -32,8 +32,11 @@ class ToDosList {
 
   getCompleted() {
     const completedToDos = this.toDos.filter((td) => td.isComplete === true)
-    // console.log(completedToDos)
     return completedToDos
+  }
+  getIncomplete() {
+    const incompleteToDos = this.toDos.filter((td) => td.isComplete === false)
+    return incompleteToDos
   }
 }
 

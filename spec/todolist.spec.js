@@ -73,10 +73,22 @@ describe('To Dos list', () => {
     toDosList.setCompleted(1)
     toDosList.setCompleted(2)
 
+    const comp = toDosList.getCompleted()
+    expect(comp.length).toBe(2)
+  })
+
+  it('should return all incomplete todos', () => {
+    const toDosList = new ToDosList()
+    toDosList.addToDo('test the code')
+    toDosList.addToDo('re-test the code')
+    toDosList.addToDo('test the code again')
+
+    toDosList.setCompleted(1)
+    toDosList.setCompleted(2)
+
     console.log(toDosList)
 
-    const comp = toDosList.getCompleted()
-    console.log('inT', comp)
-    expect(comp.length).toBe(2)
+    const incomp = toDosList.getIncomplete()
+    expect(incomp.length).toBe(1)
   })
 })
