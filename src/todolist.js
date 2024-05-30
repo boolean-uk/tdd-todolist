@@ -1,6 +1,6 @@
 class ToDoList{
   constructor() {
-    this.tasks = [{ id: 0, text: 'Wash Dishes', completed: true }]
+    this.tasks = [{ id: 0, text: 'Wash Dishes', completed: false }]
   }
 
   createTask(newTask) {

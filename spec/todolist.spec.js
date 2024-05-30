@@ -19,4 +19,10 @@ describe('ToDoList', () => {
     const taskLength = taskList.tasks.length
     expect(taskList.getAll().length).toEqual(taskLength)
   })
+
+  it('should set a task as completed.', () => {
+    const firstTask = taskList.tasks[0]
+    expect(firstTask.completed).toEqual(false)
+    taskList.completeTask(firstTask.id)
+  })
 })
