@@ -13,6 +13,6 @@ describe("ToDoList", () => {
     })
 
     it("value for creating a todo must be a string", () => {
-        expect(toDoList.createToDo(23).toEqual("task must be a string"))
+        expect(toDoList.createToDo(23)).toEqual("task must be a string")
     })
 })
