@@ -14,4 +14,9 @@ describe('ToDoList', () => {
     expect(taskList.tasks.length).toEqual(taskLength + 1)
     console.log("text2:", taskList.tasks)
   })
+
+  it('should get all tasks.', () => {
+    const taskLength = taskList.tasks.length
+    expect(taskList.getAll().length).toEqual(taskLength)
+  })
 })

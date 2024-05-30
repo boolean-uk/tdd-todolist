@@ -6,6 +6,10 @@ class ToDoList{
   createTask(newTask) {
     this.tasks.push(newTask)
   }
+
+  getAll() {
+    return this.tasks
+  }
 }
 
 module.exports = ToDoList
