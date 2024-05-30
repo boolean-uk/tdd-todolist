@@ -28,4 +28,11 @@ describe('TodoList', () => {
     expect(allTodo[0].title).toBe('complete todo list')
     expect(allTodo[1].title).toBe('complete bobs bagels exercise')
   })
+  it('should set a todo to complete', () => {
+    const todo = todoList.createTodo('complete todo list')
+    expect(todo.status).toBe('incomplete')
+
+    const newStatus = todoList.setComplete(1)
+    expect(newStatus.status).toBe('complete')
+  })
 })
