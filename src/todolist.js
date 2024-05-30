@@ -9,9 +9,16 @@ class TodoItem {
 }
 
 class TodoList {
+  constructor() {
+    this.todos = []
+    this.id = 1
+  }
+
 
   createTodo(title) {
-    const todo = new TodoItem(1, title)
+    const todo = new TodoItem(this.id, title)
+    this.id++
+    this.todos.push(todo)
 
     return todo
   }
