@@ -28,6 +28,17 @@ class ToDoList {
       return item.completed === true
     })
   }
+
+  searchTask(id) {
+    const findTask = this.tasks.find((item) => {
+      return item.id === id
+    })
+    if (findTask !== undefined) {
+      return findTask
+    } else {
+      return 'Task not found.'
+    }
+  }
 }
 
 module.exports = ToDoList

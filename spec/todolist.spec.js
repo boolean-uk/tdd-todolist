@@ -39,4 +39,12 @@ describe('ToDoList', () => {
     })
     expect(taskList.getCompleteTasks()).toEqual(completeTasks)
   })
+
+  it('should find a task by id.', () => {
+    const firstTask = taskList.tasks[0]
+    expect(taskList.searchTask(firstTask.id)).toEqual(firstTask)
+  })
+  it('should return a message when a task is not found.', () => {
+    expect(taskList.searchTask(10000000)).toEqual('Task not found.')
+  })
 })
