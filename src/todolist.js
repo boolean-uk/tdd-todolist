@@ -2,17 +2,21 @@ class Item {
   constructor(id, description) {
     this.description = description
     this.isCompleted = 'incomplete'
-    this.id = id + 1
+    this.id = id
   }
 }
 
 class TodoList {
   constructor() {
     this.todos = []
+    this.id = 1
   }
 
   createTodo(description) {
-    this.todos.push(new Item(this.todos.length, description))
+    const newTodo = new Item(this.id, description)
+    this.id++
+    this.todos.push(newTodo)
+
     return this.todos
   }
 

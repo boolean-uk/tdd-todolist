@@ -2,7 +2,7 @@ const { Item, TodoList } = require('../src/todolist.js')
 
 describe('item', () => {
   it('should have an id, description and be incomplete', () => {
-    const item = new Item(0, 'something')
+    const item = new Item(1, 'something')
 
     expect(item.description).toBe('something')
     expect(item.isCompleted).toBe('incomplete')
