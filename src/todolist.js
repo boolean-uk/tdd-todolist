@@ -16,7 +16,9 @@ class ToDosList {
     return this.toDos
   }
 
-  // allTodos()
+    getAllTodos() {
+      return this.toDos
+  }
 }
 
 // const test1  = new ToDosList
