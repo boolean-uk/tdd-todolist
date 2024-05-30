@@ -34,4 +34,22 @@ describe("ToDoList", () => {
         expect(toDoList.setComplete(100)).toEqual("to do id doesn't exist")
     })
 
+    it("return all completed todos in an array", () => {
+        toDoList.toDos = [{id: 1, task: "a", complete: true}, {id: 2, task: "b", complete: false}, {id: 3, task: "c", complete: true}]
+        expect(toDoList.complete()).toEqual([{id: 1, task: "a", complete: true}, {id: 3, task: "c", complete: true}])
+    })
+
+    it("if no completed todos return message", () => {
+        expect(toDoList.complete()).toEqual("No tasks completed")
+    })
+
+    it("return all incompleted todos in an array", () => {
+        toDoList.toDos = [{id: 1, task: "a", complete: true}, {id: 2, task: "b", complete: false}, {id: 3, task: "c", complete: false}]
+        expect(toDoList.incomplete()).toEqual([{id: 2, task: "b", complete: false}, {id: 3, task: "c", complete: false}])
+    })
+
+    it("if no incompleted todos return message", () => {
+        expect(toDoList.incomplete()).toEqual("All tasks complete")
+    })
+
 })
