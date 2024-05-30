@@ -56,4 +56,4 @@ class TodoList {
   }
 }
 
-module.exports = TodoList
+export default TodoList

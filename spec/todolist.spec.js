@@ -1,4 +1,4 @@
-const TodoList = require('../src/todolist.js')
+import TodoList from '../src/todolist.js'
 
 describe('todo list', () => {
   it('should create a todo item', () => {
