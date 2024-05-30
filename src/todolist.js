@@ -26,28 +26,26 @@ class ToDosList {
             task.isComplete = true
         } else {
             console.log('To Do item not found or To Do is already completed');
+            return false
         }
     }
+
+
 }
 
-// const test1  = new ToDosList
-// function testing() {
-//     test1.addToDo('test1')
-//     test1.addToDo('test2')
-//     test1.addToDo('test3')
-//     console.log('t1',test1);
-//     return test1
+const test1  = new ToDosList
+function testing() {
+    test1.addToDo('test1')
+    test1.addToDo('test2')
+    test1.addToDo('test3')
 
-// }
-// console.log('o',testing());
+    test1.setCompleted(1)
+    console.log('t1',test1);
+    return test1
 
-// const test2 = new ToDosList()
-// test2.addToDo('test2')
-// const test3 = new ToDosList
-// test3.addToDo('test3')
-// console.log(test2);
-// console.log(test3);
-// console.log(test1.toDos.length);
-// console.log(test3.toDos.length);
+}
+console.log('o',testing());
+
+
 
 export { ToDoItem, ToDosList }
