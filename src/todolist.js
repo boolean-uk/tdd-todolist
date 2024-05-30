@@ -28,6 +28,34 @@ class ToDoList {
             return "to do id doesn't exist"
         }
     }
+    complete(){
+        let completedTasks = []
+        for (let i = 0; i < this.todos.length; i++) {
+            if (this.todos[i].complete === true) {
+                completedTasks.push(this.todos[i])
+            }
+        }
+
+        if (completedTasks.length === 0) {
+            completedTasks = "No tasks completed"
+
+        }
+        return completedTasks
+    }
+    incomplete(){
+        let incompletedTasks = []
+        for (let i = 0; i < this.todos.length; i++) {
+            if (this.todos[i].complete === false) {
+                incompletedTasks.push(this.todos[i])
+            }
+        }
+
+        if (incompletedTasks.length === 0) {
+            incompletedTasks = "All tasks complete"
+
+        }
+        return incompletedTasks
+    }
 }
 
 // const test = new ToDoList ()

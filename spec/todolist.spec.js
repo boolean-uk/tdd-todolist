@@ -35,7 +35,7 @@ describe("ToDoList", () => {
     })
 
     it("return all completed todos in an array", () => {
-        toDoList.toDos = [{id: 1, task: "a", complete: true}, {id: 2, task: "b", complete: false}, {id: 3, task: "c", complete: true}]
+        toDoList.todos = [{id: 1, task: "a", complete: true}, {id: 2, task: "b", complete: false}, {id: 3, task: "c", complete: true}]
         expect(toDoList.complete()).toEqual([{id: 1, task: "a", complete: true}, {id: 3, task: "c", complete: true}])
     })
 
@@ -44,7 +44,7 @@ describe("ToDoList", () => {
     })
 
     it("return all incompleted todos in an array", () => {
-        toDoList.toDos = [{id: 1, task: "a", complete: true}, {id: 2, task: "b", complete: false}, {id: 3, task: "c", complete: false}]
+        toDoList.todos = [{id: 1, task: "a", complete: true}, {id: 2, task: "b", complete: false}, {id: 3, task: "c", complete: false}]
         expect(toDoList.incomplete()).toEqual([{id: 2, task: "b", complete: false}, {id: 3, task: "c", complete: false}])
     })
 
