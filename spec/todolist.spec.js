@@ -19,4 +19,13 @@ describe('TodoList', () => {
     expect(todo1.id).toBe(1)
     expect(todoList.todos.length).toBe(1)
   })
+  it('should get all todos in todo array', () => {
+    todoList.createTodo('complete todo list')
+    todoList.createTodo('complete bobs bagels exercise')
+
+    const allTodo = todoList.getAll()
+    expect(allTodo.length).toBe(2)
+    expect(allTodo[0].title).toBe('complete todo list')
+    expect(allTodo[1].title).toBe('complete bobs bagels exercise')
+  })
 })

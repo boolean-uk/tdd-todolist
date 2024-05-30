@@ -22,6 +22,10 @@ class TodoList {
 
     return todo
   }
+
+  getAll() {
+    return this.todos
+  }
   
 }
 
