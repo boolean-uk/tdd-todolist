@@ -22,6 +22,12 @@ class ToDoList {
       return item.completed === false
     })
   }
+
+  getCompleteTasks() {
+    return this.tasks.filter((item) => {
+      return item.completed === true
+    })
+  }
 }
 
 module.exports = ToDoList

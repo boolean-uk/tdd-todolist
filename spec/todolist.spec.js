@@ -32,4 +32,11 @@ describe('ToDoList', () => {
     })
     expect(taskList.getIncompleteTasks()).toEqual(incompleteTasks)
   })
+
+  it('should get completed tasks.', () => {
+    const completeTasks = taskList.tasks.filter((item) => {
+      return item.completed === true
+    })
+    expect(taskList.getCompleteTasks()).toEqual(completeTasks)
+  })
 })
