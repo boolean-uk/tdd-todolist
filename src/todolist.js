@@ -24,11 +24,13 @@ export default class TodoList {
   }
 
   setComplete(id) {
-    return this.todos.find((todo) => {
-      if (todo.id === id) {
-        todo.isComplete = true
-        return todo
-      }
-    })
+    return (
+      this.todos.find((todo) => {
+        if (todo.id === id) {
+          todo.isComplete = true
+          return todo
+        }
+      }) ?? 'Todo item not found'
+    )
   }
 }
