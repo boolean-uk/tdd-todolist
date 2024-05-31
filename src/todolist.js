@@ -37,6 +37,11 @@ class TodoList {
         return this.items.filter(item => item.isCompleted)
     }
 
+    getItemById(id) {
+        const item = this.items.find(item => item.id === id)
+        return item || { message: "Item not found" }
+    }
+
 }
 
 export { TodoItem, TodoList }

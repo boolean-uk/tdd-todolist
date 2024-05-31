@@ -41,6 +41,17 @@ describe('TodoList', () => {
         expect(completeItems[0].id).toBe('1')
     })
 
+    it('should return a todo item by its ID', () => {
+        const item = todoList.addTodoItem('1', 'Test task')
+        const foundItem = todoList.getItemById('1')
+        expect(foundItem).toEqual(item)
+    })
+
+    it('should return a message if a todo item does not exist', () => {
+        const result = todoList.getItemById('999')
+        expect(result).toEqual({ message: "Item  found" })
+    })
+
 
 
 
