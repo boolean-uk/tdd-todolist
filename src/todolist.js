@@ -18,4 +18,8 @@ export default class TodoList {
   addTodo(todo) {
     return this.todos.push(todo)
   }
+
+  getAll() {
+    return this.todos
+  }
 }
