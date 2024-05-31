@@ -67,5 +67,18 @@ describe('TodoList', () => {
   it('should throw an error if todo is not found', () => {
     expect(todoList.getTodo(8)).toBe('Todo item not found')
   })
+
+  it('should get all completed todos', () => {
+    todoList.create('make tea')
+    todoList.create('drink tea')
+
+    todoList.setComplete(1)
+    todoList.setComplete(2)
+
+    const completedTodos = todoList.getComplete()
+    expect(completedTodos.length).toBe(2)
+    expect(completedTodos[0].text).toBe('make tea')
+    expect(result[1].text).toBe('drink tea')
+  })
   //---
 })
