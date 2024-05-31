@@ -61,7 +61,7 @@ describe('TodoList', () => {
 
     it('should return a message if trying to remove a non-existent todo item', () => {
         const result = todoList.removeItemById('999')
-        expect(result).toEqual({ message: "Item found" })
+        expect(result).toEqual({ message: "Item not found" })
     })
 
 
