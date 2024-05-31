@@ -35,6 +35,6 @@ export default class TodoList {
   }
 
   getTodo(id) {
-    return this.todos.find((todo) => todo.id === id)
+    return this.todos.find((todo) => todo.id === id) ?? 'Todo item not found'
   }
 }
