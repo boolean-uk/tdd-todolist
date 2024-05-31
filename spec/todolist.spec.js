@@ -7,6 +7,14 @@ describe('TodoList', () => {
         todoList = new TodoList()
     })
 
+    it('should create a new todo item', () => {
+        const item = TodoItem.createTodoItem('1', 'TDD')
+        expect(item).toBeInstanceOf(TodoItem)
+        expect(item.id).toBe('1')
+        expect(item.description).toBe('TDD')
+        expect(item.isCompleted).toBe(false)
+    })
+
     it('should add a new todo item', () => {
         const item = todoList.addTodoItem('1', 'TDD')
         expect(item).toBeInstanceOf(TodoItem)
@@ -63,8 +71,4 @@ describe('TodoList', () => {
         const result = todoList.removeItemById('999')
         expect(result).toEqual({ message: "Item not found" })
     })
-
-
-
-
 })

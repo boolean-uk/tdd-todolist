@@ -5,6 +5,10 @@ class TodoItem {
         this.isCompleted = false
     }
 
+    createTodoItem(id, description) {
+        return new TodoItem(id, description)
+    }
+
     setCompleted() {
         this.isCompleted = true
     }
