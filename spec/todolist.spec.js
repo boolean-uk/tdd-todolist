@@ -20,7 +20,7 @@ describe('TodoList', () => {
         todoList.addTodoItem('1', 'TDD')
         todoList.addTodoItem('2', 'Debug this mess')
         const allItems = todoList.getAllItems()
-        expect(allItems.length).toBe(1)
+        expect(allItems.length).toBe(2)
     })
 
 
