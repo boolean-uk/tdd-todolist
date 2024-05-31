@@ -95,5 +95,20 @@ describe('TodoList', () => {
     expect(inCompletedTodos[0].text).toBe('wash the tools')
     expect(inCompletedTodos[1].text).toBe('clean house')
   })
+
+  it('should remove a todo by ID', () => {
+    todoList.create('make tea')
+    todoList.create('drink tea')
+    todoList.create('wash the tools')
+    todoList.create('clean house')
+
+    expect(todoList.getAll().length).toBe(4)
+
+    todoList.removeTodo(1)
+
+    expect(todoList.getAll().length).toBe(3)
+
+    expect(todoList.getTodo(1)).toBe('Todo item not found')
+  })
   //---
 })
