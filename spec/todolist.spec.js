@@ -9,12 +9,12 @@ describe('TodoList', () => {
   it('should exist', () => {
     expect(todoList).toBeInstanceOf(TodoList)
   })
-})
 
-it('should create a new todo', () => {
-  const todo = todoList.create('make tea')
+  it('should create a new todo', () => {
+    const todo = todoList.create('make tea')
 
-  expect(todo.id).toBe(1)
-  expect(todo.text).toBe('make tea')
-  expect(todo.isComplete).toBe(false)
+    expect(todo.id).toBe(1)
+    expect(todo.text).toBe('make tea')
+    expect(todo.isComplete).toBe(false)
+  })
 })
