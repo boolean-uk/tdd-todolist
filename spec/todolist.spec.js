@@ -23,6 +23,15 @@ describe('TodoList', () => {
         expect(allItems.length).toBe(2)
     })
 
+    it('should get only incomplete todo items', () => {
+        todoList.addTodoItem('1', 'Test task 1')
+        const item2 = todoList.addTodoItem('2', 'Test task 2')
+        item2.setCompleted()
+        const incompleteItems = todoList.getIncompleteItems()
+        expect(incompleteItems.length).toBe(1)
+        expect(incompleteItems[0].id).toBe('0')
+    })
+
 
 
 })

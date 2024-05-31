@@ -4,6 +4,14 @@ class TodoItem {
         this.description = description
         this.isCompleted = false
     }
+
+    setCompleted() {
+        this.isCompleted = true
+    }
+
+    setIncomplete() {
+        this.isCompleted = false
+    }
 }
 
 class TodoList {
@@ -19,6 +27,10 @@ class TodoList {
 
     getAllItems() {
         return this.items
+    }
+
+    getIncompleteItems() {
+        return this.items.filter(item => !item.isCompleted)
     }
 
 }
