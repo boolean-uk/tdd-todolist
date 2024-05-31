@@ -11,7 +11,7 @@ describe('TodoList', () => {
         const item = todoList.addTodoItem('1', 'TDD')
         expect(item).toBeInstanceOf(TodoItem)
         expect(item.id).toBe('1')
-        expect(item.description).toBe('Test')
+        expect(item.description).toBe('TDD')
         expect(item.isCompleted).toBe(false)
         expect(todoList.getAllItems()).toContain(item)
     })
