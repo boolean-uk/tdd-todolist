@@ -42,5 +42,15 @@ describe('TodoList', () => {
     expect(todos[0].text).toBe('make tea')
     expect(todos[1].text).toBe('drink tea')
   })
+
+  it('should set a todo.isComplete to true', () => {
+    const todo = todoList.create('make tea')
+
+    expect(todo.isComplete).toBe(false)
+
+    const isDone = todoList.setComplete(1)
+
+    expect(todo.isComplete).toBe(true)
+  })
   //---
 })
