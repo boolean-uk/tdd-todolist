@@ -32,5 +32,15 @@ describe('TodoList', () => {
 
     expect(todoList.todos.length).toBe(2)
   })
+
+  it('should get all todos', () => {
+    todoList.create('make tea')
+    todoList.create('drink tea')
+    const todos = todoList.getAll()
+
+    expect(todos.length).toBe(2)
+    expect(todos[0].text).toBe('make tea')
+    expect(todos[1].text).toBe('drink tea')
+  })
   //---
 })
