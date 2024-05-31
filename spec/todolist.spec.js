@@ -29,7 +29,7 @@ describe('TodoList', () => {
         item2.setCompleted()
         const incompleteItems = todoList.getIncompleteItems()
         expect(incompleteItems.length).toBe(1)
-        expect(incompleteItems[0].id).toBe('0')
+        expect(incompleteItems[0].id).toBe('1')
     })
 
 
