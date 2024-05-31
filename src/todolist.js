@@ -22,4 +22,13 @@ export default class TodoList {
   getAll() {
     return this.todos
   }
+
+  setComplete(id) {
+    return this.todos.find((todo) => {
+      if (todo.id === id) {
+        todo.isComplete = true
+        return todo
+      }
+    })
+  }
 }
