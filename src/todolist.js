@@ -42,6 +42,15 @@ class TodoList {
         return item || { message: "Item not found" }
     }
 
+    removeItemById(id) {
+        const index = this.items.findIndex(item => item.id === id)
+        if (index !== -1) {
+            this.items.splice(index, 1)
+            return { message: "Item removed successfully" }
+        }
+        return { message: "Item not found" }
+    }
+
 }
 
 export { TodoItem, TodoList }
