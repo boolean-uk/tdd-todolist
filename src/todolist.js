@@ -37,4 +37,8 @@ export default class TodoList {
   getTodo(id) {
     return this.todos.find((todo) => todo.id === id) ?? 'Todo item not found'
   }
+
+  getComplete() {
+    return this.todos.filter((todo) => todo.isComplete)
+  }
 }

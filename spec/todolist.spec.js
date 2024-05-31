@@ -78,7 +78,7 @@ describe('TodoList', () => {
     const completedTodos = todoList.getComplete()
     expect(completedTodos.length).toBe(2)
     expect(completedTodos[0].text).toBe('make tea')
-    expect(result[1].text).toBe('drink tea')
+    expect(completedTodos[1].text).toBe('drink tea')
   })
   //---
 })
