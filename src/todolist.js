@@ -33,4 +33,8 @@ export default class TodoList {
       }) ?? 'Todo item not found'
     )
   }
+
+  getTodo(id) {
+    return this.todos.find((todo) => todo.id === id)
+  }
 }
