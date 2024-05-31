@@ -52,5 +52,9 @@ describe('TodoList', () => {
 
     expect(todo.isComplete).toBe(true)
   })
+
+  it('should throw an error if todo is not found', () => {
+    expect(() => todoList.setComplete(3)).toThrow('Todo item not found')
+  })
   //---
 })
