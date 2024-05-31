@@ -24,11 +24,11 @@ describe('TodoList', () => {
 
     expect(todo1.id).toBe(1)
     expect(todo1.text).toBe('make tea')
-    expect(todo1.isCompltete).toBe('false')
+    expect(todo1.isComplete).toBe(false)
 
     expect(todo2.id).toBe(2)
     expect(todo2.text).toBe('drink tea')
-    expect(todo2.status).toBe('false')
+    expect(todo2.isComplete).toBe(false)
 
     expect(todoList.todos.length).toBe(2)
   })

@@ -11,6 +11,11 @@ export default class TodoList {
       text: todo,
       isComplete: false
     }
+    this.addTodo(item)
     return item
+  }
+
+  addTodo(todo) {
+    return this.todos.push(todo)
   }
 }
