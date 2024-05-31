@@ -5,7 +5,7 @@ class TodoItem {
         this.isCompleted = false
     }
 
-    static createTodoItem(id, description) { //test static 
+    static createTodoItem(id, description) {  
         return new TodoItem(id, description)
     }
 
