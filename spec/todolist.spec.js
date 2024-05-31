@@ -80,5 +80,20 @@ describe('TodoList', () => {
     expect(completedTodos[0].text).toBe('make tea')
     expect(completedTodos[1].text).toBe('drink tea')
   })
+
+  it('should get all incompleted todos', () => {
+    todoList.create('make tea')
+    todoList.create('drink tea')
+    todoList.create('wash the tools')
+    todoList.create('clean house')
+
+    todoList.setComplete(1)
+    todoList.setComplete(2)
+
+    const inCompletedTodos = todoList.getInComplete()
+    expect(inCompletedTodos.length).toBe(2)
+    expect(inCompletedTodos[0].text).toBe('wash the tools')
+    expect(inCompletedTodos[1].text).toBe('clean house')
+  })
   //---
 })
