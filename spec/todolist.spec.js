@@ -24,12 +24,21 @@ describe('TodoList', () => {
     })
 
     it('should get only incomplete todo items', () => {
-        todoList.addTodoItem('1', 'Test task 1')
-        const item2 = todoList.addTodoItem('2', 'Test task 2')
+        todoList.addTodoItem('1', 'TDD')
+        const item2 = todoList.addTodoItem('2', 'Debug the mess')
         item2.setCompleted()
         const incompleteItems = todoList.getIncompleteItems()
         expect(incompleteItems.length).toBe(1)
         expect(incompleteItems[0].id).toBe('1')
+    })
+
+    it('should get only complete todo items', () => {
+        const item1 = todoList.addTodoItem('1', 'TDD')
+        item1.setCompleted()
+        todoList.addTodoItem('2', 'Debug the mess')
+        const completeItems = todoList.getCompleteItems()
+        expect(completeItems.length).toBe(1)
+        expect(completeItems[0].id).toBe('0')
     })
 
 

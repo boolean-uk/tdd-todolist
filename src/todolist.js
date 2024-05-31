@@ -33,6 +33,10 @@ class TodoList {
         return this.items.filter(item => !item.isCompleted)
     }
 
+    getCompleteItems() {
+        return this.items.filter(item => item.isCompleted)
+    }
+
 }
 
 export { TodoItem, TodoList }
