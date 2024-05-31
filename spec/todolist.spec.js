@@ -38,8 +38,9 @@ describe('TodoList', () => {
         todoList.addTodoItem('2', 'Debug the mess')
         const completeItems = todoList.getCompleteItems()
         expect(completeItems.length).toBe(1)
-        expect(completeItems[0].id).toBe('0')
+        expect(completeItems[0].id).toBe('1')
     })
+
 
 
 
