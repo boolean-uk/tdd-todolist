@@ -63,5 +63,9 @@ describe('TodoList', () => {
 
     expect(todoList.getTodo(2).text).toBe('drink tea')
   })
+
+  it('should throw an error if todo is not found', () => {
+    expect(todoList.getTodo(8)).toBe('Todo item not found')
+  })
   //---
 })
