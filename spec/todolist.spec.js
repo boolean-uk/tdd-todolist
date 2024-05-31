@@ -49,7 +49,7 @@ describe('TodoList', () => {
 
     it('should return a message if a todo item does not exist', () => {
         const result = todoList.getItemById('999')
-        expect(result).toEqual({ message: "Item  found" })
+        expect(result).toEqual({ message: "Item not found" })
     })
 
 
