@@ -45,4 +45,8 @@ export default class TodoList {
   getInComplete() {
     return this.todos.filter((todo) => !todo.isComplete)
   }
+
+  removeTodo(id) {
+    return (this.todos = this.todos.filter((todo) => todo.id !== id))
+  }
 }
