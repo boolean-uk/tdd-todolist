@@ -20,6 +20,7 @@ class TodoList {
     getAllItems() {
         return this.items
     }
+
 }
 
 export { TodoItem, TodoList }

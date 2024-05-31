@@ -16,4 +16,13 @@ describe('TodoList', () => {
         expect(todoList.getAllItems()).toContain(item)
     })
 
+    it('should get all todo items', () => {
+        todoList.addTodoItem('1', 'TDD')
+        todoList.addTodoItem('2', 'Debug this mess')
+        const allItems = todoList.getAllItems()
+        expect(allItems.length).toBe(1)
+    })
+
+
+
 })
