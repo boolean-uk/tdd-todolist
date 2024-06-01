@@ -38,9 +38,20 @@ describe('TodoList', () => {
   })
   it('should get todo by id', () => {
     todoList.createTodo('complete todo list')
-    expect(todoList.getById(1).title).toBe('complete todo list')
+    expect(todoList.getById(1).title).toEqual('complete todo list')
   })
   it('should throw an error if the id is not found', () => {
     expect(() => todoList.setComplete(6)).toThrow('todo not found')
+  })
+  it('should all todos by status', () => {
+    todoList.createTodo('complete todo list')
+    todoList.createTodo('complete bobs bagels exercise')
+
+    todoList.setComplete(1)
+    todoList.setComplete(2)
+    const expected = todoList.getByStatus('complete')
+    expect(expected.length).toBe(2)
+    expect(expected[0]).toBe('complete todo list')
+    expect(expected[1]).toBe('complete bobs bagels exercise')
   })
 })
