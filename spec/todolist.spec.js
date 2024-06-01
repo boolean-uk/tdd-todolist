@@ -67,4 +67,7 @@ describe('TodoList', () => {
    expect(newlist.length).toBe(1)
    expect(newlist[0].title).toBe('complete todo list')
   })
+  it('should throw an error if a todo that does not exist is removed', () => {
+    expect(() => todoList.removeTodo(5)).toThrow('todo not found')
+  })
 })

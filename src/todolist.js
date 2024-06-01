@@ -50,9 +50,7 @@ class TodoList {
   removeTodo(id) {
     const found = this.getById(id)
 
-    if(!found) {
-      throw 'todo not found'
-    }
+    
     this.todos = this.todos.filter(t => t.id !== id)
     return found
   }
