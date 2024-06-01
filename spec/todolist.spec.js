@@ -41,6 +41,6 @@ describe('TodoList', () => {
     expect(todoList.getById(1).title).toBe('complete todo list')
   })
   it('should throw an error if the id is not found', () => {
-    
+    expect(() => todoList.setComplete(6)).toThrow('todo not found')
   })
 })
