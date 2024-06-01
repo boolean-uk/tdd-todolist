@@ -41,6 +41,11 @@ class TodoList {
     const getTodo = this.todos.find(t => t.id === id)
     return getTodo
   }
+
+  getByStatus(status) {
+    const todo = this.todos.filter(t => t.status === status)
+    return todo
+  }
 }
 
 export { TodoItem, TodoList }
