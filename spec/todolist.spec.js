@@ -16,8 +16,8 @@ describe('TodoList', () => {
     expect(todoItem.status).toBe('incomplete')
   })
   it('should create new todos with incrementing IDs', () => {
-    const todo1 = todoList.createTodo('complete bobs bagels exercise')
-    expect(todo1.id).toBe(1)
+    const todo = todoList.createTodo('complete bobs bagels exercise')
+    expect(todo.id).toBe(1)
     expect(todoList.todos.length).toBe(1)
   })
   it('should get all todos in todo array', () => {
@@ -53,5 +53,18 @@ describe('TodoList', () => {
     expect(expected.length).toBe(2)
     expect(expected[0].title).toEqual('complete todo list')
     expect(expected[1].title).toEqual('complete bobs bagels exercise')
+  })
+  it('should remove a todo by its id', () => {
+    todoList.createTodo('complete todo list')
+    todoList.createTodo('complete bobs bagels exercise')
+
+   expect(todoList.getAll().length).toBe(2)
+
+   const expected = todoList.remove(1)
+   expect(expected.title).toBe('complete bobs bagels exercise')
+
+   const newlist = todoList.getAll()
+   expect(newlist.length).toBe(1)
+   expect(newlist[0].title).toBe('complete todo list')
   })
 })
