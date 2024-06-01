@@ -33,7 +33,10 @@ class TodoList {
     return todo
   }
   
-  
+  getById(id) {
+    const getTodo = this.todos.find(t => t.id === id)
+    return getTodo
+  }
 }
 
 export { TodoItem, TodoList }
