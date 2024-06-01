@@ -28,7 +28,11 @@ class TodoList {
   }
 
   setComplete(id) {
-    const todo = this.todos.find(todo => todo.id === id)
+    const todo = this.getById(id)
+    
+    if(!todo) {
+      throw 'todo not found'
+    }
     todo.status = 'complete'
     return todo
   }
