@@ -46,6 +46,16 @@ class TodoList {
     const todo = this.todos.filter(t => t.status === status)
     return todo
   }
+
+  removeTodo(id) {
+    const found = this.getById(id)
+
+    if(!found) {
+      throw 'todo not found'
+    }
+    this.todos = this.todos.filter(t => t.id !== id)
+    return found
+  }
 }
 
 export { TodoItem, TodoList }

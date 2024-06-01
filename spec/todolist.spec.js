@@ -60,7 +60,7 @@ describe('TodoList', () => {
 
    expect(todoList.getAll().length).toBe(2)
 
-   const expected = todoList.remove(1)
+   const expected = todoList.removeTodo(2)
    expect(expected.title).toBe('complete bobs bagels exercise')
 
    const newlist = todoList.getAll()
