@@ -36,4 +36,11 @@ describe('TodoList', () => {
     const newStatus = todoList.setComplete(1)
     expect(newStatus.status).toBe('complete')
   })
+  it('should get todo by id', () => {
+    todoList.createTodo('complete todo list')
+    expect(todoList.getById(1).title).toBe('complete todo list')
+  })
+  it('should throw an error if the id is not found', () => {
+    
+  })
 })
