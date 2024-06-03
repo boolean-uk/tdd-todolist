@@ -15,6 +15,7 @@ it("should exist", () => {
        const result = todolist.create('complete exercise')
 
        expect(result).toBeInstanceOf(Todo)
+       expect(result.id).toBe(1)
 
   })
 })
