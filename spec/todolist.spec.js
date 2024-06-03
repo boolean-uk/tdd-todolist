@@ -29,5 +29,9 @@ it("should exist", () => {
     expect(result1.text).toBe('complete exercise')
     expect(result1.status).toBe('incomplete')
 
+    expect(result2.id).toBe(2)
+    expect(result2.text).toBe('work out')
+    expect(result2.status).toBe('incomplete')
+
   })
 })

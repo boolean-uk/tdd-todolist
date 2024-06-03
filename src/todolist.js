@@ -1,7 +1,14 @@
 /* eslint-disable prettier/prettier */
 class TodoList {
+    constructor(){
+        this.todos = []
+        this.id = 1
+    }
+  // eslint-disable-next-line lines-between-class-members
   create(text) {
-    return new Todo(1, text, 'incomplete')
+    const newTodo = new Todo(this.id, text, 'incomplete')
+    this.id++
+    return newTodo
 
   }
 }
