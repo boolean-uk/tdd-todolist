@@ -43,4 +43,14 @@ describe('To doList', () => {
     expect(result[0].text).toBe('complete exercise')
     expect(result[1].text).toBe('work out')
   })
+
+  it('should set a todo to complete', () => {
+    const todo = todoList.create('drink booster')
+
+    expect(todo.status).toBe('incomplete')
+
+    const result = todoList.setComplete(1)
+
+    expect(result.status).toBe('complete')
+  })
 })

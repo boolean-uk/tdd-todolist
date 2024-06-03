@@ -16,6 +16,13 @@ class TodoList {
   getAll() {
     return this.todos
   }
+
+  setComplete(id) {
+    const found = this.todos.find(t => t.id === id)
+    found.status = 'complete'
+    return found
+  }
+
  
 }
 
