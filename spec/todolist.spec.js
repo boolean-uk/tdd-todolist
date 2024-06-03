@@ -14,5 +14,7 @@ it("should exist", () => {
    it("should create a new todo", () => {
        const result = todolist.create('complete exercise')
 
+       expect(result).toBeInstanceOf(Todo)
+
   })
 })
