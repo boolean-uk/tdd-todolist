@@ -17,6 +17,7 @@ it("should exist", () => {
        expect(result).toBeInstanceOf(Todo)
        expect(result.id).toBe(1)
        expect(result.text).toBe('complete exercise')
+       expect(result.status).toBe('incomplete')
 
   })
 })
