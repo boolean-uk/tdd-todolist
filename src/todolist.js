@@ -4,13 +4,19 @@ class TodoList {
         this.todos = []
         this.id = 1
     }
-  // eslint-disable-next-line lines-between-class-members
+  
   create(text) {
     const newTodo = new Todo(this.id, text, 'incomplete')
     this.id++
+    this.todos.push(newTodo)
     return newTodo
 
   }
+  
+  getAll() {
+    return this.todos
+  }
+ 
 }
 
 class Todo {
