@@ -1,8 +1,18 @@
-import TodoList from "../src/todolist.js"
+import TodoList, { Todo } from "../src/todolist.js"
 
 describe("To doList", () => {
+    let todolist
+    beforeEach(() => {
+        todolist = new TodoList()
+
+    })
+
 it("should exist", () => {
-    const tdl = new TodoList()
-    expect(tdl).toBeInstanceOf(TodoList)
+    expect(todolist).toBeInstanceOf(TodoList)
    })
+
+   it("should create a new todo", () => {
+       const result = todolist.create('complete exercise')
+
+  })
 })
