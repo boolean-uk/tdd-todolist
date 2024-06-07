@@ -1,0 +1,14 @@
+body, * {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin: 10px;
+}
+
+section {
+    border: 1px dotted;
+}
