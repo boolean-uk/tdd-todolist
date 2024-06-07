@@ -1,1 +1,90 @@
+const { Item, TodoList } = require('../src/todolist.js')
 
+describe('item', () => {
+  it('should have an id, description and be incomplete', () => {
+    const item = new Item(1, 'something')
+
+    expect(item.description).toBe('something')
+    expect(item.isCompleted).toBe('incomplete')
+    expect(item.id).toBe(1)
+  })
+})
+
+describe('todo list', () => {
+  it('should add items to todo list', () => {
+    const todoList = new TodoList()
+
+    expect(todoList.todos.length).toBe(0)
+
+    const result = todoList.createTodo('something')
+
+    expect(todoList.todos.length).toBe(1)
+    expect(result.length).toBe(1)
+  })
+
+  it('should get all todos', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
+
+    const result = todoList.getAll()
+    expect(result.length).toBe(2)
+  })
+
+  it('should set todo to completed', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
+
+    todoList.setComplete(2)
+    expect(todoList.todos[1].isCompleted).toBe('complete')
+
+    todoList.setComplete(3)
+    expect(todoList.setComplete()).toBe(false)
+  })
+
+  it('should find todo and return it', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
+
+    todoList.findTodo(2)
+    expect(todoList.found.id).toBe(2)
+
+    todoList.findTodo(3)
+    expect(todoList.findTodo()).toBe(false)
+  })
+
+  it('should find todo and remove it', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
+
+    todoList.removeTodo(2)
+    expect(todoList.todos.length).toBe(1)
+
+    todoList.removeTodo(3)
+    expect(todoList.removeTodo()).toBe(false)
+  })
+
+  it('should filter todolist for complete/incomplete todos', () => {
+    const todoList = new TodoList()
+
+    todoList.createTodo('test')
+    todoList.createTodo('another test')
+    todoList.createTodo('another another test')
+
+    todoList.setComplete(2)
+    expect(todoList.todos[1].isCompleted).toBe('complete')
+
+    todoList.filter('incomplete')
+    expect(todoList.filtered.length).toBe(2)
+
+    todoList.filter('complete')
+    expect(todoList.filtered.length).toBe(1)
+  })
+})
