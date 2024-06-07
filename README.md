@@ -23,7 +23,7 @@ $ npm ci # to install dependencies
 3. The `src/todolist.js` file is where you should write your source code.
 4. An initial spec file is provided in `spec/todolist.spec.js`. You should add your tests to this file.
 5. For each requirement below, write a single test and pass it by writing source code. Repeat until you have implemented all requirements, following the Red Green Refactor approach.
- 
+
 ### Requirements
 
 You should be able to run this in your JS console (using your node REPL, or browser console). For any assumptions made, represent this in your domain model.
