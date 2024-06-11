@@ -38,7 +38,7 @@ class TodoList {
 
   searchById(id) {
     const todo = this.todos.find((todo) => todo.id === id)
-    return todo ? todo : 'Todo item not found'
+    return todo || 'Todo item not found'
   }
 
   removeById(id) {

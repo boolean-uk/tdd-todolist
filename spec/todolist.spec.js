@@ -1,19 +1,17 @@
-import TodoList, {Todo} from '../index.js'
-
-const { expect } = require('chai')
-const TodoList = require('../src/todolist')
+const { expect } = require('chai');
+const TodoList = require('../src/todolist');
 
 describe('TodoList', () => {
     let todoList;
 
     beforeEach(() => {
-        todoList = new TodoList()
+        todoList = new TodoList();
     });
 
     it('should create a todo item with an ID, text description, and incomplete status', () => {
-        const todo = todoList.create('Do the laundry')
-        expect(todo).to.deep.equal({ id: 1, text: 'Do the laundry', status: 'incomplete' })
-    })
+        const todo = todoList.create('Do the laundry');
+        expect(todo).to.deep.equal({ id: 1, text: 'Do the laundry', status: 'incomplete' });
+    });
 
     it('should return all todo items', () => {
         todoList.create('Do the laundry');
@@ -80,6 +78,5 @@ describe('TodoList', () => {
     it('should return a message if the todo item does not exist when trying to remove it', () => {
         const result = todoList.removeById(99);
         expect(result).to.equal('Todo item not found');
-    })
-})
-
+    });
+});
